@@ -92,7 +92,7 @@ async function updateuser({ id, username, name, email, password, role }) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id, username, name, email, password, role }), // Kirim seluruh data pengguna
+    body: JSON.stringify({ id, username, name, email, password, role }),
   });
 
   const responseJson = await response.json();
@@ -118,7 +118,7 @@ async function getUsers() {
 }
 
 async function getuserbyid(id) {
-  const response = await fetchWithToken(`${BASE_URL}/admin/users/${id}`, {
+  const response = await fetchWithToken(`${BASE_URL}/admin/user/${id}`, {
     method: "GET",
   });
 

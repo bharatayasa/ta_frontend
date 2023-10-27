@@ -13,9 +13,7 @@ function AddUser() {
     }
     
     return (
-        <div>
-            <AddUserModal adduser={onAddUserHandler}/>
-        </div> 
+        <AddUserModal adduser={onAddUserHandler}/>
     )
 }
 

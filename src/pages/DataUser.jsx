@@ -71,7 +71,6 @@ class DataUser extends React.Component {
                 <section>
                     <h2 className="text-center">Data Users</h2>
                     <AddUser />
-                    
                     <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                     <UsersList users={users} onDelete={this.onDeleteHandler} />
                 </section>

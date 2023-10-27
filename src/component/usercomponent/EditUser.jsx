@@ -4,19 +4,17 @@ import { useNavigate } from "react-router-dom";
 import EditButton from "./EditButton";
 
 function EditUser({ user }) {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  async function onEditUserHandler(user) {
-    await updateuser(user);
-    navigate("/");
-    // window.location.reload();
-  }
+	async function onEditUserHandler(user) {
+		await updateuser(user);
+		navigate("/");
+		// window.location.reload();
+	}
 
-  return (
-    <div>
-      <EditButton {...user} updateuser={onEditUserHandler} />
-    </div>
-  );
+	return (
+		<EditButton {...user} updateuser={onEditUserHandler} />
+	);
 }
 
 export default EditUser;

@@ -8,10 +8,10 @@ export const navLinksAdmin = [
         id: 2,
         path: "/hasil/prediksi",
         text: "Data Prediksi",
-    },
-    {
-        id: 3,
-        path: "/update/user",
-        text: "update",
-    } 
+    }
+    // {
+    //     id: 3,
+    //     path: "/update/user",
+    //     text: "update",
+    // } 
 ];

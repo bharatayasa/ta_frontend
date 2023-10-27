@@ -11,7 +11,6 @@ import FooterComponent from "./FoooterComponent";
 import NavbarAdmin from "./NavbarAdmin";
 import DataUser from "../pages/DataUser";
 import PrediksiPage from "../pages/PrediksiPage";
-import UpdateUser from "./usercomponent/UpdateUser";
 // login register
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
@@ -92,7 +91,6 @@ class Router extends React.Component {
                     <Routes>
                         <Route path="/" element={<DataUser />} />
                         <Route path="/hasil/prediksi" element={<PrediksiPage />} />
-                        <Route path="/update/user" element={<UpdateUser />} />
                     </Routes>
                     </main>
                 </div>

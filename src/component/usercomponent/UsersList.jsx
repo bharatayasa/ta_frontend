@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import DeleteButton from "./DeleteButton";
-// import EditButton from "./EditButton";
 import EditUser from "./EditUser";
-// import { getuserbyid } from "../../utils/api";
 
 function UsersList({ users, onDelete }) {
   return (
