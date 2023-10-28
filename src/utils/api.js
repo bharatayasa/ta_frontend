@@ -1,5 +1,6 @@
-const BASE_URL = "http://localhost:5000";
-// const BASE_URL = "";
+// const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://backendta-403420.et.r.appspot.com";
+// const BASE_URL = process.env.BASE_URL;
 
 function getAccessToken() {
   return localStorage.getItem("accessToken");
