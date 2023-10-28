@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 import DeleteButton from "./DeleteButton";
 import EditUser from "./EditUser";
 
-function UsersList({ users, onDelete }) {
+function UsersList({ users, onDelete}) {
   return (
     <div>
       <Table striped bordered hover>
@@ -35,7 +35,7 @@ function UsersList({ users, onDelete }) {
               <td>{user.created_at}</td>
               <td>{user.updated_at}</td>
               <td className="text-center">
-                <EditUser user={user} />
+              <EditUser user={user}/>
                 <DeleteButton id={user.id} onDelete={onDelete} />
               </td>
             </tr>

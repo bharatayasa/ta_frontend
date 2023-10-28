@@ -6,15 +6,18 @@ import EditButton from "./EditButton";
 function EditUser({ user }) {
 	const navigate = useNavigate();
 
-	async function onEditUserHandler(user) {
-		await updateuser(user);
+	async function onEditUserHandler() {
+		const response = await updateuser(user);
+		console.log(user);
+
+		if (!response.error) {
 		navigate("/");
-		// window.location.reload();
+		} else {
+		console.log("Update user failed:", response.error);
+		}
 	}
 
-	return (
-		<EditButton {...user} updateuser={onEditUserHandler} />
-	);
+	return <EditButton {...user} updateuser={onEditUserHandler} />;
 }
 
 export default EditUser;

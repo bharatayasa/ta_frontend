@@ -4,19 +4,17 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PropTypes from "prop-types";
 
-// import { getuserbyid } from "../../utils/api";
-
 class EditButton extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-		username: this.props.username ?? "",
-		name: this.props.name ?? "",
-		email: this.props.email ?? "",
-		password: "",
-		role: this.props.role ?? "",
-		show: false,
+			username: this.props.username ?? "",
+			name: this.props.name ?? "",
+			email: this.props.email ?? "",
+			password: this.props.password ?? "",
+			role: this.props.role ?? "",
+			show: false,
 		};
 
 		this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
@@ -81,30 +79,30 @@ class EditButton extends React.Component {
 
 			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
 			<Modal.Header>
-				<Modal.Title>Tambah Data User</Modal.Title>
+				<Modal.Title>Ubah data user</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className="lg">
 				<Form onSubmit={this.onSubmitEventHandler}>
-				<Form.Label>Username : </Form.Label>
-				<Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
+					<Form.Label>Username : </Form.Label>
+					<Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
 
-				<Form.Label>Name : </Form.Label>
-				<Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
+					<Form.Label>Name : </Form.Label>
+					<Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
 
-				<Form.Label>E-mail : </Form.Label>
-				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
+					<Form.Label>E-mail : </Form.Label>
+					<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
 
-				<Form.Label>Password : </Form.Label>
-				<Form.Control type="text" value={this.state.password} onChange={this.onPasswordChangeEventHandler} />
+					<Form.Label>Password : </Form.Label>
+					<Form.Control type="text" value={this.state.password} onChange={this.onPasswordChangeEventHandler} />
 
-				<Form.Label>Role :</Form.Label>
-				<Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-					<option value="admin">admin</option>
-					<option value="user">user</option>
-				</Form.Select>
-				<div className="text-center">
-					<button className="btn btn-success mt-4" type="submit"> Simpan </button>
-				</div>
+					<Form.Label>Role :</Form.Label>
+					<Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
+						<option value="admin">admin</option>
+						<option value="user">user</option>
+					</Form.Select>
+					<div className="text-center">
+						<button className="btn btn-success mt-4" type="submit"> Simpan </button>
+					</div>
 				</Form>
 			</Modal.Body>
 			</Modal>
