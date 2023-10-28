@@ -28,31 +28,31 @@ class EditButton extends React.Component {
 
 	onUsernameChangeEventHandler(event) {
 		this.setState({
-		username: event.target.value,
+			username: event.target.value,
 		});
 	}
 
 	onNameChangeEventHandler(event) {
 		this.setState({
-		name: event.target.value,
+			name: event.target.value,
 		});
 	}
 
 	onEmailChangeEventHandler(event) {
 		this.setState({
-		email: event.target.value,
+			email: event.target.value,
 		});
 	}
 
 	onPasswordChangeEventHandler(event) {
 		this.setState({
-		password: event.target.value,
+			password: event.target.value,
 		});
 	}
 
 	onRoleChangeEventHandler(event) {
 		this.setState({
-		role: event.target.value,
+			role: event.target.value,
 		});
 	}
 
@@ -73,9 +73,7 @@ class EditButton extends React.Component {
 	render() {
 		return (
 		<>
-			<Button variant="primary" onClick={this.handleShow} className="m-2">
-			Edit
-			</Button>
+			<Button variant="primary" onClick={this.handleShow} className="m-2"> Ubah </Button>
 
 			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
 			<Modal.Header>
