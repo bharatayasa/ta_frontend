@@ -9,18 +9,17 @@ class EditButton extends React.Component {
 		super(props);
 
 		this.state = {
-			username : this.props.username ?? "",
-			name	 : this.props.name ?? "",
-			email	 : this.props.email ?? "",
-			password : this.props.password ?? "",
-			role	 : this.props.role ?? "",
-			show	 : false,
+		id: this.props.id ?? "",
+		username: this.props.username ?? "",
+		name: this.props.name ?? "",
+		email: this.props.email ?? "",
+		role: this.props.role ?? "",
+		show: false,
 		};
 
 		this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
 		this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
 		this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
-		this.onPasswordChangeEventHandler = this.onPasswordChangeEventHandler.bind(this);
 		this.onRoleChangeEventHandler = this.onRoleChangeEventHandler.bind(this);
 
 		this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
@@ -28,31 +27,25 @@ class EditButton extends React.Component {
 
 	onUsernameChangeEventHandler(event) {
 		this.setState({
-			username: event.target.value,
+		username: event.target.value,
 		});
 	}
 
 	onNameChangeEventHandler(event) {
 		this.setState({
-			name: event.target.value,
+		name: event.target.value,
 		});
 	}
 
 	onEmailChangeEventHandler(event) {
 		this.setState({
-			email: event.target.value,
-		});
-	}
-
-	onPasswordChangeEventHandler(event) {
-		this.setState({
-			password: event.target.value,
+		email: event.target.value,
 		});
 	}
 
 	onRoleChangeEventHandler(event) {
 		this.setState({
-			role: event.target.value,
+		role: event.target.value,
 		});
 	}
 
@@ -70,10 +63,13 @@ class EditButton extends React.Component {
 		this.setState({ show: false });
 	};
 
-	render() {
-		return (
+render() {
+    return (
 		<>
-			<Button variant="primary" onClick={this.handleShow} className="m-2"> Ubah </Button>
+			<Button variant="primary" onClick={this.handleShow} className="m-2">
+			{" "}
+			Ubah{" "}
+			</Button>
 
 			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
 			<Modal.Header>
@@ -81,26 +77,26 @@ class EditButton extends React.Component {
 			</Modal.Header>
 			<Modal.Body className="lg">
 				<Form onSubmit={this.onSubmitEventHandler}>
-					<Form.Label>Username : </Form.Label>
-					<Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
+				<Form.Label>Username : </Form.Label>
+				<Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
 
-					<Form.Label>Name : </Form.Label>
-					<Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
+				<Form.Label>Name : </Form.Label>
+				<Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
 
-					<Form.Label>E-mail : </Form.Label>
-					<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
+				<Form.Label>E-mail : </Form.Label>
+				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
 
-					<Form.Label>Password : </Form.Label>
-					<Form.Control type="text" value={this.state.password} onChange={this.onPasswordChangeEventHandler} />
-
-					<Form.Label>Role :</Form.Label>
-					<Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-						<option value="admin">admin</option>
-						<option value="user">user</option>
-					</Form.Select>
-					<div className="text-center">
-						<button className="btn btn-success mt-4" type="submit"> Simpan </button>
-					</div>
+				<Form.Label>Role :</Form.Label>
+				<Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
+					<option value="admin">admin</option>
+					<option value="user">user</option>
+				</Form.Select>
+				<div className="text-center">
+					<button className="btn btn-success mt-4" type="submit">
+					{" "}
+					Simpan{" "}
+					</button>
+				</div>
 				</Form>
 			</Modal.Body>
 			</Modal>

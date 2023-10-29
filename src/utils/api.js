@@ -94,7 +94,7 @@ async function updateuser({ id, username, name, email, password, role }) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id, username, name, email, password, role }),
+    body: JSON.stringify({ username, name, email, password, role }),
   });
 
   const responseJson = await response.json();
