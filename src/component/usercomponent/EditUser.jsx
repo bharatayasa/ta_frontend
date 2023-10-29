@@ -7,9 +7,9 @@ export default function EditUser({ user }) {
 	const navigate = useNavigate();
 
 	async function onEditUserHandler(user) {
-		console.log(user);
 		const response = await updateuser(user);
-		console.log(response);
+		// console.log(user);
+		// console.log(response);
 
 		if (!response.error) {
 		navigate("/");
