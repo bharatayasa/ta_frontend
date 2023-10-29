@@ -9,12 +9,12 @@ class EditButton extends React.Component {
 		super(props);
 
 		this.state = {
-			username: this.props.username ?? "",
-			name: this.props.name ?? "",
-			email: this.props.email ?? "",
-			password: this.props.password ?? "",
-			role: this.props.role ?? "",
-			show: false,
+			username : this.props.username ?? "",
+			name	 : this.props.name ?? "",
+			email	 : this.props.email ?? "",
+			password : this.props.password ?? "",
+			role	 : this.props.role ?? "",
+			show	 : false,
 		};
 
 		this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
