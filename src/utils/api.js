@@ -181,7 +181,7 @@ async function savepredict({ kelas, confidence, description, prevention, userId 
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
-    alert(responseJson.message);
+    console.log(responseJson.message);
     return { error: true };
   }
 

@@ -21,16 +21,31 @@ function PredictComponent() {
 		formData.append("file", file);
 
 		try {
-		const response = await fetch("https://us-central1-deploy-402513.cloudfunctions.net/predict",
-			{
+		const response = await fetch("https://us-central1-deploymodel-403616.cloudfunctions.net/predict", {
 			method: "POST",
 			body: formData,
-			}
-		);
+		});
 
 		if (response.ok) {
 			const data = await response.json();
 			setResult(data);
+
+			if (authedUser && data) {
+			const saveResult = await savepredict({
+				kelas: data.kelas,
+				confidence: data.confidence,
+				description: data.description,
+				prevention: data.prevention,
+				userId: authedUser.id,
+			});
+
+			if (!saveResult.error) {
+				console.error("Terjadi kesalahan saat menyimpan data ke database:", saveResult.error);
+				alert("Terjadi kesalahan saat menyimpan data ke database. Lihat konsol untuk informasi lebih lanjut.");
+			} else {
+				console.log("Data berhasil dimasukkan ke database dengan ID:", saveResult.insertId);
+			}
+			}
 		} else {
 			alert("Terjadi kesalahan saat mengunggah gambar.");
 		}
@@ -57,11 +72,11 @@ function PredictComponent() {
 		{result && (
 			<div>
 			<h2>Hasil Prediksi:</h2>
-				<p><b>User ID:</b> {authedUser && authedUser.id}</p>
-				<p><b>Class:</b> {result.kelas}</p>
-				<p><b>Confidence:</b> {result.confidence}</p>
-				<p><b>Description:</b> {result.description}</p>
-				<p><b>Prevention:</b> {result.prevention}</p>
+			<p><b>User ID:</b> {authedUser && authedUser.id}</p>
+			<p><b>Class:</b> {result.kelas}</p>
+			<p><b>Confidence:</b> {result.confidence}</p>
+			<p><b>Description:</b> {result.description}</p>
+			<p><b>Prevention:</b> {result.prevention}</p>
 			</div>
 		)}
 		</div>
