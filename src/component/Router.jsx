@@ -32,6 +32,7 @@ class Router extends React.Component {
 
     async componentDidMount() {
         const { data } = await getUserLogged();
+        // console.log(data.id);
         this.setState(() => {
             return {
                 authedUser: data,

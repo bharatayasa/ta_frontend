@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getUserLogged, savepredict } from "../utils/api";
 
 function PredictComponent() {
 	const [file, setFile] = useState(null);
 	const [result, setResult] = useState(null);
+	const [authedUser, setAuthedUser] = useState(null);
 
 	const handleFileChange = (e) => {
 		const selectedFile = e.target.files[0];
@@ -19,10 +21,12 @@ function PredictComponent() {
 		formData.append("file", file);
 
 		try {
-		const response = await fetch("https://us-central1-deploy-402513.cloudfunctions.net/predict", {
+		const response = await fetch("https://us-central1-deploy-402513.cloudfunctions.net/predict",
+			{
 			method: "POST",
 			body: formData,
-		});
+			}
+		);
 
 		if (response.ok) {
 			const data = await response.json();
@@ -31,9 +35,18 @@ function PredictComponent() {
 			alert("Terjadi kesalahan saat mengunggah gambar.");
 		}
 		} catch (error) {
-			console.error("Error:", error);
+		console.error("Error:", error);
 		}
 	};
+
+	useEffect(() => {
+		async function fetchData() {
+		const { data } = await getUserLogged();
+		setAuthedUser(data);
+		}
+
+		fetchData();
+	}, []);
 
 	return (
 		<div className="container">
@@ -43,8 +56,9 @@ function PredictComponent() {
 
 		{result && (
 			<div>
-				<h2>Hasil Prediksi:</h2>
-				<p><b>Class:</b> {result.class}</p>
+			<h2>Hasil Prediksi:</h2>
+				<p><b>User ID:</b> {authedUser && authedUser.id}</p>
+				<p><b>Class:</b> {result.kelas}</p>
 				<p><b>Confidence:</b> {result.confidence}</p>
 				<p><b>Description:</b> {result.description}</p>
 				<p><b>Prevention:</b> {result.prevention}</p>

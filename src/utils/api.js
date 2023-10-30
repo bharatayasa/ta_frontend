@@ -1,5 +1,5 @@
 // const BASE_URL = "http://localhost:5000";
-const BASE_URL = "https://backendta-403420.et.r.appspot.com";
+const BASE_URL = "https://deployv2-403614.et.r.appspot.com";
 // const BASE_URL = process.env.BASEURL
 
 function getAccessToken() {
@@ -149,4 +149,43 @@ async function deleteUser(id) {
   return { error: false };
 }
 
-export { getAccessToken, putAccessToken, login, register, getUserLogged, adduser, updateuser, getUsers, getuserbyid, deleteUser };
+async function getnewslocal() {
+  const response = await fetchWithToken(`${BASE_URL}/newsLokal`);
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true, data: [] };
+  }
+
+  const formattedData = responseJson.data.map(item => ({
+    title: item.title,
+    url: item.url,
+    image: item.image,
+    date: item.date,
+    category: item.category
+  }));
+
+  return { error: false, data: formattedData };
+}
+
+async function savepredict({ kelas, confidence, description, prevention, userId }) {
+  const response = await fetchWithToken(`${BASE_URL}/savepredict`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ kelas, confidence, description, prevention, userId }),
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+export { getAccessToken, putAccessToken, login, register, getUserLogged, adduser, updateuser, getUsers, getuserbyid, deleteUser, getnewslocal, savepredict};
