@@ -51,11 +51,11 @@ PredicList.propTypes = {
         confidence: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         prevention: PropTypes.string.isRequired,
-        userId: PropTypes.string.isRequired,
+        userId: PropTypes.number.isRequired,
         created_at: PropTypes.string.isRequired,
         })
     ).isRequired,
-    onDelete: PropTypes.func.isRequired,
+    // onDelete: PropTypes.func.isRequired,
 };
 
 export default PredicList;
