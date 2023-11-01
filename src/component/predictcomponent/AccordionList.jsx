@@ -1,22 +1,22 @@
-// admin
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import Accordion from 'react-bootstrap/Accordion';
+import { Col, Row } from "react-bootstrap";
 
-function AllPredictList({ savepredict }) {
+function AccordionList({ savepredict }) {
     return (
         <div>
-        <Table striped bordered hover>
+        {/* <Table striped bordered hover>
             <thead>
             <tr className="text-center">
                 <th>No</th>
                 <th>ID</th>
-                <th>User Id</th>
                 <th>kelas</th>
                 <th>Confidence</th>
                 <th>Description</th>
                 <th>Prevention</th>
+                <th>User Id</th>
                 <th>Created at</th>
                 <th>Aksi</th>
             </tr>
@@ -27,30 +27,12 @@ function AllPredictList({ savepredict }) {
                 <td className="text-center">
                     <b>{index + 1}</b>
                 </td>
-                <td className="text-center">{predict.id}</td>
-                <td className="text-center">{predict.userId}</td>   
+                <td>{predict.id}</td>
                 <td>{predict.kelas}</td>
-                <td className="text-center">{predict.confidence}</td>
-                <td>
-                <Accordion defaultActiveKey="0" className="mb-3">
-                    <Accordion.Item>
-                        <Accordion.Header>view detail</Accordion.Header>
-                        <Accordion.Body>
-                            {predict.description}
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
-                </td>
-                <td>
-                <Accordion defaultActiveKey="0" className="mb-3">
-                    <Accordion.Item>
-                        <Accordion.Header>view detail</Accordion.Header>
-                        <Accordion.Body>
-                            {predict.prevention}
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
-                </td>
+                <td>{predict.confidence}</td>
+                <td>{predict.description}</td>
+                <td>{predict.prevention}</td>
+                <td>{predict.userId}</td>
                 <td>{predict.created_at}</td>
                 <td className="text-center">
                     <button className="btn btn-danger">delete</button>
@@ -58,12 +40,35 @@ function AllPredictList({ savepredict }) {
                 </tr>
             ))}
             </tbody>
-        </Table>
+        </Table> */}
+
+        {savepredict.map((predict, index) => (
+        <Accordion defaultActiveKey="0" className="mb-3">
+            <Accordion.Item>
+                <Accordion.Header>
+                    <Row className="d-flex">
+                        <Col>
+                            {predict.created_at} 
+                        </Col>
+                        <Col>
+                            <button className="btn btn-danger">Hapus</button>
+                        </Col>
+                    </Row>
+                </Accordion.Header>
+                <Accordion.Body>
+                    <p><b>Kelas penyakit : </b>{predict.kelas}</p>
+                    <p><b>confidence : </b>{predict.confidence}</p>
+                    <p><b>Deskripsi : </b>{predict.description}</p>
+                    <p><b>Prevention :  </b>{predict.prevention}</p>
+                </Accordion.Body>
+            </Accordion.Item>
+        </Accordion>
+            ))}
         </div>
     );
 }
-
-AllPredictList.propTypes = {
+    
+AccordionList.propTypes = {
     savepredict: PropTypes.arrayOf(
         PropTypes.shape({
         id: PropTypes.number.isRequired,
@@ -78,4 +83,4 @@ AllPredictList.propTypes = {
     // onDelete: PropTypes.func.isRequired,
 };
 
-export default AllPredictList;
+export default AccordionList;

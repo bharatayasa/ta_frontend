@@ -26,6 +26,7 @@
 
 /*  navbar style */
 div .navbar {
+    top : -5px; 
     position: fixed;
     padding-top: 15px;
     padding-right: 0px;
@@ -41,6 +42,9 @@ div .navbar {
 }
 
 .navbar .color-active {
+    top : -5px; 
+    animation-name : fadeInDown;
+    animation-duration: 1s;
     background-color: var(--navbar-color);
     padding: 20px 0px 20px 0px ;
     border-bottom: 2px solid #ffffff60;

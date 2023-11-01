@@ -1,7 +1,9 @@
 import React from "react";
 import { getPredictUser } from "../utils/api";
 import { deleteHistory } from "../utils/api";
-import PredicList from "../component/predictcomponent/PredictList";
+import AccordionList from "../component/predictcomponent/AccordionList";
+// import PredicList from "../component/predictcomponent/PredictList";
+
 
 function DataPredictWrapper({ keywordChange }) {
     return <HistoryPage keywordChange={keywordChange} />;
@@ -55,10 +57,10 @@ class HistoryPage extends React.Component {
         return (
         <div className="container py-5">
             <h1 className="text-center mb-5">History prediksi</h1>
-            <PredicList savepredict={this.state.users} />
+            <AccordionList savepredict={this.state.users} />
         </div>
         );
     }
-}
 
+}
 export default DataPredictWrapper;
