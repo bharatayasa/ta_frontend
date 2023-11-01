@@ -1,10 +1,11 @@
-// admin
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import Accordion from 'react-bootstrap/Accordion';
+import DeleteButton from "../usercomponent/DeleteButton";
+import moment from 'moment';
 
-function AllPredictList({ savepredict }) {
+function AllPredictList({ savepredict, onDelete }) {
     return (
         <div>
         <Table striped bordered hover>
@@ -51,9 +52,9 @@ function AllPredictList({ savepredict }) {
                     </Accordion.Item>
                 </Accordion>
                 </td>
-                <td>{predict.created_at}</td>
+                <td>{moment(predict.created_at).format('DD MMMM YYYY')}</td>
                 <td className="text-center">
-                    <button className="btn btn-danger">delete</button>
+                <DeleteButton id={predict.id} onDelete={onDelete} />
                 </td>
                 </tr>
             ))}
@@ -75,7 +76,7 @@ AllPredictList.propTypes = {
         created_at: PropTypes.string.isRequired,
         })
     ).isRequired,
-    // onDelete: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default AllPredictList;

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import DeleteButton from "./DeleteButton";
 import EditUser from "./EditUser";
+import moment from "moment";
 
 function UsersList({ users, onDelete}) {
 	return (
@@ -32,8 +33,8 @@ function UsersList({ users, onDelete}) {
 					<td>{user.name}</td>
 					<td>{user.role}</td>
 					<td>{user.email}</td>
-					<td>{user.created_at}</td>
-					<td>{user.updated_at}</td>
+					<td>{moment(user.created_at).format('DD MMMM YYYY')}</td>
+					<td>{moment(user.updated_at).format('DD MMMM YYYY')}</td>
 					<td className="text-center">
 					<EditUser user={user}/>
 					<DeleteButton id={user.id} onDelete={onDelete} />

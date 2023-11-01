@@ -1,6 +1,5 @@
 import React from "react";
-import { getAllPredict } from "../utils/api";
-import { deleteHistory } from "../utils/api";
+import { getAllPredict, deleteHistory } from "../utils/api";
 import AllPredictList from "../component/predictcomponent/AllPredictList";
 
 function DataPredictWrapper({ keywordChange }) {
@@ -16,8 +15,8 @@ class PrediksiPage extends React.Component {
         keyword: props.defaultKeyword || "",
         };
 
-        this.onDeleteHandler = this.onDeleteHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
+        this.onDeleteHandler = this.onDeleteHandler.bind(this);
     }
 
     async componentDidMount() {
@@ -41,9 +40,7 @@ class PrediksiPage extends React.Component {
 
     async onDeleteHandler(id) {
         await deleteHistory(id);
-
         const { data } = await getAllPredict();
-
         this.setState(() => {
         return {
             users: data,
@@ -54,8 +51,11 @@ class PrediksiPage extends React.Component {
     render() {
         return (
         <div className="container py-5">
-            <h1 className="text-center mb-5">hasil prediksi oleh user</h1>
-            <AllPredictList savepredict={this.state.users} />
+            <h1 className="text-center mb-5">Hasil prediksi oleh user</h1>
+            <AllPredictList
+            savepredict={this.state.users}
+            onDelete={this.onDeleteHandler}
+            />
         </div>
         );
     }
