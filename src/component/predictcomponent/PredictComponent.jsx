@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getUserLogged, savepredict } from "../utils/api";
+import { getUserLogged, savepredict } from "../../utils/api";
 
 function PredictComponent() {
 	const [file, setFile] = useState(null);
 	const [result, setResult] = useState(null);
 	const [authedUser, setAuthedUser] = useState(null);
+	const [saveError, setSaveError] = useState(false);
 
 	const handleFileChange = (e) => {
 		const selectedFile = e.target.files[0];
@@ -39,11 +40,8 @@ function PredictComponent() {
 				userId: authedUser.id,
 			});
 
-			if (!saveResult.error) {
-				console.error("Terjadi kesalahan saat menyimpan data ke database:", saveResult.error);
-				alert("Terjadi kesalahan saat menyimpan data ke database. Lihat konsol untuk informasi lebih lanjut.");
-			} else {
-				console.log("Data berhasil dimasukkan ke database dengan ID:", saveResult.insertId);
+			if (saveResult.error) {
+				setSaveError(true);
 			}
 			}
 		} else {
@@ -64,7 +62,7 @@ function PredictComponent() {
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="container py-5">
 		<h2>Upload Gambar</h2>
 		<input type="file" accept="image/*" onChange={handleFileChange} />
 		<button onClick={handleUpload}>Upload</button>

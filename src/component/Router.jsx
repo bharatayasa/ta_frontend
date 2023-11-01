@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 // page user
 import NavbarComponent from "./NavbarComponent";
 import HomePage from "../pages/HomePage";
+import PredictComponent from "./predictcomponent/PredictComponent";
 import HistoryPage from "../pages/HistoryPage";
-import NewsPage from "../pages/NewsPage";
 import AboutPage from "../pages/AboutPage";
 import FooterComponent from "./FoooterComponent";
 // page admin
@@ -105,8 +105,8 @@ class Router extends React.Component {
                     <main>
                         <Routes>
                             <Route path="/" element={<HomePage />}/>
+                            <Route path="/predict" element={<PredictComponent />}/>
                             <Route path="/history" element={<HistoryPage />}/>
-                            <Route path="/news" element={<NewsPage />}/>
                             <Route path="/about" element={<AboutPage />}/>
                         </Routes>
                     </main>

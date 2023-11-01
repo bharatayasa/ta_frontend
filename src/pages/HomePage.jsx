@@ -1,6 +1,5 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import PredictComponent from '../component/PredictComponent';
 
 function HomePage() {
     return(
@@ -43,10 +42,9 @@ function HomePage() {
                     </Col>
                 </Row>
                 </Container>
-            <PredictComponent />
             </div> 
         </div>
     )
 }
 
-export default HomePage; 
+export default HomePage;

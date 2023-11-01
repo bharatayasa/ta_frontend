@@ -24,26 +24,26 @@ function NewsPage() {
   }, []);
 
   return (
-    <div className='py-5 container'>
-        <h1>halaman news</h1>
-    </div>
-
-    // <div>
-    //   {loading ? (
-    //     <p>Loading...</p>
-    //   ) : (
-    //     <ul>
-    //       {newsData.map((news, index) => (
-    //         <li key={index}>
-    //           <a href={news.url}>{news.title}</a>
-    //           <p>Date: {news.date}</p>
-    //           <p>Category: {news.category}</p>
-    //           <img src={news.image} alt={news.title} />
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   )}
+    // <div className='py-5 container'>
+    //     <h1>halaman news</h1>
     // </div>
+
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {newsData.map((news, index) => (
+            <li key={index}>
+              <a href={news.url}>{news.title}</a>
+              <p>Date: {news.date}</p>
+              <p>Category: {news.category}</p>
+              <img src={news.image} alt={news.title} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 

@@ -1,20 +1,64 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { getAllPredict } from "../utils/api";
+import { deleteHistory } from "../utils/api"; // Import deleteHistory jika belum diimpor
+import AllPredictList from "../component/predictcomponent/AllPredictList";
 
-function PrediksiPage() {
-    return(
-        <div className="prediksi">
-            <Container className="py-5">
-            <h1>halaman data prediksi</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis iure odit iste nesciunt beatae qui dolore dicta exercitationem! Modi, voluptatem perferendis esse consequuntur provident ipsa voluptates, facere eveniet quas explicabo ea et, fuga deleniti omnis reprehenderit? Dolorem obcaecati libero dicta fugiat voluptatum. Vel illo voluptas eius possimus in tenetur doloribus illum quae eum ut qui deleniti exercitationem quisquam, aliquid, neque alias harum fuga expedita explicabo molestias corporis. Nobis vero a, tenetur esse, eaque architecto excepturi ipsum quo debitis consectetur, obcaecati neque fugit tempora labore alias minima maxime quibusdam impedit iure totam! Nulla quasi facere eum quae voluptatem iure maxime nesciunt?</p>
-            </Container>
-        </div>
-    )
+function DataPredictWrapper({ keywordChange }) {
+  return <PrediksiPage keywordChange={keywordChange} />;
 }
 
-export default PrediksiPage; 
+class PrediksiPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      users: [],
+      keyword: props.defaultKeyword || "",
+    };
+
+    this.onDeleteHandler = this.onDeleteHandler.bind(this);
+    this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
+  }
+
+  async componentDidMount() {
+    const { data } = await getAllPredict();
+
+    this.setState(() => {
+      return {
+        users: data,
+      };
+    });
+  }
+
+  onKeywordChangeHandler(keyword) {
+    this.setState(() => {
+      return {
+        keyword,
+      };
+    });
+    this.props.keywordChange(keyword);
+  }
+
+  async onDeleteHandler(id) {
+    await deleteHistory(id);
+
+    const { data } = await getAllPredict();
+
+    this.setState(() => {
+      return {
+        users: data,
+      };
+    });
+  }
+
+  render() {
+    return (
+      <div className="container py-5">
+        <h1 className="text-center mb-5">hasil prediksi oleh user</h1>
+        <AllPredictList savepredict={this.state.users} />
+      </div>
+    );
+  }
+}
+
+export default DataPredictWrapper;

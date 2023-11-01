@@ -1,6 +1,5 @@
 // const BASE_URL = "http://localhost:5000";
 const BASE_URL = "https://deployv2-403614.et.r.appspot.com";
-// const BASE_URL = process.env.BASEURL
 
 function getAccessToken() {
   return localStorage.getItem("accessToken");
@@ -59,7 +58,7 @@ async function register({ username, name, email, password }) {
 }
 
 async function getUserLogged() {
-  const response = await fetchWithToken(`${BASE_URL}/users/me`);
+  const response = await fetchWithToken(`${BASE_URL}/user/me`);
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
@@ -70,7 +69,7 @@ async function getUserLogged() {
 }
 
 async function adduser({ username, name, email, password, role }) {
-  const response = await fetchWithToken(`${BASE_URL}/admin/adduser`, {
+  const response = await fetchWithToken(`${BASE_URL}/admin/add/user`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -89,7 +88,7 @@ async function adduser({ username, name, email, password, role }) {
 }
 
 async function updateuser({ id, username, name, email, password, role }) {
-  const response = await fetchWithToken(`${BASE_URL}/admin/updateuser/${id}`, {
+  const response = await fetchWithToken(`${BASE_URL}/admin/update/user/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -135,7 +134,7 @@ async function getuserbyid(id) {
 }
 
 async function deleteUser(id) {
-  const response = await fetchWithToken(`${BASE_URL}/admin/deleteuser/${id}`, {
+  const response = await fetchWithToken(`${BASE_URL}/admin/delete/user/${id}`, {
     method: "DELETE",
   });
 
@@ -149,28 +148,8 @@ async function deleteUser(id) {
   return { error: false };
 }
 
-async function getnewslocal() {
-  const response = await fetchWithToken(`${BASE_URL}/newsLokal`);
-  const responseJson = await response.json();
-
-  if (responseJson.status !== "success") {
-    alert(responseJson.message);
-    return { error: true, data: [] };
-  }
-
-  const formattedData = responseJson.data.map(item => ({
-    title: item.title,
-    url: item.url,
-    image: item.image,
-    date: item.date,
-    category: item.category
-  }));
-
-  return { error: false, data: formattedData };
-}
-
 async function savepredict({ kelas, confidence, description, prevention, userId }) {
-  const response = await fetchWithToken(`${BASE_URL}/savepredict`, {
+  const response = await fetchWithToken(`${BASE_URL}/save/predict`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -188,4 +167,58 @@ async function savepredict({ kelas, confidence, description, prevention, userId 
   return { error: false };
 }
 
-export { getAccessToken, putAccessToken, login, register, getUserLogged, adduser, updateuser, getUsers, getuserbyid, deleteUser, getnewslocal, savepredict};
+async function getAllPredict() {
+  const response = await fetchWithToken(`${BASE_URL}/get/all/predict`);
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true, data: [] };
+  }
+
+  return { error: false, data: responseJson.data };
+}
+
+async function getPredictUser() {
+  const response = await fetchWithToken(`${BASE_URL}/get/predict/by/user`);
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true, data: [] };
+  }
+
+  return { error: false, data: responseJson.data };
+}
+
+async function deleteHistory(id) {
+  const response = await fetchWithToken(`${BASE_URL}/delete/history/${id}`, {
+    method: "DELETE",
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+export {
+  getAccessToken,
+  putAccessToken,
+  login,
+  register,
+  getUserLogged,
+  adduser,
+  updateuser,
+  getUsers,
+  getuserbyid,
+  deleteUser,
+  savepredict,
+  getAllPredict,
+  getPredictUser,
+  deleteHistory
+};
