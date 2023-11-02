@@ -4,7 +4,7 @@ import {Container, Row, Col} from 'react-bootstrap'
 function HomePage() {
     return(
         <div>
-            <header className='w-100 min-vh-100 d-flex align-items-center'>
+            <header className='w-100 min-vh-100 d-flex align-items-center py-5'>
                 <Container>
                 <Row className='header-box d-flex align-items-center pt-lg-5'>
                     <Col lg="6" >
@@ -17,7 +17,7 @@ function HomePage() {
                     </Col>
 
                     <Col lg="6" className='pt-lg-0 pt-5'>
-                    {/* <img src={HeroImage} alt="" className='animate__animated animate__fadeInUp' /> */}
+                    <img style={{ width: '100%' }}  src="/public/kebun_tomat.png"/>
                     </Col>
                 </Row>
                 </Container>

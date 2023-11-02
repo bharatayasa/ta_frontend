@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import { Link } from 'react-router-dom';
 
@@ -68,18 +69,18 @@ render() {
         <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
         <div className='container'>
         <MDBContainer>
-            <Row>
+            <Row className='py-5'>
             <Col md='6'>
                 <h1 className="my-5 display-3 fw-bold ls-tight px-3">
                     Solusi Mudah <br />
                     <span>Untuk mendeteksi penyakit tomat</span>
                 </h1>
-                <p className='px-3'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-                    quibusdam tempora at cupiditate quis eum maiores libero
-                    veritatis? Dicta facilis sint aliquid ipsum atque?
-                </p>
+                    <p className='px-3'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eveniet, itaque accusantium odio, soluta, corrupti aliquam
+                        quibusdam tempora at cupiditate quis eum maiores libero
+                        veritatis? Dicta facilis sint aliquid ipsum atque?
+                    </p>
             </Col>
 
             <Col md='6'>
@@ -89,12 +90,13 @@ render() {
                     <div className='text-center'>
                         <h1>Login</h1>
                     </div>
-                        <Form.Label>Username : </Form.Label>
-                        <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
-                        
-                        <Form.Label>Password : </Form.Label>
-                        <Form.Control type="password" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
-                        
+                    <FloatingLabel
+                        controlId="floatingInput" label="Username" className="mb-3">
+                        <Form.Control type="text" placeholder="Username" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingPassword" label="Password">
+                    <Form.Control type="password" placeholder="Username" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
+                    </FloatingLabel>
                         <div className='text-center mt-5'>
                             <Button variant="primary" type="submit" className='w-100'>Login</Button>
                         </div>

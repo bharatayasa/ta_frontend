@@ -13,22 +13,23 @@ return (
                     <div className='no mb-1 mt-4'>
                         <Link className='text-decoration-none'>
                             <i className='fa-brands fa-whatsapp'></i>
-                            <p p className='m-0 ms-2'>+62121313232</p> 
+                            <p p className='m-0 ms-2'>+6281999934616</p> 
                         </Link>
                     </div>
                     <div className='mail'>
                         <Link className='text-decoration-none'>
                             <i className='fa-regular fa-envelope'></i>
-                            <p className='m-0 ms-2'>person@gmail.com</p> 
+                            <p className='m-0 ms-2'>bharatayasa40@@gmail.com</p> 
                         </Link>
                     </div>
                     </Col>
                     
                     <Col className='d-flex flex-column col-lg-2 col'>
                         <h5 className='fw-bold'>Menu</h5>
-                        <Link className='text-decoration-none' to="">Home</Link>
-                        <Link className='text-decoration-none' to="">News</Link>
-                        <Link className='text-decoration-none' to="">About</Link>
+                        <Link className='text-decoration-none' to="/">Home</Link>
+                        <Link className='text-decoration-none' to="/predict">Predict</Link>
+                        <Link className='text-decoration-none' to="/history">History</Link>
+                        <Link className='text-decoration-none' to="/about">About</Link>
                     </Col>
                     <Col lg="4" className='mt-lg-0 mt-5'>
                         <div className='social mt-3'>

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import {
     MDBContainer,
@@ -84,27 +85,40 @@ class RegisterInput extends React.Component {
                 <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
                 <div className="container">
                 <MDBContainer>
-                <Col>
+                <Row>
+                <Col lg="6" className='pt-lg-0 pt-5'>
+                    <div className="py-5">
+                        <img style={{ width: '100%'}} src="/public/tomatigirl.png"/>
+                    </div>
+                </Col>
+                <Col lg="6" className='pt-lg-0 pt-5'>
                     <MDBCard className='my-5 bg-glass'>
                         <MDBCardBody className='p-5'>
                         <Form className='mb-3' onSubmit={this.onSubmitHandler}>
                         <div className='text-center'>
                             <h1>Register</h1>
                         </div>
-                            <Form.Label>Username : </Form.Label>
-                            <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChange} className="mb-4"/>
-                            
-                            <Form.Label>Name : </Form.Label>
-                            <Form.Control type="text" value={this.state.name} onChange={this.onNameChange} className="mb-4"/>
-                            
-                            <Form.Label>E-Mail : </Form.Label>
-                            <Form.Control type="email" value={this.state.email} onChange={this.onEmailChange} className="mb-4"/>
-                            
-                            <Form.Label>Password : </Form.Label>
-                            <Form.Control type="password" value={this.state.password} onChange={this.onPasswordChange} className="mb-4"/>
-                            
+                        <FloatingLabel
+                            controlId="floatingInput" label="Username" className="mb-3" >
+                            <Form.Control type="text" placeholder="Username" value={this.state.username} onChange={this.onUsernameChange} className="mb-4"/>
+                        </FloatingLabel>
+
+                        <FloatingLabel
+                            controlId="floatingInput" label="Name" className="mb-3" >
+                            <Form.Control type="text" placeholder="Name" value={this.state.name} onChange={this.onNameChange} className="mb-4"/>
+                        </FloatingLabel>
+                        
+                        <FloatingLabel
+                            controlId="floatingInput" label="E-mail" className="mb-3" >
+                            <Form.Control type="email" placeholder="E-Mail" value={this.state.email} onChange={this.onEmailChange} className="mb-4"/>
+                        </FloatingLabel>
+                        
+                        <FloatingLabel
+                            controlId="floatingInput" label="Password" className="mb-3" >
+                            <Form.Control type="text" placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} className="mb-4"/>
+                        </FloatingLabel>
                             <div className='text-center mb-5'>
-                            <Button variant="primary" type="submit" className='w-50'>Register</Button>
+                            <Button variant="primary" type="submit" className='w-100'>Register</Button>
                             </div>
                             
                             {this.state.registrationSuccess && (
@@ -117,6 +131,7 @@ class RegisterInput extends React.Component {
                         </MDBCardBody>
                     </MDBCard>
                 </Col>
+                </Row>
                 </MDBContainer>
                 </div>
                 </div>

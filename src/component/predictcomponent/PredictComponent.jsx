@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUserLogged, savepredict } from "../../utils/api";
+import { Container, Accordion } from "react-bootstrap";
 
 function PredictComponent() {
 	const [file, setFile] = useState(null);
@@ -62,21 +63,37 @@ function PredictComponent() {
 	}, []);
 
 	return (
-		<div className="container py-5">
-		<h2>Upload Gambar</h2>
-		<input type="file" accept="image/*" onChange={handleFileChange} />
-		<button onClick={handleUpload}>Upload</button>
+		<div className="py-5">
+		<Container>
+		<div className="text-center">
+			<h2>Upload Gambar Daun Tomat</h2>
+			<input type="file" accept="image/*" onChange={handleFileChange} />
+			<button onClick={handleUpload}>Upload</button>
+		</div>
 
 		{result && (
-			<div>
-			<h2>Hasil Prediksi:</h2>
-			<p><b>User ID:</b> {authedUser && authedUser.id}</p>
-			<p><b>Class:</b> {result.kelas}</p>
-			<p><b>Confidence:</b> {result.confidence}</p>
-			<p><b>Description:</b> {result.description}</p>
-			<p><b>Prevention:</b> {result.prevention}</p>
+			<div className="mt-5">
+				<h2 className="text-center">Hasil Prediksi:</h2>
+				<Accordion className="mb-3">
+				<Accordion.Item>
+					<Accordion.Header>Deskripsi</Accordion.Header>
+					<Accordion.Body>
+						<p><b>Jenis Penyakit : </b>{result.kelas}</p>
+						<p><b>Confidence : </b>{result.confidence}</p>
+						{result.description}
+					</Accordion.Body>
+				</Accordion.Item>
+				</Accordion>
+
+				<Accordion>
+				<Accordion.Item>
+					<Accordion.Header>Cara mengatasi</Accordion.Header>
+					<Accordion.Body>{result.prevention}</Accordion.Body>
+				</Accordion.Item>
+				</Accordion>
 			</div>
 		)}
+		</Container>
 		</div>
 	);
 }

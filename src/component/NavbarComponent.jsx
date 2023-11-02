@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -21,7 +22,6 @@ function NavbarComponent({logout, name}) {
 
     useEffect(() => {
         changeBackgroundColor()
-
         window.addEventListener('scroll', changeBackgroundColor)
     })
 
@@ -47,9 +47,17 @@ function NavbarComponent({logout, name}) {
                                         )
                                 })}
                             </Nav>
-                            <div className='text-center'>
-                                <button className='btn btn-outline-danger rounded-1' onClick={logout}>Logout</button>
-                            </div>
+                                <NavDropdown id="basic-nav-dropdown" title="====" className="text-center">
+                                    <NavDropdown.Item>
+                                    <div>
+                                        <p className="text-center">{name}</p>
+                                    </div>
+                                    <div className='text-center'>
+                                        <button className='btn btn-outline-primary rounded-1'>Profile</button>
+                                        <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
+                                    </div>
+                                    </NavDropdown.Item>
+                                </NavDropdown>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>

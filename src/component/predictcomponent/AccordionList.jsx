@@ -8,7 +8,7 @@ function AccordionList({ savepredict, onDelete }) {
     return (
         <div>
         {savepredict.map((predict) => (
-            <Accordion defaultActiveKey="0" className="mb-3">
+            <Accordion defaultActiveKey={predict.id} className="mb-3">
                 <Accordion.Item>
                     <Accordion.Header>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</Accordion.Header>
                     <Accordion.Body>
@@ -16,7 +16,7 @@ function AccordionList({ savepredict, onDelete }) {
                         <p><b>Confidence : </b>{predict.confidence}</p>
                         <p><b>Deskripsi : </b>{predict.description}</p>
                         <p><b>Penanganan :  </b>{predict.prevention}</p>
-                        <DeleteButton id={predict.id} onDelete={onDelete} />
+                        <DeleteButton id={predict.id} onDelete={onDelete}/>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>

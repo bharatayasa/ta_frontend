@@ -8,7 +8,7 @@ import moment from "moment";
 function UsersList({ users, onDelete}) {
 	return (
 		<div>
-			<Table striped bordered hover>
+			<Table striped bordered hover responsive>
 			<thead>
 				<tr className="text-center">
 					<th>No</th>
@@ -28,7 +28,7 @@ function UsersList({ users, onDelete}) {
 					<td className="text-center">
 					<b>{index + 1}</b>
 					</td>
-					<td>user-id-{user.id}</td>
+					<td className="text-center">{user.id}</td>
 					<td>{user.username}</td>
 					<td>{user.name}</td>
 					<td>{user.role}</td>

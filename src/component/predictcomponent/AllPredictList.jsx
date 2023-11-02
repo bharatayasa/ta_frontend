@@ -8,7 +8,7 @@ import moment from 'moment';
 function AllPredictList({ savepredict, onDelete }) {
     return (
         <div>
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
             <thead>
             <tr className="text-center">
                 <th>No</th>
