@@ -15,7 +15,7 @@ export default function EditUser({ user }) {
 		navigate("/");
 		window.location.reload();
 		} else {
-		console.log("Update user failed:", response.error);
+			console.log("Update user failed:", response.error);
 		}
 	}
 

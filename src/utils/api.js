@@ -1,5 +1,5 @@
-// const BASE_URL = "http://localhost:5000";
-const BASE_URL = "https://20231101t215446-dot-deployv2-403614.et.r.appspot.com";
+const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "https://20231101t215446-dot-deployv2-403614.et.r.appspot.com";
 
 function getAccessToken() {
   return localStorage.getItem("accessToken");
@@ -94,6 +94,44 @@ async function updateuser({ id, username, name, email, password, role }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ username, name, email, password, role }),
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+async function updateMe({ username, name, email }) {
+  const response = await fetchWithToken(`${BASE_URL}/user/update/me`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, name, email }),
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+async function updatePassword({ currentPassword, newPassword }) {
+  const response = await fetchWithToken(`${BASE_URL}/update/my/password`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ currentPassword, newPassword }),
   });
 
   const responseJson = await response.json();
@@ -214,6 +252,8 @@ export {
   getUserLogged,
   adduser,
   updateuser,
+  updateMe,
+  updatePassword,
   getUsers,
   getuserbyid,
   deleteUser,

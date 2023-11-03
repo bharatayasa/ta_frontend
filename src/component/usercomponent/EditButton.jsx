@@ -67,31 +67,28 @@ class EditButton extends React.Component {
 render() {
     return (
 		<>
-			<Button variant="primary" onClick={this.handleShow} className="m-2">
-			{" "}
-			Ubah{" "}
-			</Button>
+			<Button variant="primary" onClick={this.handleShow} className="m-2"> {" "} Ubah {" "}</Button>
 
 			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
 			<Modal.Header>
-				<Modal.Title>Ubah data user</Modal.Title>
+				<Modal.Title>Ubah Data User</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className="lg">
 				<Form onSubmit={this.onSubmitEventHandler}>
 
-				<FloatingLabel controlId="floatingUsername" label="Username : ">
+				<FloatingLabel controlId="Username" label="Username : ">
                 <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="mb-3" autoComplete="off"/>
                 </FloatingLabel>
 
-				<FloatingLabel controlId="floatingUsername" label="Name : ">
+				<FloatingLabel controlId="Name" label="Name : ">
                 <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} className="mb-3" autoComplete="off"/>
                 </FloatingLabel>
 
-				<FloatingLabel controlId="floatingUsername" label="E-Mail : " className="mb-3" autoComplete="off">
+				<FloatingLabel controlId="email" label="E-Mail : " className="mb-3" autoComplete="off">
 				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
                 </FloatingLabel>
 
-				<FloatingLabel controlId="floatingSelect" label="Pilih Role :">
+				<FloatingLabel controlId="role" label="Pilih Role :">
                     <Form.Select aria-label="Floating label select example" value={this.state.role} onChange={this.onRoleChangeEventHandler}>
                         <option value="user">user</option>
                         <option value="admin">admin</option>
@@ -99,7 +96,7 @@ render() {
                 </FloatingLabel>
 
 				<div className="text-center">
-					<button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan{" "} </button>
+					<button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan {" "} </button>
 				</div>
 				</Form>
 			</Modal.Body>

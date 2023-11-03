@@ -2,14 +2,16 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { navLinks } from "../utils";
 
-function NavbarComponent({logout, name}) {
+// import UserData from "./usercomponent/UserData";
+import EditProfile from "./usercomponent/EditProfile";
+
+function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
 
     const changeBackgroundColor = () => {
@@ -47,19 +49,8 @@ function NavbarComponent({logout, name}) {
                                         )
                                 })}
                             </Nav>
-                            <Nav>
-                                <NavDropdown id="basic-nav-dropdown" title="More" className="text-center">
-                                    <NavDropdown.Item>
-                                    <div>
-                                        <p className="text-center">{name}</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <button className='btn btn-outline-primary rounded-1'>Profile</button>
-                                        <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
-                                    </div>
-                                    </NavDropdown.Item>
-                                </NavDropdown>
-                            </Nav>
+                            <EditProfile />
+                            <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>
