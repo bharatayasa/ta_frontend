@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 class UserInput extends React.Component {
     constructor(props) {
@@ -82,6 +83,10 @@ class UserInput extends React.Component {
                         <option value="admin">admin</option>
                         <option value="user">user</option>
                     </select>
+
+                    <FloatingLabel controlId="floatingInput" label="Username" className="mb-3" value={this.state.name} onChange={this.onNameChangeEventHandler}>
+                        <Form.Control type="text" placeholder="Username" autoComplete="off"/>
+                    </FloatingLabel>
 
                     <button type="submit">Tambah</button>
                 </Form>

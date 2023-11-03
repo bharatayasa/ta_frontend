@@ -47,7 +47,8 @@ function NavbarComponent({logout, name}) {
                                         )
                                 })}
                             </Nav>
-                                <NavDropdown id="basic-nav-dropdown" title="====" className="text-center">
+                            <Nav>
+                                <NavDropdown id="basic-nav-dropdown" title="More" className="text-center">
                                     <NavDropdown.Item>
                                     <div>
                                         <p className="text-center">{name}</p>
@@ -58,6 +59,7 @@ function NavbarComponent({logout, name}) {
                                     </div>
                                     </NavDropdown.Item>
                                 </NavDropdown>
+                            </Nav>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>

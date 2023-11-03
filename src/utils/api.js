@@ -1,5 +1,5 @@
-const BASE_URL = "http://localhost:5000";
-// const BASE_URL = "https://deployv2-403614.et.r.appspot.com";
+// const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://20231101t215446-dot-deployv2-403614.et.r.appspot.com";
 
 function getAccessToken() {
   return localStorage.getItem("accessToken");

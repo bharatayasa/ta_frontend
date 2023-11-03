@@ -161,11 +161,7 @@ header {
 }
 /* end read users */
 
-
-
-
-
-/* footer style */
+/* style footer */
 .footer{
     width: 100%;
     min-height: 60vh;
@@ -239,4 +235,4 @@ header {
 .footer .row:nth-child(2){
     margin-top: 100px;
 }
-/* end footer style*/
+/* style footer */

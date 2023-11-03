@@ -85,15 +85,16 @@ render() {
 
             <Col md='6'>
                 <MDBCard className='my-5 bg-glass'>
-                    <MDBCardBody className='p-5'>
+                    <MDBCardBody className='p-3'>
                     <Form className='container mb-3' onSubmit={this.onSubmitHandler}>
                     <div className='text-center'>
                         <h1>Login</h1>
                     </div>
                     <FloatingLabel
                         controlId="floatingInput" label="Username" className="mb-3">
-                        <Form.Control type="text" placeholder="Username" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
+                        <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
                     </FloatingLabel>
+
                     <FloatingLabel controlId="floatingPassword" label="Password">
                     <Form.Control type="password" placeholder="Username" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
                     </FloatingLabel>

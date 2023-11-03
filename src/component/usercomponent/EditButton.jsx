@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import PropTypes from "prop-types";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 class EditButton extends React.Component {
 	constructor(props) {
@@ -77,25 +78,28 @@ render() {
 			</Modal.Header>
 			<Modal.Body className="lg">
 				<Form onSubmit={this.onSubmitEventHandler}>
-				<Form.Label>Username : </Form.Label>
-				<Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
 
-				<Form.Label>Name : </Form.Label>
-				<Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
+				<FloatingLabel controlId="floatingUsername" label="Username : ">
+                <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="mb-3" autoComplete="off"/>
+                </FloatingLabel>
 
-				<Form.Label>E-mail : </Form.Label>
+				<FloatingLabel controlId="floatingUsername" label="Name : ">
+                <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} className="mb-3" autoComplete="off"/>
+                </FloatingLabel>
+
+				<FloatingLabel controlId="floatingUsername" label="E-Mail : " className="mb-3" autoComplete="off">
 				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
+                </FloatingLabel>
 
-				<Form.Label>Role :</Form.Label>
-				<Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-					<option value="admin">admin</option>
-					<option value="user">user</option>
-				</Form.Select>
+				<FloatingLabel controlId="floatingSelect" label="Pilih Role :">
+                    <Form.Select aria-label="Floating label select example" value={this.state.role} onChange={this.onRoleChangeEventHandler}>
+                        <option value="user">user</option>
+                        <option value="admin">admin</option>
+                    </Form.Select>
+                </FloatingLabel>
+
 				<div className="text-center">
-					<button className="btn btn-success mt-4" type="submit">
-					{" "}
-					Simpan{" "}
-					</button>
+					<button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan{" "} </button>
 				</div>
 				</Form>
 			</Modal.Body>

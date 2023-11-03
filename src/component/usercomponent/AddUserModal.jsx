@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import PropTypes from 'prop-types';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 class AddUserModal extends React.Component {
     constructor(props) {
@@ -82,25 +83,31 @@ class AddUserModal extends React.Component {
                         <Modal.Title>Tambah Data User</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className='lg'>
-                        <Form onSubmit={this.onSubmitEventHandler}>
-                            <Form.Label>Username : </Form.Label>
-                            <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
-                            
-                            <Form.Label>Name :  </Form.Label>
-                            <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
-                            
-                            <Form.Label>E-mail :  </Form.Label>
-                            <Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
-                            
-                            <Form.Label>Password :  </Form.Label>
-                            <Form.Control type="text" value={this.state.password} onChange={this.onPasswordChangeEventHandler} />
+                        <Form noValidate onSubmit={this.onSubmitEventHandler}>
+                            <FloatingLabel controlId="floatingUsername" label="Username : " value={this.state.username} onChange={this.onUsernameChangeEventHandler}>
+                                <Form.Control type="text" placeholder="Username" className='mb-3' autoComplete="off"/>
+                            </FloatingLabel>
 
-                            <Form.Label>Role :</Form.Label>
-                            <Form.Select value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-                                <option value="">Pilih role</option>
-                                <option value="admin">admin</option>
-                                <option value="user">user</option>
-                            </Form.Select>
+                            <FloatingLabel controlId="floatingName" label="Name : " value={this.state.name} onChange={this.onNameChangeEventHandler} className='mb-3'>
+                                <Form.Control type="text" placeholder="Name" autoComplete="off"/>
+                            </FloatingLabel>
+
+                            <FloatingLabel controlId="floatingEmail" label="E-Mail : " value={this.state.email} onChange={this.onEmailChangeEventHandler} className='mb-3'>
+                                <Form.Control type="email" placeholder="Email" autoComplete="off"/>
+                            </FloatingLabel>
+
+                            <FloatingLabel controlId="floatingEmail" label="Password : " value={this.state.password} onChange={this.onPasswordChangeEventHandler} className='mb-3'>
+                                <Form.Control type="password" placeholder="Email" autoComplete="off"/>
+                            </FloatingLabel>
+
+                            <FloatingLabel controlId="floatingSelect" label="Pilih Peran">
+                                <Form.Select aria-label="Floating label select example" value={this.state.role} onChange={this.onRoleChangeEventHandler}>
+                                    <option >pilih</option>
+                                    <option value="user">user</option>
+                                    <option value="admin">admin</option>
+                                </Form.Select>
+                            </FloatingLabel>
+
                             <div className='text-center'>
                                 <button className='btn btn-primary mt-4' type="submit">Tambah</button>
                             </div>

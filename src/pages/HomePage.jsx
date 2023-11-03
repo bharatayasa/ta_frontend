@@ -1,5 +1,6 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
+import HeroImage from '../assets/img/kebun_tomat.png'
 
 function HomePage() {
     return(
@@ -17,7 +18,7 @@ function HomePage() {
                     </Col>
 
                     <Col lg="6" className='pt-lg-0 pt-5'>
-                    <img style={{ width: '100%' }}  src="/public/kebun_tomat.png"/>
+                    <img style={{ width: '100%' }}  src={HeroImage}/>
                     </Col>
                 </Row>
                 </Container>
