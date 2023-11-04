@@ -84,8 +84,8 @@ render() {
                 <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} className="mb-3" autoComplete="off"/>
                 </FloatingLabel>
 
-				<FloatingLabel controlId="email" label="E-Mail : " className="mb-3" autoComplete="off">
-				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
+				<FloatingLabel controlId="email" label="E-Mail : " className="mb-3">
+				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} autoComplete="off" />
                 </FloatingLabel>
 
 				<FloatingLabel controlId="role" label="Pilih Role :">
