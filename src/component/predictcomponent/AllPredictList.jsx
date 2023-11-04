@@ -33,7 +33,7 @@ function AllPredictList({ savepredict, onDelete }) {
                 <td>{predict.kelas}</td>
                 <td className="text-center">{predict.confidence}</td>
                 <td>
-                <Accordion defaultActiveKey="0" className="mb-3">
+                <Accordion defaultActiveKey="0">
                     <Accordion.Item>
                         <Accordion.Header>view detail</Accordion.Header>
                         <Accordion.Body>
@@ -43,7 +43,7 @@ function AllPredictList({ savepredict, onDelete }) {
                 </Accordion>
                 </td>
                 <td>
-                <Accordion defaultActiveKey="0" className="mb-3">
+                <Accordion defaultActiveKey="0">
                     <Accordion.Item>
                         <Accordion.Header>view detail</Accordion.Header>
                         <Accordion.Body>

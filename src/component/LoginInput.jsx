@@ -7,11 +7,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import { Link } from 'react-router-dom';
 
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardBody,
-} from '`mdb-react-ui-kit`';
+import { MDBContainer, MDBCard, MDBCardBody } from '`mdb-react-ui-kit`';
 import { Col, Row } from 'react-bootstrap';
 
 class LoginInput extends React.Component {
@@ -21,6 +17,7 @@ class LoginInput extends React.Component {
         this.state = {
             username: '',
             password: '',
+            showPassword: false,
         };
 
         this.onUsernameChangeHandler = this.onUsernameChangeHandler.bind(this);
@@ -64,7 +61,15 @@ class LoginInput extends React.Component {
         }
     }
 
+    toggleShowPassword = () => {
+        this.setState((prevState) => ({
+            showPassword: !prevState.showPassword,
+        }));
+    }
+
 render() {
+    const { showPassword } = this.state;
+    
     return (
         <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
         <div className='container'>
@@ -91,12 +96,15 @@ render() {
                         <h1>Login</h1>
                     </div>
                     <FloatingLabel
-                        controlId="floatingInput" label="Username" className="mb-3">
+                        controlId="floatingInput" label="Username" className="mb-4">
                         <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
                     </FloatingLabel>
 
                     <FloatingLabel controlId="floatingPassword" label="Password">
-                    <Form.Control type="password" placeholder="Username" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
+                        <Form.Control type={showPassword ? "text" : "password"} placeholder="Username" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
+                        <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
+                        {showPassword ? "Hide" : "Show"}
+                        </Button>
                     </FloatingLabel>
                         <div className='text-center mt-5'>
                             <Button variant="primary" type="submit" className='w-100'>Login</Button>

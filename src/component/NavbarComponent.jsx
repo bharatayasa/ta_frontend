@@ -8,8 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { navLinks } from "../utils";
 
-// import UserData from "./usercomponent/UserData";
-import EditProfile from "./usercomponent/EditProfile";
+import DataDiri from "./usercomponent/DataDiri";
 
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
@@ -49,7 +48,7 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
-                            <EditProfile />
+                            <DataDiri />
                             <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
                         </Navbar.Collapse>
                         </Container>

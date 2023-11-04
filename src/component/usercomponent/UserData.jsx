@@ -1,33 +1,38 @@
-import React from "react";
+import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import PropTypes from "prop-types";
+import { getUserLogged } from "../../utils/api";
 
-class UserData extends React.Component {
+class UserData extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             show: false,
+            username: "",
+            name: "",
+            email: "",
         };
 
         this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
         this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
         this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
-
         this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const { data } = await getUserLogged();
+    
         this.setState({
-            id: this.props.id,
-            username: this.props.username,
-            name: this.props.name,
-            email: this.props.email,
+            username: data.username || "",
+            name: data.name || "",
+            email: data.email || "",
         });
     }
+    
 
     onUsernameChangeEventHandler(event) {
         this.setState({
@@ -63,16 +68,16 @@ class UserData extends React.Component {
 
     render() {
         return (
-            <>
-            <Button variant="primary" onClick={this.handleShow}> {" "} Ubah {" "}</Button>
+            <div>
+            <Button variant="primary" onClick={this.handleShow}> {" "} Ubah Data Diri {" "}</Button>
             <Modal show={this.state.show} onHide={this.handleClose} className="py-5">
                 <Modal.Header>
-                    <Modal.Title>Data Diri</Modal.Title>
+                    <h3>Ubah Data Diri</h3>
                 </Modal.Header>
                 <Modal.Body className="lg">
                     <Form onSubmit={this.onSubmitEventHandler}>
                         <FloatingLabel controlId="floatingUsername" label="Username : ">
-                            <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="mb-3" autoComplete="off"/>
+                            <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="mb-3 bg-white" autoComplete="off"/>
                         </FloatingLabel>
                         <FloatingLabel controlId="Name" label="Name : ">
                             <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} className="mb-3" autoComplete="off"/>
@@ -86,7 +91,7 @@ class UserData extends React.Component {
                     </Form>
                 </Modal.Body>
             </Modal>
-            </>
+            </div>
         )
     }
 }
