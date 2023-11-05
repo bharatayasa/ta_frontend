@@ -69,11 +69,9 @@ class EditProfileInput extends Component {
     render() {
         return (
             <div>
-            <Button variant="primary" onClick={this.handleShow}> {" "} Ubah Data Diri {" "}</Button>
+            <h5 variant="" onClick={this.handleShow}> {" "} Ubah Data Diri {" "}</h5>
             <Modal show={this.state.show} onHide={this.handleClose} className="py-5">
-                <Modal.Header>
-                    <h3>Ubah Data Diri</h3>
-                </Modal.Header>
+                    <h3 className="text-center mt-3">Ubah Data Diri</h3>
                 <Modal.Body className="lg">
                     <Form onSubmit={this.onSubmitEventHandler}>
                         <FloatingLabel controlId="floatingUsername" label="Username : ">

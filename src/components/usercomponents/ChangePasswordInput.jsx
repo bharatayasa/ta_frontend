@@ -12,7 +12,9 @@ class ChangePasswordInput extends Component {
         this.state = {
             show: false,
             currentPassword: "",
-            newPassword: ""
+            newPassword: "",
+            showPassword: false,
+            showPassword2: false,
         };
 
         this.onCurrentPasswordChangeEventHandler = this.onCurrentPasswordChangeEventHandler.bind(this);
@@ -47,23 +49,38 @@ class ChangePasswordInput extends Component {
         this.setState({ show: false });
     };
 
+    toggleShowPassword = () => {
+        this.setState((prevState) => ({
+            showPassword: !prevState.showPassword,
+        }));
+    }
+    
+    toggleShowPassword2 = () => {
+        this.setState((prevState) => ({
+            showPassword2: !prevState.showPassword2,
+        }));
+    }
+
     render() {
+        const { showPassword } = this.state;
+        const { showPassword2 } = this.state;
+
         return (
             <div>
-            <Button variant="primary" onClick={this.handleShow}> {" "} Ubah Password {" "}</Button>
+            <h5 variant="" onClick={this.handleShow}> {" "} Ubah Password {" "}</h5>
             <Modal show={this.state.show} onHide={this.handleClose} className="py-5">
-                <Modal.Header>
-                    <h3>Password</h3>
-                </Modal.Header>
+                    <h3 className="text-center mt-3">Password</h3>
                 <Modal.Body className="lg">
                     <Form onSubmit={this.onSubmitEventHandler}>
                     
-                        <FloatingLabel controlId="passwordbaru" label="Password Lama" value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler}>
-                            <Form.Control type="password" className="mb-3 bg-white" placeholder="Password Lama" autoComplete="off"/>
+                        <FloatingLabel controlId="passwordlama" label="Password Lama" value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler}>
+                            <Form.Control type={showPassword ? "text" : "password"} className="mb-3 bg-white" placeholder="Password Lama" autoComplete="off"/>
+                        <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>{showPassword ? "Hide" : "Show"}</Button>
                         </FloatingLabel>
                         
                         <FloatingLabel controlId="passwordbaru" label="Password Baru" value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler}>
-                            <Form.Control type="password" className="mb-3 bg-white" placeholder="Password Baru" autoComplete="off"/>
+                            <Form.Control type={showPassword2 ? "text" : "password"} className="mb-3 bg-white" placeholder="Password Baru" autoComplete="off"/>
+                        <Button variant="btn" onClick={this.toggleShowPassword2} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>{showPassword2 ? "Hide" : "Show"}</Button>
                         </FloatingLabel>
                         <div className="text-center">
                             <button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan {" "} </button>

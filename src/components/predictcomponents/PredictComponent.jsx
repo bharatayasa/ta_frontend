@@ -63,7 +63,7 @@ function PredictComponent() {
 	}, []);
 
 	return (
-		<div className="py-5">
+		<div className="py-5 min-vh-100">
 		<Container>
 		<div className="text-center">
 			<h2>Upload Gambar Daun Tomat</h2>

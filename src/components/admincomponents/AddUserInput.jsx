@@ -16,6 +16,7 @@ class AddUserInput extends React.Component {
             password: '',
             role: '',
             show: false,
+            showPassword: false
         };
 
         this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
@@ -71,7 +72,15 @@ class AddUserInput extends React.Component {
         this.setState({ show: false });
     }
 
+    toggleShowPassword = () => {
+        this.setState((prevState) => ({
+            showPassword: !prevState.showPassword,
+        }));
+    }
+
     render() {
+        const { showPassword } = this.state;
+
         return (
             <div>
                 <Button variant="primary" onClick={this.handleShow} className='mb-3'>
@@ -97,7 +106,10 @@ class AddUserInput extends React.Component {
                             </FloatingLabel>
 
                             <FloatingLabel controlId="floatingEmail" label="Password" value={this.state.password} onChange={this.onPasswordChangeEventHandler} className='mb-3'>
-                                <Form.Control type="password" placeholder="Email" autoComplete="off"/>
+                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Email" autoComplete="off"/>
+                            <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
+                            {showPassword ? "Hide" : "Show"}
+                            </Button>
                             </FloatingLabel>
 
                             <FloatingLabel controlId="floatingSelect" label="Pilih Peran">

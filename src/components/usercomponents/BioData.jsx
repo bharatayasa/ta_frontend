@@ -4,8 +4,6 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { getUserLogged } from "../../utils/api";
-import ChangePassword from "./ChangePassword";
-import EditProfile from "./EditProfile";
 
 class BioData extends Component {
     constructor(props) {
@@ -43,13 +41,11 @@ class BioData extends Component {
     render() {
         return (
             <div>
-            <Button variant="primary" onClick={this.handleShow}> {" "} Data Diri {" "}</Button>
+            
+            <h5 variant="secoundary" onClick={this.handleShow}> {" "} Data Diri {" "}</h5>
+
             <Modal show={this.state.show} onHide={this.handleClose} className="py-5">
-                <Modal.Header>
-                    <Modal.Title>Data Diri</Modal.Title>
-                    <EditProfile />
-                    <ChangePassword />
-                </Modal.Header>
+                    <h3 className="text-center mt-3">Data Diri</h3>
                 <Modal.Body className="lg">
                     <Form>
                         <FloatingLabel controlId="floatingUsername" label="Username : ">

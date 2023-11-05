@@ -6,9 +6,14 @@ import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Dropdown from 'react-bootstrap/Dropdown';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import { navLinks } from "../../utils/navbarUser";
 
 import BioData from "./BioData";
+import ChangePassword from "./ChangePassword";
+import EditProfile from "./EditProfile";
 
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
@@ -48,8 +53,24 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
-                            <BioData />
-                            <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
+                            <Nav className="">
+                            <NavDropdown title="My Profile" className="text-center">
+                                <div className="text-center">
+                                    <Dropdown.Item>
+                                        <BioData />
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        <EditProfile />
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        <ChangePassword />
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
+                                    </Dropdown.Item>
+                                </div>
+                            </NavDropdown>
+                            </Nav>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>

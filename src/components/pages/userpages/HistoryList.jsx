@@ -6,7 +6,7 @@ import moment from "moment";
 
 function HistoryList({ savepredict, onDelete }) {
     return (
-        <div>
+        <div className="min-vh-100">
         {savepredict.map((predict) => (
             <Accordion defaultActiveKey={predict.id} className="mb-3">
                 <Accordion.Item>
