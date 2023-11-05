@@ -84,7 +84,7 @@ class RegisterInput extends React.Component {
                                     <img style={{ width: '100%' }} src={Tomatigirl} alt="Tomatigirl" />
                                 </div>
                             </Col>
-                            <Col lg="6" className='pt-lg-0 pt-5'>
+                            <Col lg="6" className='pt-lg-0 pt-5 py-5'>
                                 <MDBCard className='my-5 bg-glass'>
                                     <MDBCardBody className='p-4'>
                                     <Form className='mb-3' onSubmit={this.onSubmitHandler}>
@@ -115,7 +115,7 @@ class RegisterInput extends React.Component {
                                         <div className='text-center mt-5'>
                                             <Button variant="primary" type="submit" className='w-100'>Register</Button>
                                         </div>
-                                        <p className='text-center mt-5'>Kembali ke <Link to="/">Login</Link></p>
+                                        <p className='text-center mt-3'>Kembali ke <Link to="/">Login</Link></p>
                                     </Form>
                                     </MDBCardBody>
                                 </MDBCard>
