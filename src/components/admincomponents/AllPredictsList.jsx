@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import Accordion from 'react-bootstrap/Accordion';
-import DeleteButton from "../usercomponent/DeleteButton";
+import DeleteButton from "../DeleteButton";
 import moment from 'moment';
 
 function AllPredictList({ savepredict, onDelete }) {

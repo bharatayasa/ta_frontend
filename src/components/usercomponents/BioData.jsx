@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { getUserLogged } from "../../utils/api";
-import EditProfile from "./EditProfile"
-import ChangePassword from "./ChangePassword"
+import ChangePassword from "./ChangePassword";
+import EditProfile from "./EditProfile";
 
-class DataDiri extends Component {
+class BioData extends Component {
     constructor(props) {
         super(props);
 
@@ -72,4 +72,4 @@ class DataDiri extends Component {
     }
 }
 
-export default DataDiri;
+export default BioData;

@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "../DeleteButton";
 import EditUser from "./EditUser";
 import moment from "moment";
 
-function UsersList({ users, onDelete}) {
+function AllUsersList({ users, onDelete}) {
 	return (
 		<div>
 			<Table striped bordered hover responsive>
@@ -47,7 +47,7 @@ function UsersList({ users, onDelete}) {
 	);
 }
 
-UsersList.propTypes = {
+AllUsersList.propTypes = {
 	users: PropTypes.arrayOf(
 	PropTypes.shape({
 		id: PropTypes.number.isRequired,
@@ -62,4 +62,4 @@ UsersList.propTypes = {
 	onDelete: PropTypes.func.isRequired,
 };
 
-export default UsersList;
+export default AllUsersList;

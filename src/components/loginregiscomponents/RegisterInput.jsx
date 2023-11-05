@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Container, Card, CardBody } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-import { MDBContainer, MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
-
-import Tomatigirl from '../assets/img/tomatigirl.png';
+import Tomatigirl from '../../assets/img/tomatigirl.png'
 
 class RegisterInput extends React.Component {
     constructor(props) {
@@ -77,7 +75,7 @@ class RegisterInput extends React.Component {
         return (
             <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
                 <div className="container">
-                    <MDBContainer>
+                    <Container>
                         <Row>
                             <Col lg="6" className='pt-lg-0 pt-5'>
                                 <div className="py-5">
@@ -85,8 +83,8 @@ class RegisterInput extends React.Component {
                                 </div>
                             </Col>
                             <Col lg="6" className='pt-lg-0 pt-5 py-5'>
-                                <MDBCard className='my-5 bg-glass'>
-                                    <MDBCardBody className='p-4'>
+                                <Card className='my-5 bg-glass'>
+                                    <CardBody className='p-4'>
                                     <Form className='mb-3' onSubmit={this.onSubmitHandler}>
                                         <div className='text-center'>
                                             <h1>Register</h1>
@@ -117,11 +115,11 @@ class RegisterInput extends React.Component {
                                         </div>
                                         <p className='text-center mt-3'>Kembali ke <Link to="/">Login</Link></p>
                                     </Form>
-                                    </MDBCardBody>
-                                </MDBCard>
+                                    </CardBody>
+                                </Card>
                             </Col>
                         </Row>
-                    </MDBContainer>
+                    </Container>
                 </div>
             </div>
         );

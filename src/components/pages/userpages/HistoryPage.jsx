@@ -1,6 +1,6 @@
 import React from "react";
-import { getPredictUser, deleteHistory } from "../utils/api";
-import AccordionList from "../component/predictcomponent/AccordionList";
+import { getPredictUser, deleteHistory } from "../../../utils/api";
+import HistoryList from "./HistoryList";
 
 function DataPredictWrapper({ keywordChange }) {
     return <HistoryPage keywordChange={keywordChange} />;
@@ -52,7 +52,7 @@ class HistoryPage extends React.Component {
         return (
             <div className="container py-5">
                 <h1 className="text-center mb-5">History prediksi</h1>
-                <AccordionList savepredict={this.state.users} onDelete={this.onDeleteHandler} />
+                <HistoryList savepredict={this.state.users} onDelete={this.onDeleteHandler} />
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import HeroImage from '../assets/img/kebun_tomat.png'
+import HeroImage from '../../../assets/img/kebun_tomat.png'
 
 function HomePage() {
     return(

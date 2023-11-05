@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Accordion from 'react-bootstrap/Accordion';
-import DeleteButton from "../usercomponent/DeleteButton";
+import DeleteButton from "../../DeleteButton";
 import moment from "moment";
 
-function AccordionList({ savepredict, onDelete }) {
+function HistoryList({ savepredict, onDelete }) {
     return (
         <div>
         {savepredict.map((predict) => (
@@ -25,7 +25,7 @@ function AccordionList({ savepredict, onDelete }) {
     );
 }
 
-AccordionList.propTypes = {
+HistoryList.propTypes = {
     savepredict: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
@@ -40,4 +40,4 @@ AccordionList.propTypes = {
     onDelete: PropTypes.func.isRequired,
 };
 
-export default AccordionList;
+export default HistoryList;

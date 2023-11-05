@@ -1,12 +1,12 @@
 import React from "react";
-import { getAllPredict, deleteHistory } from "../utils/api";
-import AllPredictList from "../component/predictcomponent/AllPredictList";
+import { getAllPredict, deleteHistory } from "../../../utils/api";
+import AllPredictList from "../../admincomponents/AllPredictsList";
 
-function DataPredictWrapper({ keywordChange }) {
-    return <PrediksiPage keywordChange={keywordChange} />;
+function PredictDataWraper({ keywordChange }) {
+    return <PredictsData keywordChange={keywordChange} />;
 }
 
-class PrediksiPage extends React.Component {
+class PredictsData extends React.Component {
     constructor(props) {
         super(props);
 
@@ -61,4 +61,4 @@ class PrediksiPage extends React.Component {
     }
 }
 
-export default DataPredictWrapper;
+export default PredictDataWraper;

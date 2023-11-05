@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import LoginInput from "../component/LoginInput";
-import { login } from "../utils/api";
+import LoginInput from "../../loginregiscomponents/LoginInput";
+import { login } from "../../../utils/api";
 
 function LoginPage({loginSuccess}) {
     async function onLogin({username, password}) {
-        const {eror, data } = await login({username, password}); 
+        const {error, data } = await login({username, password}); 
 
-        if (!eror) {
+        if (!error) {
             loginSuccess(data); 
         }
     }

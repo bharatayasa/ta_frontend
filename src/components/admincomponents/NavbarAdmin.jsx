@@ -6,7 +6,9 @@ import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { navLinksAdmin } from "../utils/navadmin";
+import { navLinksAdmin } from "../../utils/navbarAdmin";
+
+
 function NavbarAdmin({logout, name}) {
     const [changeColor, setChangeColor] = useState (false);
 

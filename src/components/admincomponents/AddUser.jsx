@@ -1,7 +1,7 @@
 import React from 'react';
 import { adduser } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-import AddUserModal from './AddUserModal';
+import AddUserInput from './AddUserInput';
 
 function AddUser() {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ function AddUser() {
     }
     
     return (
-        <AddUserModal adduser={onAddUserHandler}/>
+        <AddUserInput adduser={onAddUserHandler}/>
     )
 }
 

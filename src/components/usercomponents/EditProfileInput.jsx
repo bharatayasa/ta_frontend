@@ -6,7 +6,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import PropTypes from "prop-types";
 import { getUserLogged } from "../../utils/api";
 
-class UserData extends Component {
+class EditProfileInput extends Component {
     constructor(props) {
         super(props);
 
@@ -96,8 +96,8 @@ class UserData extends Component {
     }
 }
 
-UserData.propTypes = {
+EditProfileInput.propTypes = {
     updateMe: PropTypes.func.isRequired,
 };
 
-export default UserData;
+export default EditProfileInput;

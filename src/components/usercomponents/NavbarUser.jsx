@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { navLinks } from "../utils";
+import { navLinks } from "../../utils/navbarUser";
 
-import DataDiri from "./usercomponent/DataDiri";
+import BioData from "./BioData";
 
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
@@ -48,7 +48,7 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
-                            <DataDiri />
+                            <BioData />
                             <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
                         </Navbar.Collapse>
                         </Container>

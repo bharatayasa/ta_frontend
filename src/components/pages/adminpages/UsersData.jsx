@@ -1,21 +1,21 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import UsersList from "../component/usercomponent/UsersList";
-import { getUsers, deleteUser } from "../utils/api"
+import AllUsersList from "../../admincomponents/AllUsersList";
+import { getUsers, deleteUser } from "../../../utils/api";
 import { useSearchParams } from 'react-router-dom';
-import SearchBar from "../component/usercomponent/SearchBar";
-import AddUser from "../component/usercomponent/AddUser";
+import SearchBar from "../../admincomponents/SearchBar";
+import AddUser from "../../admincomponents/AddUser";
 
-function DataUsersWrapper() {
+function UsersDatasWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
     const keyword = searchParams.get('keyword');
     function changeSearchParams(keyword) {
         setSearchParams({ keyword });
         }
-        return <DataUser defaultKeyword={keyword} keywordChange={changeSearchParams} />
+        return <UsersData  defaultKeyword={keyword} keywordChange={changeSearchParams} />
 }
 
-class DataUser extends React.Component {
+class UsersData  extends React.Component {
     constructor(props) {
         super(props);
     
@@ -72,7 +72,7 @@ class DataUser extends React.Component {
                     <h2 className="text-center">Data Users</h2>
                     <AddUser />
                     <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
-                    <UsersList users={users} onDelete={this.onDeleteHandler} />
+                    <AllUsersList users={users} onDelete={this.onDeleteHandler} />
                 </section>
                 </div>
             </Container>
@@ -80,4 +80,4 @@ class DataUser extends React.Component {
         }
     }
 
-    export default DataUsersWrapper;
+    export default UsersDatasWrapper;

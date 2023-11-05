@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-class AddUserModal extends React.Component {
+class AddUserInput extends React.Component {
     constructor(props) {
         super(props);
 
@@ -84,19 +84,19 @@ class AddUserModal extends React.Component {
                     </Modal.Header>
                     <Modal.Body className='lg'>
                         <Form noValidate onSubmit={this.onSubmitEventHandler}>
-                            <FloatingLabel controlId="floatingUsername" label="Username : " value={this.state.username} onChange={this.onUsernameChangeEventHandler}>
+                            <FloatingLabel controlId="floatingUsername" label="Username" value={this.state.username} onChange={this.onUsernameChangeEventHandler}>
                                 <Form.Control type="text" placeholder="Username" className='mb-3' autoComplete="off"/>
                             </FloatingLabel>
 
-                            <FloatingLabel controlId="floatingName" label="Name : " value={this.state.name} onChange={this.onNameChangeEventHandler} className='mb-3'>
+                            <FloatingLabel controlId="floatingName" label="Name" value={this.state.name} onChange={this.onNameChangeEventHandler} className='mb-3'>
                                 <Form.Control type="text" placeholder="Name" autoComplete="off"/>
                             </FloatingLabel>
 
-                            <FloatingLabel controlId="floatingEmail" label="E-Mail : " value={this.state.email} onChange={this.onEmailChangeEventHandler} className='mb-3'>
+                            <FloatingLabel controlId="floatingEmail" label="E-Mail" value={this.state.email} onChange={this.onEmailChangeEventHandler} className='mb-3'>
                                 <Form.Control type="email" placeholder="Email" autoComplete="off"/>
                             </FloatingLabel>
 
-                            <FloatingLabel controlId="floatingEmail" label="Password : " value={this.state.password} onChange={this.onPasswordChangeEventHandler} className='mb-3'>
+                            <FloatingLabel controlId="floatingEmail" label="Password" value={this.state.password} onChange={this.onPasswordChangeEventHandler} className='mb-3'>
                                 <Form.Control type="password" placeholder="Email" autoComplete="off"/>
                             </FloatingLabel>
 
@@ -119,8 +119,8 @@ class AddUserModal extends React.Component {
     }
 }
 
-AddUserModal.propTypes = {
+AddUserInput.propTypes = {
     adduser: PropTypes.func.isRequired,
 };
 
-export default AddUserModal;
+export default AddUserInput;
