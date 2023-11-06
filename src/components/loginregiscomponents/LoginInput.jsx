@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Col, Row, Container, Card, CardBody } from 'react-bootstrap';
+import { Col, Row, Card, CardBody } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -59,71 +59,54 @@ class LoginInput extends Component {
         const { showPassword } = this.state;
     
         return (
-            <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
-                <div className='container'>
-                    <Container>
-                        <Row className='py-5'>
-                            <Col md='6'>
-                                <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-                                    Solusi Mudah <br />
+            <div className='mx-auto bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-vh-100'>
+                <div className='py-5 container'>
+                        <Row>
+                            <Col>
+                                <h1 className="">
+                                    Solusi Mudah <br/>
                                     <span>Untuk mendeteksi penyakit tomat</span>
                                 </h1>
-                                <p className='px-3'>
+                                <p className=''>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Eveniet, itaque accusantium odio, soluta, corrupti aliquam
                                     quibusdam tempora at cupiditate quis eum maiores libero
                                     veritatis? Dicta facilis sint aliquid ipsum atque?
                                 </p>
                             </Col>
-                            <Col md='6'>
-                                <Card className='my-5 bg-glass'>
-                                    <CardBody className='p-3'>
-                                        <Form className='container mb-3' onSubmit={this.onSubmitHandler}>
-                                            <div className='text-center'>
+
+                            <Col>
+                                <Card>
+                                    <CardBody className=''>
+                                        <div className='backdrop-blur-sm bg-white/30'>
+                                        <form onSubmit={this.onSubmitHandler}>
+                                            <div className='mb-3'>
                                                 <h1>Login</h1>
                                             </div>
-                                            <FloatingLabel
-                                                controlId="floatingInput"
-                                                label="Username"
-                                                className="mb-4"
-                                            >
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder="Username"
-                                                    autoComplete="off"
-                                                    value={this.state.username}
-                                                    onChange={this.onUsernameChangeHandler}
-                                                />
+                                            <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
+                                                <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChangeHandler} />
                                             </FloatingLabel>
-                                            <FloatingLabel controlId="floatingPassword" label="Password">
-                                                <Form.Control
-                                                    type={showPassword ? "text" : "password"}
-                                                    placeholder="Password"
-                                                    value={this.state.password}
-                                                    onChange={this.onPasswordChangeHandler}
-                                                />
-                                                <Button
-                                                    variant="btn"
-                                                    onClick={this.toggleShowPassword}
-                                                    style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}
-                                                >
+
+                                            <FloatingLabel controlId="floatingPassword" label="Password" className='mb-3'>
+                                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChangeHandler} />
+                                                <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }} >
                                                     {showPassword ? "Hide" : "Show"}
                                                 </Button>
                                             </FloatingLabel>
-                                            <div className='text-center mt-5'>
-                                                <Button variant="primary" type="submit" className='w-100'>
+                                            <div className=''>
+                                                <Button type="submit" className='w-100'>
                                                     Login
                                                 </Button>
                                             </div>
-                                            <div className="text-center mt-3">
+                                            <div className="">
                                                 <p>Belum punya akun..? <Link to="/register">Register Disini</Link></p>
                                             </div>
-                                        </Form>
+                                        </form>
+                                        </div>
                                     </CardBody>
                                 </Card>
                             </Col>
                         </Row>
-                    </Container>
                 </div>
             </div>
         );
