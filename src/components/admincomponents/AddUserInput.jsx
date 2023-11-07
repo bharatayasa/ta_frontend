@@ -83,9 +83,9 @@ class AddUserInput extends React.Component {
 
         return (
             <div>
-                <Button variant="primary" onClick={this.handleShow} className='mb-3'>
+                <button onClick={this.handleShow} className='text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3'>
                     tambah user
-                </Button>
+                </button>
 
                 <Modal show={this.state.show} onHide={this.handleClose} className='py-5'>
                     <Modal.Header>

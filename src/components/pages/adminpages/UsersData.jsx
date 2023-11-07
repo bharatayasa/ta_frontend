@@ -66,16 +66,16 @@ class UsersData  extends React.Component {
             );
         });
         return (
-            <Container>
-                <div className="py-5">
+            <div className="mx-auto bg-slate-300 min-vh-100">
+                <div className="py-5 container">
                 <section>
-                    <h2 className="text-center">Data Users</h2>
+                    <h2 className="text-center text-2xl mt-5">Data Users</h2>
                     <AddUser />
                     <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                     <AllUsersList users={users} onDelete={this.onDeleteHandler} />
                 </section>
                 </div>
-            </Container>
+            </div>
             )
         }
     }

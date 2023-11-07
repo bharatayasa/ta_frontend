@@ -23,27 +23,6 @@ function HomePage() {
                 </Row>
                 </Container>
             </header>
-
-            <div className='kelas w-100 min-vh-100' data-aos="fade-up" data-aos-duration="2000">
-                <Container>
-                <Row>
-                    <Col>
-                    <h1 className='text-center fw-bold'>prediksi sekarang</h1>
-                    <p className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </Col>
-                </Row>
-                <Row>
-                    
-                </Row>
-                <Row>
-                    <Col className='text-center'>
-                    <button className='btn btn-success rounded-5 btn-lg'>prediksi sekarang
-                    <i className='fa-solid fa-chevron-right ms-1'></i>
-                    </button>
-                    </Col>
-                </Row>
-                </Container>
-            </div> 
         </div>
     )
 }

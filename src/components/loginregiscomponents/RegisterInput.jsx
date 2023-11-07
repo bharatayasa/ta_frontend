@@ -73,11 +73,9 @@ class RegisterInput extends React.Component {
         return (
             <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 h-screen flex flex-col justify-center items-center'>
             <section>
-                <div className='container'>
                 <div className='flex flex-wrap justify-center items-center'>
-
                     <div className='w-full self-center px-9 lg:w-1/2'>
-                    <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
+                        <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
                     </div>
 
                     <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
@@ -115,18 +113,17 @@ class RegisterInput extends React.Component {
                         </div>
 
                         <div className='text-center'>
-                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out' >
+                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
                             Register
                             </button>
                         </div>
-                        <p className='text-center mt-3'>
+                        <p className='text-center mb-4'>
                             Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
                         </p>
                         </form>
                     </div>
                     </div>
 
-                </div>
                 </div>
             </section>
             </div>

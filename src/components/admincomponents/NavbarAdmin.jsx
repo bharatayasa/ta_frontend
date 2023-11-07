@@ -30,7 +30,7 @@ function NavbarAdmin({logout, name}) {
         <div>
             <div className='navbar'>
                 <nav className="bg-body-tertiary">
-                    <Navbar expand="lg" className={changeColor ? "color-active" : ""}>
+                    <Navbar expand="lg" className={changeColor ? "backdrop-blur-sm shadow-sm" : ""}>
                         <Container>
                         <Navbar.Brand className='fs-3 fw-bold'> Admin </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />

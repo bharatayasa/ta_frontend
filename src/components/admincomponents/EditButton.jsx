@@ -67,7 +67,7 @@ class EditButton extends React.Component {
 render() {
     return (
 		<>
-			<Button variant="primary" onClick={this.handleShow} className="m-2"> {" "} Ubah {" "}</Button>
+			<button variant="primary" onClick={this.handleShow} className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md"> {" "} Ubah {" "}</button>
 
 			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
 			<Modal.Header>

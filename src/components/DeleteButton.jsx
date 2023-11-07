@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function DeleteButton({ id, onDelete }) {
     return (
-        <button className='btn btn-danger' onClick={() => onDelete(id)}>Hapus</button>
+        <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={() => onDelete(id)}>Hapus</button>
     )
 }
 

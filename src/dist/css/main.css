@@ -8,10 +8,9 @@
 
 :root {
     --primary-color: #f6f8fd;
-    --secondary-color: #dc3545;
+    --secondary-color: #34d399;
     --color-text: #231942;
     --navbar-color: #ffffff;
-    --navbar-color-text: #000000;
 }
 
 .background-radial-gradient {
@@ -49,13 +48,14 @@ div .navbar {
 }
 
 .navbar .nav-link a {
-    padding-top: 5px;
+    padding-top: 10px;
     padding-right: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     padding-left: 10px;
     font-weight: 500px;
     text-decoration: none;
     color: var(--navbar-color-text);
+    border-radius: 5px; 
 }
 
 .navbar .nav-link a:hover {
@@ -71,7 +71,4 @@ div .navbar {
     color: var(--navbar-color);
 }
 
-.navbar {
-    background-color: var(--navbar-color);
-}
 /* end navbar style */

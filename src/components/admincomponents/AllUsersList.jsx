@@ -8,41 +8,49 @@ import moment from "moment";
 function AllUsersList({ users, onDelete}) {
 	return (
 		<div>
-			<Table striped bordered hover responsive>
-			<thead>
-				<tr className="text-center">
-					<th>No</th>
-					<th>ID</th>
-					<th>Username</th>
-					<th>Name</th>
-					<th>Role</th>
-					<th>E-mail</th>
-					<th>Created at</th>
-					<th>Updated at</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				{users.map((user, index) => (
-				<tr key={user.id}>
-					<td className="text-center">
-					<b>{index + 1}</b>
-					</td>
-					<td className="text-center">{user.id}</td>
-					<td>{user.username}</td>
-					<td>{user.name}</td>
-					<td>{user.role}</td>
-					<td>{user.email}</td>
-					<td>{moment(user.created_at).format('DD MMMM YYYY')}</td>
-					<td>{moment(user.updated_at).format('DD MMMM YYYY')}</td>
-					<td className="text-center">
-					<EditUser user={user}/>
-					<DeleteButton id={user.id} onDelete={onDelete} />
-					</td>
-				</tr>
-				))}
-			</tbody>
-			</Table>
+			<div>
+				<Table>
+				<thead>
+					<tr className="text-center">
+						<th>No</th>
+						<th>ID</th>
+						<th>Username</th>
+						<th>Name</th>
+						<th>Role</th>
+						<th>E-mail</th>
+						<th>Created at</th>
+						<th>Updated at</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody className="bg-transparent">
+					{users.map((user, index) => (
+					<tr key={user.id}>
+						<td className="text-center">
+						<b>{index + 1}</b>
+						</td>
+						<td className="text-center">{user.id}</td>
+						<td>{user.username}</td>
+						<td>{user.name}</td>
+						<td>{user.role}</td>
+						<td>{user.email}</td>
+						<td>{moment(user.created_at).format('DD MMMM YYYY')}</td>
+						<td>{moment(user.updated_at).format('DD MMMM YYYY')}</td>
+						<td className="text-center">
+						<div className="flex justify-evenly">
+							<div>
+								<EditUser user={user}/>
+							</div>
+							<div>
+								<DeleteButton id={user.id} onDelete={onDelete} />
+							</div>
+						</div>
+						</td>
+					</tr>
+					))}
+				</tbody>
+				</Table>
+			</div>
 		</div>
 	);
 }

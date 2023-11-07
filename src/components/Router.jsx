@@ -4,7 +4,8 @@ import { Route, Routes } from "react-router-dom";
 // Users Page
 import NavbarUsers from "./usercomponents/NavbarUser";
 import HomePage from "./pages/userpages/HomePage";
-import PredictComponent from "./predictcomponents/PredictComponent";
+// import PredictComponent from "./predictcomponents/PredictComponent";
+import PredictPage from "./pages/predict/PredictPage";
 import HistoryPage from "./pages/userpages/HistoryPage"
 import AboutPage from "./pages/userpages/AboutPage";
 import FooterComponent from "./FooterComponent";
@@ -101,7 +102,7 @@ class Router extends React.Component {
                     <main>
                         <Routes>
                             <Route path="/" element={<HomePage />}/>
-                            <Route path="/predict" element={<PredictComponent />}/>
+                            <Route path="/predict" element={<PredictPage />}/>
                             <Route path="/history" element={<HistoryPage />}/>
                             <Route path="/about" element={<AboutPage />}/>
                         </Routes>

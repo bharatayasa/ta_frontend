@@ -32,10 +32,10 @@ function NavbarComponent({logout}) {
     })
 
     return(
-        <div>
+        <div className="bg-transparent">
             <div className='navbar'>
                 <nav className="bg-body-tertiary">
-                    <Navbar expand="lg" className={changeColor ? "color-active" : ""}>
+                    <Navbar expand="lg" className={changeColor ? "backdrop-blur-sm shadow-sm" : ""}>
                         <Container>
                         <Navbar.Brand className='fs-3 fw-bold'> Tomatify </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
