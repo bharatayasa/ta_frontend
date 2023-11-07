@@ -75,11 +75,3 @@ div .navbar {
     background-color: var(--navbar-color);
 }
 /* end navbar style */
-
-
-/* homepage style */
-header {
-    background: #c6ffdd;
-    background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);
-    background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
-}

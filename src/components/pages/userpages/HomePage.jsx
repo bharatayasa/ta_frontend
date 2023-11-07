@@ -5,7 +5,7 @@ import HeroImage from '../../../assets/img/kebun_tomat.png'
 function HomePage() {
     return(
         <div>
-            <header className='w-100 min-vh-100 d-flex align-items-center py-5'>
+            <header className='mx-auto bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-vh-100'>
                 <Container>
                 <Row className='header-box d-flex align-items-center pt-lg-5'>
                     <Col lg="6" >

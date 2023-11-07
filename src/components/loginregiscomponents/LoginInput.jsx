@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Col, Row, Card, CardBody } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
@@ -59,55 +57,57 @@ class LoginInput extends Component {
         const { showPassword } = this.state;
     
         return (
-            <div className='mx-auto bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-vh-100'>
-                <div className='py-5 container'>
-                        <Row>
-                            <Col>
-                                <h1 className="">
-                                    Solusi Mudah <br/>
-                                    <span>Untuk mendeteksi penyakit tomat</span>
-                                </h1>
-                                <p className=''>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-                                    quibusdam tempora at cupiditate quis eum maiores libero
-                                    veritatis? Dicta facilis sint aliquid ipsum atque?
-                                </p>
-                            </Col>
+            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col justify-center items-center'>
+                <section>
+                    <div className='container'>
+                    <div className='flex flex-wrap justify-center items-center'>
+                        {/*  */}
+                        <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
+                        <h1 className='text-4xl font-semibold mb-3 leading-10'>
+                            Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
+                        </h1>
+                        <p className='text-2xl leading-relaxed text-slate-500'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora at cupiditate quis eum maiores liber veritatis? Dicta facilis sint aliquid ipsumatque?
+                        </p>
+                        </div>
+                        {/*  */}
+                        <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
+                        <div className='mt-10'>
+                            <Form onSubmit={this.onSubmitHandler}>
+                            <div className='text-center text-2xl mt-4 mb-3 font-semibold'>
+                                <h1>Login</h1>
+                            </div>
+                            
+                            <div className='mr-3 ml-3 mb-3 shadow-sm'>
+                                <FloatingLabel controlId="floatingInput" label="Username">
+                                <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChangeHandler} />
+                                </FloatingLabel>
+                            </div>
 
-                            <Col>
-                                <Card>
-                                    <CardBody className=''>
-                                        <div className='backdrop-blur-sm bg-white/30'>
-                                        <form onSubmit={this.onSubmitHandler}>
-                                            <div className='mb-3'>
-                                                <h1>Login</h1>
-                                            </div>
-                                            <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
-                                                <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChangeHandler} />
-                                            </FloatingLabel>
+                            <div className='mr-3 ml-3 mb-5 shadow-sm'>
+                                <FloatingLabel controlId="floatingPassword" label="Password">
+                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChangeHandler} />
+                                <Link onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }} >
+                                    {showPassword ? "Hide" : "Show"}
+                                </Link>
+                                </FloatingLabel>
+                            </div>
 
-                                            <FloatingLabel controlId="floatingPassword" label="Password" className='mb-3'>
-                                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChangeHandler} />
-                                                <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }} >
-                                                    {showPassword ? "Hide" : "Show"}
-                                                </Button>
-                                            </FloatingLabel>
-                                            <div className=''>
-                                                <Button type="submit" className='w-100'>
-                                                    Login
-                                                </Button>
-                                            </div>
-                                            <div className="">
-                                                <p>Belum punya akun..? <Link to="/register">Register Disini</Link></p>
-                                            </div>
-                                        </form>
-                                        </div>
-                                    </CardBody>
-                                </Card>
-                            </Col>
-                        </Row>
-                </div>
+                            <div className='text-center'>
+                                <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out'>
+                                Login
+                                </button>
+                            </div>
+                            <div className="text-center mb-4">
+                                <p>Belum punya akun..? <Link to="/register"><span className='text-blue-500'>Register Disini</span></Link></p>
+                            </div>
+                            </Form>
+                        </div>
+                        </div>
+                        {/*  */}
+                    </div>
+                    </div>
+                </section>
             </div>
         );
     }

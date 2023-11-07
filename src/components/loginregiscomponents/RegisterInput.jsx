@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
-import { Col, Row, Container, Card, CardBody } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import Tomatigirl from '../../assets/img/tomatigirl.png'
@@ -73,55 +71,66 @@ class RegisterInput extends React.Component {
         const { showPassword } = this.state;
 
         return (
-            <div className='background-radial-gradient w-100 min-vh-100 d-flex align-items-center'>
-                <div className="container">
-                    <Container>
-                        <Row>
-                            <Col lg="6" className='pt-lg-0 pt-5'>
-                                <div className="py-5">
-                                    <img style={{ width: '100%' }} src={Tomatigirl} alt="Tomatigirl" />
-                                </div>
-                            </Col>
-                            <Col lg="6" className='pt-lg-0 pt-5 py-5'>
-                                <Card className='my-5 bg-glass'>
-                                    <CardBody className='p-4'>
-                                    <Form className='mb-3' onSubmit={this.onSubmitHandler}>
-                                        <div className='text-center'>
-                                            <h1>Register</h1>
-                                        </div>
-                                        <FloatingLabel
-                                            controlId="floatingInput" label="Username" className="mb-3">
-                                            <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChange} className="mb-4" />
-                                        </FloatingLabel>
+            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 h-screen flex flex-col justify-center items-center'>
+            <section>
+                <div className='container'>
+                <div className='flex flex-wrap justify-center items-center'>
 
-                                        <FloatingLabel
-                                            controlId="floatingInput" label="Name" className="mb-3">
-                                            <Form.Control type="text" placeholder="Name" autoComplete="off" value={this.state.name} onChange={this.onNameChange} className="mb-4" />
-                                        </FloatingLabel>
+                    <div className='w-full self-center px-9 lg:w-1/2'>
+                    <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
+                    </div>
 
-                                        <FloatingLabel
-                                            controlId="floatingInput" label="E-mail" className="mb-3">
-                                            <Form.Control type="email" placeholder="E-Mail" autoComplete="off" value={this.state.email} onChange={this.onEmailChange} className="mb-4" />
-                                        </FloatingLabel>
+                    <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
+                    <div className='mt-10'>
+                        <form onSubmit={this.onSubmitHandler} className="mb-3">
+                        <div className='text-center text-2xl mt-4 mb-3 font-semibold'>
+                            <h1>Register</h1>
+                        </div>
 
-                                        <FloatingLabel controlId="password" label="Password" className="mb-3">
-                                            <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} className="mb-4" autoComplete="off"/>
-                                            <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
-                                                {showPassword ? "Hide" : "Show"}
-                                            </Button>
-                                        </FloatingLabel>
-                                        <div className='text-center mt-5'>
-                                            <Button variant="primary" type="submit" className='w-100'>Register</Button>
-                                        </div>
-                                        <p className='text-center mt-3'>Kembali ke <Link to="/">Login</Link></p>
-                                    </Form>
-                                    </CardBody>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>
+                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
+                            <FloatingLabel controlId="floatingInput" label="Username">
+                            <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChange} />
+                            </FloatingLabel>
+                        </div>
+
+                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
+                            <FloatingLabel controlId="floatingInput" label="Name">
+                            <Form.Control type="text" placeholder="Name" autoComplete="off" value={this.state.name} onChange={this.onNameChange} />
+                            </FloatingLabel>
+                        </div>
+
+                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
+                            <FloatingLabel controlId="floatingInput" label="E-mail">
+                            <Form.Control type="email" placeholder="E-Mail" autoComplete="off" value={this.state.email} onChange={this.onEmailChange} />
+                            </FloatingLabel>
+                        </div>
+
+                        <div className='mr-3 ml-3 mb-5 shadow-sm'>
+                            <FloatingLabel controlId="password" label="Password">
+                            <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" />
+                            <Link variant="btn" onClick={this.toggleShowPassword} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
+                                {showPassword ? "Hide" : "Show"}
+                            </Link>
+                            </FloatingLabel>
+                        </div>
+
+                        <div className='text-center'>
+                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out' >
+                            Register
+                            </button>
+                        </div>
+                        <p className='text-center mt-3'>
+                            Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
+                        </p>
+                        </form>
+                    </div>
+                    </div>
+
                 </div>
+                </div>
+            </section>
             </div>
+
         );
     }
 }
