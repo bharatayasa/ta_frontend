@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 // Users Page
 import NavbarUsers from "./usercomponents/NavbarUser";
 import HomePage from "./pages/userpages/HomePage";
-// import PredictComponent from "./predictcomponents/PredictComponent";
 import PredictPage from "./pages/predict/PredictPage";
 import HistoryPage from "./pages/userpages/HistoryPage"
 import AboutPage from "./pages/userpages/AboutPage";
@@ -20,6 +19,8 @@ import LoginPage from "./pages/loginregispages/LoginPage";
 import RegisterPage from "./pages/loginregispages/RegisterPage";
 
 import { getUserLogged, putAccessToken } from "../utils/api";
+
+// import tes from "./tes";
 
 class Router extends React.Component {
     constructor(props) {

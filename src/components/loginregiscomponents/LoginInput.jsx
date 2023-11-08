@@ -62,10 +62,10 @@ class LoginInput extends Component {
                     <div className='container'>
                         <div className='flex flex-wrap justify-center items-center'>
                             <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
-                                <h1 className='text-4xl font-semibold mb-3 leading-10'>
+                                <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900'>
                                     Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
                                 </h1>
-                                <p className='text-2xl leading-relaxed text-slate-500'>
+                                <p className='text-2xl leading-relaxed text-slate-900'>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora at cupiditate quis eum maiores liber veritatis? Dicta facilis sint aliquid ipsumatque?
                                 </p>
                             </div>
@@ -73,7 +73,7 @@ class LoginInput extends Component {
                             <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
                             <div className='mt-10'>
                                 <Form onSubmit={this.onSubmitHandler}>
-                                <div className='text-center text-2xl mt-4 mb-3 font-semibold'>
+                                <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
                                     <h1>Login</h1>
                                 </div>
                                 
@@ -98,7 +98,7 @@ class LoginInput extends Component {
                                     </button>
                                 </div>
                                 <div className="text-center mb-4">
-                                    <p>Belum punya akun..? <Link to="/register"><span className='text-blue-500'>Register Disini</span></Link></p>
+                                    <p className='text-sky-900'>Belum punya akun..? <Link to="/register"><span className='text-blue-500'>Register Disini</span></Link></p>
                                 </div>
                                 </Form>
                             </div>

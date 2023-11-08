@@ -81,7 +81,7 @@ class RegisterInput extends React.Component {
                     <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
                     <div className='mt-10'>
                         <form onSubmit={this.onSubmitHandler} className="mb-3">
-                        <div className='text-center text-2xl mt-4 mb-3 font-semibold'>
+                        <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
                             <h1>Register</h1>
                         </div>
 
@@ -117,7 +117,7 @@ class RegisterInput extends React.Component {
                             Register
                             </button>
                         </div>
-                        <p className='text-center mb-4'>
+                        <p className='text-center mb-4 text-sky-900'>
                             Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
                         </p>
                         </form>
