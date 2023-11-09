@@ -6,16 +6,13 @@ import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Dropdown from 'react-bootstrap/Dropdown';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { navLinks } from "../../utils/navbarUser";
+import Tes from "../Tes";
 
 import BioData from "./BioData";
 import ChangePassword from "./ChangePassword";
 import EditProfile from "./EditProfile";
-
-import tes from "../tes";
 
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
@@ -57,6 +54,7 @@ function NavbarComponent({logout}) {
                             </Nav>
                         <div className='text-center'>
                             <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+                        <Tes />
                         </div>
                         </Navbar.Collapse>
                         </Container>

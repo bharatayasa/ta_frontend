@@ -65,7 +65,7 @@ class LoginInput extends Component {
                                 <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900'>
                                     Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
                                 </h1>
-                                <p className='text-2xl leading-relaxed text-slate-900'>
+                                <p className='text-2xl leading-relaxed text-slate-500'>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora at cupiditate quis eum maiores liber veritatis? Dicta facilis sint aliquid ipsumatque?
                                 </p>
                             </div>

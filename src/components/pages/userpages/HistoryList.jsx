@@ -10,11 +10,11 @@ function HistoryList({ savepredict, onDelete }) {
         <div className="">
         {savepredict.map((predict) => (
         <div className="">
-            <div className="mx-auto rounded-md bg-white/50 backdrop-blur-lg mb-3">
+            <div className="mx-auto rounded-xl bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
                 <Disclosure>
                 {({ open }) => (
                     <div>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                         <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
                         <ChevronUpIcon
                         className={`${
@@ -33,8 +33,8 @@ function HistoryList({ savepredict, onDelete }) {
                             <div>
                                 <p className="mb-2"><b>Jenis penyakit : </b>{predict.kelas}</p>
                                 <p className="mb-2"><b>Confidence : </b>{predict.confidence}</p>
-                                <p className="mb-2"><b>Deskripsi : </b>{predict.description}</p>
-                                <p className="mb-2"><b>Penanganan :  </b>{predict.prevention}</p>
+                                <p className="mb-2 text-justify"><b>Deskripsi : </b>{predict.description}</p>
+                                <p className="mb-2 text-justify"><b>Penanganan :  </b>{predict.prevention}</p>
                             </div>
                             <div className="text-center mb-2 mt-3">
                                 <DeleteButton id={predict.id} onDelete={onDelete}/>
