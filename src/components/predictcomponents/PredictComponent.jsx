@@ -82,8 +82,8 @@ function PredictComponent() {
 				Masukkan Gambar Daun Tomat
 				</h2>
 			<p className="lg:text-lg sm:text-xs text-slate-400">
-					masukkan gambar atau drag atau drop gambar ke dalam kotak
-				</p>
+				masukkan gambar atau drag atau drop gambar ke dalam kotak
+			</p>
 			</div>
 			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
 				<div className="mb-5 mt-5">
@@ -132,7 +132,7 @@ function PredictComponent() {
 				<Disclosure defaultOpen>
 					{({ open }) => (
 					<div>
-						<Disclosure.Button className="flex w-full justify-between rounded-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
+						<Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
 						<span>Deskripsi</span>
 						<ChevronUpIcon
 							className={`${
@@ -183,7 +183,7 @@ function PredictComponent() {
 				<Disclosure defaultOpen>
 					{({ open }) => (
 					<div>
-						<Disclosure.Button className="flex w-full justify-between rounded-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
+						<Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
 						<span>Cara Penanggulangan</span>
 						<ChevronUpIcon
 							className={`${

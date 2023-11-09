@@ -1,4 +1,4 @@
-import {React, Fragment} from "react";
+import { React, Fragment } from "react";
 import PropTypes from "prop-types";
 import DeleteButton from "../../DeleteButton";
 import moment from "moment";
@@ -9,43 +9,45 @@ function HistoryList({ savepredict, onDelete }) {
     return (
         <div className="">
         {savepredict.map((predict) => (
-        <div className="">
-            <div className="mx-auto rounded-xl bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
-                <Disclosure>
-                {({ open }) => (
-                    <div>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
-                        <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
-                        <ChevronUpIcon
-                        className={`${
-                            open ? 'rotate-180 transform' : ''
-                        } h-5 w-5 to-black font-semibold`}
-                        />
-                    </Disclosure.Button>
-                    <Transition as={Fragment}
-                            enter="transition ease-out duration-300"
-                            enterFrom="transform opacity-0 scale-95"
-                            enterTo="transform opacity-100 scale-100"
-                            leave="transition ease-in duration-75"
-                            leaveFrom="transform opacity-100 scale-100"
-                            leaveTo="transform opacity-0 scale-95">
-                        <Disclosure.Panel className="px-4 pt-4 pb-2">
+            <div className="" key={predict.id}>
+                <div className="mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
+                    <Disclosure>
+                        {({ open }) => (
                             <div>
-                                <p className="mb-2"><b>Jenis penyakit : </b>{predict.kelas}</p>
-                                <p className="mb-2"><b>Confidence : </b>{predict.confidence}</p>
-                                <p className="mb-2 text-justify"><b>Deskripsi : </b>{predict.description}</p>
-                                <p className="mb-2 text-justify"><b>Penanganan :  </b>{predict.prevention}</p>
+                                <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
+                                    <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
+                                    <ChevronUpIcon
+                                        className={`${
+                                            open ? 'rotate-180 transform' : ''
+                                            } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`}
+                                    />
+                                </Disclosure.Button>
+                                <Transition
+                                    as={Fragment}
+                                    enter="transition ease-in-out duration-300 transform"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="transition ease-in-out duration-300 transform"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Disclosure.Panel className="px-4 pt-4 pb-2 transform origin-center">
+                                        <div>
+                                            <p className="mb-2"><b>Jenis penyakit : </b>{predict.kelas}</p>
+                                            <p className="mb-2"><b>Confidence : </b>{predict.confidence}</p>
+                                            <p className="mb-2 text-justify"><b>Deskripsi : </b>{predict.description}</p>
+                                            <p className="mb-2 text-justify"><b>Penanganan :  </b>{predict.prevention}</p>
+                                        </div>
+                                        <div className="text-center mb-2 mt-3">
+                                            <DeleteButton id={predict.id} onDelete={onDelete} />
+                                        </div>
+                                    </Disclosure.Panel>
+                                </Transition>
                             </div>
-                            <div className="text-center mb-2 mt-3">
-                                <DeleteButton id={predict.id} onDelete={onDelete}/>
-                            </div>
-                        </Disclosure.Panel>
-                    </Transition>
-                    </div>
-                )}
-                </Disclosure>
+                        )}
+                    </Disclosure>
+                </div>
             </div>
-        </div>
         ))}
         </div>
     );

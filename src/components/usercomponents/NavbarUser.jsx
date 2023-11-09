@@ -52,9 +52,12 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
+                        <div className="mr-2">
+                            <Tes />
+                        </div>
+
                         <div className='text-center'>
                             <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
-                        <Tes />
                         </div>
                         </Navbar.Collapse>
                         </Container>
