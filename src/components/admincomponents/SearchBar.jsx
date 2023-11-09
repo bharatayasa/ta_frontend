@@ -7,7 +7,7 @@ function SearchBar({keyword, keywordChange}) {
         <Form>
         <Form.Group className="mb-3 w-50">
             <Form.Label>Cari User : </Form.Label>
-            <Form.Control type="text" placeholder="Cari berdasarkan Nama" value={keyword} onChange={(event) => keywordChange(event.target.value)} />
+            <Form.Control type="text" placeholder="Cari berdasarkan Name" value={keyword} onChange={(event) => keywordChange(event.target.value)} />
         </Form.Group>
         </Form>
     )

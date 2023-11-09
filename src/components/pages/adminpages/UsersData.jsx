@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import AllUsersList from "../../admincomponents/AllUsersList";
 import { getUsers, deleteUser } from "../../../utils/api";
 import { useSearchParams } from 'react-router-dom';
@@ -66,10 +65,10 @@ class UsersData  extends React.Component {
             );
         });
         return (
-            <div className="mx-auto bg-slate-300 min-vh-100">
+            <div className="mx-auto bg-slate-200 min-vh-100">
                 <div className="py-5 container">
                 <section>
-                    <h2 className="text-center text-2xl mt-5">Data Users</h2>
+                    <h2 className="text-center text-2xl mt-5 font-semibold text-sky-900">Data Users</h2>
                     <AddUser />
                     <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                     <AllUsersList users={users} onDelete={this.onDeleteHandler} />

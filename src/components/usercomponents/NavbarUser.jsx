@@ -15,6 +15,8 @@ import BioData from "./BioData";
 import ChangePassword from "./ChangePassword";
 import EditProfile from "./EditProfile";
 
+import tes from "../tes";
+
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
 
@@ -53,24 +55,9 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
-                            <Nav className="">
-                            <NavDropdown title="My Profile" className="text-center">
-                                <div className="text-center">
-                                    <Dropdown.Item>
-                                        <BioData />
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <EditProfile />
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <ChangePassword />
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <button className='btn btn-outline-danger rounded-1 m-3' onClick={logout}>Logout</button>
-                                    </Dropdown.Item>
-                                </div>
-                            </NavDropdown>
-                            </Nav>
+                        <div className='text-center'>
+                            <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+                        </div>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>
