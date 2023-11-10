@@ -11,6 +11,7 @@
     --secondary-color: #34d399;
     --color-text: #231942;
     --navbar-color: #ffffff;
+    --text--color: #0c4a6e;
 }
 
 .background-radial-gradient {
@@ -33,16 +34,11 @@ div .navbar {
     Background: rgba(255, 255, 255, 0);
     transition: all 0.2s ease;
     z-index: 99999;
-
-    animation-name : fadeInDown;
-    animation-duration: 1s;
 }
 
 .navbar .color-active {
     top : -5px; 
-    animation-name : fadeInDown;
-    animation-duration: 1s;
-    background-color: var(--navbar-color);
+    background-color: var(--text-color);
     padding: 20px 0px 20px 0px ;
     border-bottom: 2px solid #ffffff60;
 }
@@ -54,7 +50,7 @@ div .navbar {
     padding-left: 10px;
     font-weight: 500px;
     text-decoration: none;
-    color: var(--navbar-color-text);
+    color: var(--text-color);
     border-radius: 5px; 
 }
 
@@ -64,7 +60,7 @@ div .navbar {
 
 .navbar .nav-link .active {
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .navbar .nav-link .active:hover{

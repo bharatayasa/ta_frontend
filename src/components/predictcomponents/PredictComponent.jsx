@@ -73,13 +73,12 @@ function PredictComponent() {
 	}, []);
 
 	return (
-		<div
-		className="bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col items-center">
+		<div className="bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col items-center">
 		<div className="text-center container mt-20 self-start lg:w-1/2">
 			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg">
 			<div className="mb-5 pt-5">
 				<h2 className="lg:text-3xl sm:text-xl font-semibold text-sky-900">
-				Masukkan Gambar Daun Tomat
+					Masukkan Gambar Daun Tomat
 				</h2>
 			<p className="lg:text-lg sm:text-xs text-slate-400">
 				masukkan gambar atau drag atau drop gambar ke dalam kotak
@@ -91,8 +90,7 @@ function PredictComponent() {
 					type="file"
 					accept="image/*"
 					className="file:mr-4s lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out"
-					onChange={handleFileChange}
-				/>
+					onChange={handleFileChange} />
 				</div>
 			</div>
 			<div>
@@ -101,7 +99,7 @@ function PredictComponent() {
 					Loading...
 				</button>
 				) : (
-				<button onClick={handleUpload} className="text-xl text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-5 transition duration-300 ease-in-out shadow-md" >
+				<button onClick={handleUpload} className="text-xl text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-5 transition duration-300 ease-in-out shadow-md">
 					Prediksi
 				</button>
 				)}
@@ -134,11 +132,7 @@ function PredictComponent() {
 					<div>
 						<Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
 						<span>Deskripsi</span>
-						<ChevronUpIcon
-							className={`${
-							open ? "rotate-180 transform" : ""
-							} h-5 w-5 to-black font-semibold`}
-						/>
+						<ChevronUpIcon className={`${open ? "rotate-180 transform" : ""} h-5 w-5 to-black font-semibold`} />
 						</Disclosure.Button>
 						<Transition
 						as={Fragment}
@@ -151,27 +145,24 @@ function PredictComponent() {
 						>
 						<Disclosure.Panel className="px-4 pt-4 pb-2">
 							<div>
-							<div className="text-center text-2xl font-semibold text-sky-900 mb-2">
-								<h1 className="py-2">Deskripsi</h1>
-							</div>
+								<div className="text-2xl font-semibold text-sky-900 mb-2">
+									<h1 className="py-2">Deskripsi</h1>
+								</div>
 							<div>
 								<p>
-								<b>Jenis Penyakit : </b>
-								{result.kelas}
+								<b className="text-sky-900">Jenis Penyakit : </b>
+									{result.kelas}
 								</p>
 							</div>
 							<div>
 								<p className="overflow-x-hidden whitespace-normal text-justify">
-								<b>Confidence : </b>
+								<b className="text-sky-900">Confidence : </b>
 								{result.confidence}
 								</p>
 							</div>
-							<div className="text-justify">
-								<p>{result.description}</p>
-							</div>
-							</div>
-							<div className="text-center mb-2 mt-3">
-							<p></p>
+								<div className="text-justify">
+									<p className="leading-relaxed">{result.description}</p>
+								</div>
 							</div>
 						</Disclosure.Panel>
 						</Transition>
@@ -205,7 +196,7 @@ function PredictComponent() {
 							<div className="text-center text-2xl font-semibold text-sky-900 mb-2">
 								<h1 className="py-2">Cara Peanggulangan</h1>
 							</div>
-							<p className="mb-2 text-justify">
+							<p className="mb-2 text-justify leading-relaxed">
 								{result.prevention}
 							</p>
 							</div>

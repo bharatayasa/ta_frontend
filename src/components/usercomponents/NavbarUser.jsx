@@ -10,10 +10,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { navLinks } from "../../utils/navbarUser";
 import Tes from "../Tes";
 
-import BioData from "./BioData";
-import ChangePassword from "./ChangePassword";
-import EditProfile from "./EditProfile";
-
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
 
@@ -31,12 +27,12 @@ function NavbarComponent({logout}) {
     })
 
     return(
-        <div className="bg-transparent">
+        <div>
             <div className='navbar'>
-                <nav className="bg-body-tertiary">
-                    <Navbar expand="lg" className={changeColor ? "backdrop-blur-sm shadow-sm" : ""}>
+                <nav className="bg-body-tertiary sm:backdrop:blur-sm">
+                    <Navbar expand="lg" className={changeColor ? "backdrop-blur-lg shadow-sm bg-white/60" : ""}>
                         <Container>
-                        <Navbar.Brand className='fs-3 fw-bold'> Tomatify </Navbar.Brand>
+                        <Navbar.Brand className='fs-3 fw-bold'> <h1 className="text-sky-900">Tomatify</h1></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mx-auto text-center">
@@ -52,13 +48,12 @@ function NavbarComponent({logout}) {
                                         )
                                 })}
                             </Nav>
-                        <div className="mr-2">
-                            <Tes />
-                        </div>
-
-                        <div className='text-center'>
-                            <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
-                        </div>
+                            <div className="text-center lg:mr-2">
+                                <Tes />
+                            </div>
+                            <div className='text-center sm:mt-2 lg:mt-0'>
+                                <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+                            </div>
                         </Navbar.Collapse>
                         </Container>
                     </Navbar>

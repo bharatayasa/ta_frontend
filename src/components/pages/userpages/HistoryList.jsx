@@ -29,14 +29,13 @@ function HistoryList({ savepredict, onDelete }) {
                                     enterTo="opacity-100 scale-100"
                                     leave="transition ease-in-out duration-300 transform"
                                     leaveFrom="opacity-100 scale-100"
-                                    leaveTo="opacity-0 scale-95"
-                                >
+                                    leaveTo="opacity-0 scale-95">
                                     <Disclosure.Panel className="px-4 pt-4 pb-2 transform origin-center">
                                         <div>
-                                            <p className="mb-2"><b>Jenis penyakit : </b>{predict.kelas}</p>
-                                            <p className="mb-2"><b>Confidence : </b>{predict.confidence}</p>
-                                            <p className="mb-2 text-justify"><b>Deskripsi : </b>{predict.description}</p>
-                                            <p className="mb-2 text-justify"><b>Penanganan :  </b>{predict.prevention}</p>
+                                            <p className="mb-2"><b className="text-sky-900">Jenis penyakit : </b>{predict.kelas}</p>
+                                            <p className="mb-2"><b className="text-sky-900">Confidence : </b>{predict.confidence}</p>
+                                            <p className="mb-2 text-justify leading-relaxed font"><b className="text-sky-900">Deskripsi : </b><br />{predict.description}</p>
+                                            <p className="mb-2 text-justify leading-relaxed"><b className="text-sky-900">Penanganan :  </b><br />{predict.prevention}</p>
                                         </div>
                                         <div className="text-center mb-2 mt-3">
                                             <DeleteButton id={predict.id} onDelete={onDelete} />
