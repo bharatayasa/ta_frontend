@@ -1,85 +1,85 @@
-import React, { Component } from "react";
+import React from "react";
 import { getAllPredict, deleteHistory } from "../../../utils/api";
 import AllPredictList from "../../admincomponents/AllPredictsList";
 import SearchBarPredict from "../../admincomponents/SearchBarPredict";
-import { useSearchParams } from 'react-router-dom';
 
-function PredictDatasWrapper() {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const keyword = searchParams.get('keyword');
-    function changeSearchParams(keyword) {
-        setSearchParams({ keyword });
-    }
-    return <PredictsData defaultKeyword={keyword} keywordChange={changeSearchParams} />;
+function PredictDataWraper({ keywordChange }) {
+    return <PredictsData keywordChange={keywordChange} />;
 }
 
-class PredictsData extends Component {
+class PredictsData extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            savepredict: [],
+            predict: [],
             keyword: props.defaultKeyword || "",
-            selectedOption: 'userId',
+            selectedOption: 'userId', 
         };
 
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
-        this.onDeleteHandler = this.onDeleteHandler.bind(this);
         this.onOptionChangeHandler = this.onOptionChangeHandler.bind(this);
+        this.onDeleteHandler = this.onDeleteHandler.bind(this);
     }
 
     async componentDidMount() {
         const { data } = await getAllPredict();
 
-        this.setState({ getAllPredict: data });
+        this.setState({
+            predict: data,
+        });
     }
 
     onKeywordChangeHandler(keyword) {
-        this.setState({ keyword });
-        this.props.keywordChange(keyword);
+        this.setState({
+            keyword,
+        });
     }
 
     onOptionChangeHandler(option) {
-        this.setState({ selectedOption: option });
+        this.setState({
+            selectedOption: option,
+        });
     }
 
-    onDeleteHandler = async id => {
-        try {
-            await deleteHistory(id);
-            const { data } = await getAllPredict();
-            this.setState({ savepredict: data });
-        } catch (error) {
-            console.error("Error deleting history:", error);
-        }
-    }
-
-    filterUsersByOption(predict) {
-        const { selectedOption, keyword } = this.state;
-
-        if (selectedOption === 'userId') {
-            return predict.userId.toLowerCase().includes(keyword.toLowerCase());
-        } else if (selectedOption === 'username') {
-            return predict.kelas.toLowerCase().includes(keyword.toLowerCase());
-        } else if (selectedOption === 'kelas')
-        return false;
+    async onDeleteHandler(id) {
+        await deleteHistory(id);
+        const { data } = await getAllPredict();
+        this.setState({
+            predict: data,
+        });
     }
 
     render() {
+        const filteredPredicts = this.state.predict.filter(predict => {
+            if (this.state.selectedOption === 'userId') {
+                return predict.userId.toString().includes(this.state.keyword);
+            } else if (this.state.selectedOption === 'kelas') {
+                return predict.kelas.toLowerCase().includes(this.state.keyword.toLowerCase());
+            }
+            return false;
+        });
+
         return (
             <div className="mx-auto bg-slate-200 min-vh-100">
                 <div className="container py-5">
-                    <h1 className="text-center text-2xl mt-5 mb-5 font-semibold text-sky-900">Hasil Prediksi Users</h1>
-                    <SearchBarPredict 
+                    <h1 className="text-center text-2xl mt-5 mb-5 font-semibold text-sky-900">
+                        Hasil prediksi oleh user
+                    </h1>
+                    <SearchBarPredict
                         selectedOption={this.state.selectedOption}
                         keyword={this.state.keyword}
                         keywordChange={this.onKeywordChangeHandler}
                         handleOptionChange={this.onOptionChangeHandler}
                     />
-                    <AllPredictList savepredict={this.state.savepredict} onDelete={this.onDeleteHandler}/>
+                    <AllPredictList
+                        savepredict={filteredPredicts}
+                        onDelete={this.onDeleteHandler}
+                    />
                 </div>
             </div>
         );
     }
 }
 
-export default PredictDatasWrapper;
+export default PredictDataWraper;

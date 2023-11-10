@@ -6,15 +6,15 @@ import moment from 'moment';
 const AllPredictList = ({ savepredict, onDelete }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [lastIndex, setLastIndex] = useState(0);
-    const usersPerPage = 10;
+    const predictsPerPage = 10;
 
     useEffect(() => {
-        setLastIndex((currentPage - 1) * usersPerPage);
-    }, [currentPage, usersPerPage]);
+        setLastIndex((currentPage - 1) * predictsPerPage);
+    }, [currentPage, predictsPerPage]);
 
-    const indexOfLastUser = currentPage * usersPerPage;
-    const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    const currentPredict = savepredict.slice(indexOfFirstUser, indexOfLastUser);
+    const indexOfLastPredict = currentPage * predictsPerPage;
+    const indexOfFirstPredict = indexOfLastPredict - predictsPerPage;
+    const currentPredict = savepredict.slice(indexOfFirstPredict, indexOfLastPredict);
 
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
@@ -121,12 +121,12 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                 </div>
 
                 <div>
-                    {savepredict.length > usersPerPage && (
+                    {savepredict.length > predictsPerPage && (
                         <div className="mt-4 flex justify-center">
                             <button onClick={handlePrevPage} disabled={currentPage === 1} className='text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3 mr-2'>
                                 Sebelumnya
                             </button>
-                            <button onClick={handleNextPage} disabled={currentPredict.length < usersPerPage} className='text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3 ml-2' >
+                            <button onClick={handleNextPage} disabled={currentPredict.length < predictsPerPage} className='text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3 ml-2' >
                                 Berikutnya
                             </button>
                         </div>
