@@ -1,113 +1,98 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import PropTypes from "prop-types";
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-class EditButton extends React.Component {
-	constructor(props) {
-		super(props);
+const EditButton = (props) => {
+  const [show, setShow] = useState(false);
+  const [userData, setUserData] = useState({
+    id: props.id || '',
+    username: props.username || '',
+    name: props.name || '',
+    email: props.email || '',
+    role: props.role || '',
+  });
 
-		this.state = {
-		id: this.props.id ?? "",
-		username: this.props.username ?? "",
-		name: this.props.name ?? "",
-		email: this.props.email ?? "",
-		role: this.props.role ?? "",
-		show: false,
-		};
+  const modalRef = useRef();
 
-		this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
-		this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
-		this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
-		this.onRoleChangeEventHandler = this.onRoleChangeEventHandler.bind(this);
+  const handleShow = () => {
+    setShow(true);
+  };
 
-		this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
-	}
+  const handleClose = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      setShow(false);
+    }
+  };
 
-	onUsernameChangeEventHandler(event) {
-		this.setState({
-		username: event.target.value,
-		});
-	}
+  const handleFieldChange = (field, value) => {
+    setUserData({ ...userData, [field]: value });
+  };
 
-	onNameChangeEventHandler(event) {
-		this.setState({
-		name: event.target.value,
-		});
-	}
+  const onSubmitEventHandler = (e) => {
+    e.preventDefault();
+    props.updateuser(userData);
+    setShow(false);
+  };
 
-	onEmailChangeEventHandler(event) {
-		this.setState({
-		email: event.target.value,
-		});
-	}
+  return (
+    <div>
+      <button onClick={handleShow} className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md">
+        Ubah
+      </button>
 
-	onRoleChangeEventHandler(event) {
-		this.setState({
-		role: event.target.value,
-		});
-	}
+      {show && (
+        <div className="fixed inset-0 mt-16" onClick={handleClose}>
+          <div className="text-center pb-10">
 
-	onSubmitEventHandler(event) {
-		event.preventDefault();
-		this.props.updateuser(this.state);
-		this.handleClose();
-	}
+            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+              <div className="absolute inset-0 bg-slate-600 opacity-40"></div>
+            </div>
 
-	handleShow = () => {
-		this.setState({ show: true });
-	};
+            <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              <div className="bg-white/40 backdrop-blur-sm pt-4 sm:p-6 sm:pb-4">
+                <h3 className="text-center text-2xl font-semibold text-sky-900">Ubah Data User</h3>
+                <form onSubmit={onSubmitEventHandler} className="space-y-5">
 
-	handleClose = () => {
-		this.setState({ show: false });
-	};
+                  <div>
+                    <label htmlFor="username" className="block text-lg text-sky-900 font-semibold">Username</label>
+                    <input type="text" name="username" value={userData.username} onChange={(e) => handleFieldChange('username', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
+                  </div>
 
-render() {
-    return (
-		<>
-			<button variant="primary" onClick={this.handleShow} className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md"> {" "} Ubah {" "}</button>
+                  <div>
+                    <label htmlFor="name" className="block text-lg text-sky-900 font-semibold">Name</label>
+                    <input type="text" name="name" value={userData.name} onChange={(e) => handleFieldChange('name', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
+                  </div>
 
-			<Modal show={this.state.show} onHide={this.handleClose} className="py-5">
-			<Modal.Header>
-				<Modal.Title>Ubah Data User</Modal.Title>
-			</Modal.Header>
-			<Modal.Body className="lg">
-				<Form onSubmit={this.onSubmitEventHandler}>
+                  <div>
+                    <label htmlFor="email" className="block text-lg text-sky-900 font-semibold">E-Mail</label>
+                    <input type="email" name="email" value={userData.email} onChange={(e) => handleFieldChange('email', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 focus:border-sky-900" placeholder="username" autoComplete="off" />
+                  </div>
 
-				<FloatingLabel controlId="Username" label="Username : ">
-                <Form.Control type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="mb-3" autoComplete="off"/>
-                </FloatingLabel>
+                  <div>
+                    <label htmlFor="role" className="block text-lg text-sky-900 font-semibold">Pilih Role</label>
+                    <select name="role" value={userData.role} onChange={(e) => handleFieldChange('role', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 focus:border-sky-900" placeholder="username" autoComplete="off">
+                      <option value="user">user</option>
+                      <option value="admin">admin</option>
+                    </select>
+                  </div>
 
-				<FloatingLabel controlId="Name" label="Name : ">
-                <Form.Control type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} className="mb-3" autoComplete="off"/>
-                </FloatingLabel>
+                  <div className="text-center">
+                    <button type="submit" className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md" >
+                      Simpan
+                    </button>
+                  </div>
 
-				<FloatingLabel controlId="email" label="E-Mail : " className="mb-3">
-				<Form.Control type="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} autoComplete="off" />
-                </FloatingLabel>
-
-				<FloatingLabel controlId="role" label="Pilih Role :">
-                    <Form.Select aria-label="Floating label select example" value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-                        <option value="user">user</option>
-                        <option value="admin">admin</option>
-                    </Form.Select>
-                </FloatingLabel>
-
-				<div className="text-center">
-					<button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan {" "} </button>
-				</div>
-				</Form>
-			</Modal.Body>
-			</Modal>
-		</>
-		);
-	}
-}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 EditButton.propTypes = {
-	updateuser: PropTypes.func.isRequired,
+  updateuser: PropTypes.func.isRequired,
 };
 
 export default EditButton;

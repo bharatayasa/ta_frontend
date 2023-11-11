@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { navLinks } from "../../utils/navbarUser";
-import Tes from "../Tes";
+// import Tes from "../Tes";
 
 function NavbarComponent({logout}) {
     const [changeColor, setChangeColor] = useState (false);
@@ -49,7 +49,7 @@ function NavbarComponent({logout}) {
                                 })}
                             </Nav>
                             <div className="text-center lg:mr-2">
-                                <Tes />
+                                {/* <Tes /> */}
                             </div>
                             <div className='text-center sm:mt-2 lg:mt-0'>
                                 <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>

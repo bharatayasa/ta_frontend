@@ -64,7 +64,7 @@ class PredictsData extends React.Component {
             <div className="mx-auto bg-slate-200 min-vh-100">
                 <div className="container py-5">
                     <h1 className="text-center text-2xl mt-5 mb-5 font-semibold text-sky-900">
-                        Hasil prediksi oleh user
+                        Hasil Prediksi Oleh Users
                     </h1>
                     <SearchBarPredict
                         selectedOption={this.state.selectedOption}

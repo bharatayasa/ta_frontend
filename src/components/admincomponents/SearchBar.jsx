@@ -8,16 +8,16 @@ function SearchBar({ selectedOption, keyword, keywordChange, handleOptionChange 
 
     return (
         <div>
-            <form onSubmit={onSearch} className="flex mb-3">
-                <div className="text-lg rounded-md">
-                    <select value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)} className="py-2 px-3 rounded-l-lg text-center w-36">
+            <form onSubmit={onSearch} className="flex mb-3 items-center">
+                <div className="text-lg rounded-md shadow-md">
+                    <select value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)} className="py-2 px-3 rounded-l-lg text-center w-36 hover:bg-slate-100 transition duration-100 ease-in-out">
                         <option value="username">username</option>
                         <option value="name">name</option>
                         <option value="email">email</option>
                     </select>
                 </div>
-                <div className="w-1/2 ml-2">
-                    <input type="text" value={keyword} onChange={(e) => keywordChange(e.target.value)} placeholder={`cari ${selectedOption}`}className="rounded-r-lg px-3 py-2 w-full" />
+                <div className="lg:w-1/2 sm:w-full ml-2 shadow-md">
+                    <input type="text" value={keyword} onChange={(e) => keywordChange(e.target.value)} placeholder={`cari berdasarkan ${selectedOption}`}className="rounded-r-lg px-3 py-2 w-full hover:bg-slate-100 transition duration-100 ease-in-out" />
                 </div>
             </form>
         </div>

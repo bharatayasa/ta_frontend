@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-
 import Tomatigirl from '../../assets/img/tomatigirl.png'
 
 class RegisterInput extends React.Component {
@@ -16,7 +14,9 @@ class RegisterInput extends React.Component {
             name: '',
             email: '',
             password: '',
+            confirmPassword: '',
             registrationSuccess: false,
+            showPassword: false,
             showPassword: false,
         };
     }
@@ -45,11 +45,21 @@ class RegisterInput extends React.Component {
         });
     }
 
+    onConfirmPasswordChange = (event) => {
+        this.setState({
+            confirmPassword: event.target.value,
+        });
+    }
+
     onSubmitHandler = (event) => {
         event.preventDefault();
-        const { username, name, email, password } = this.state;
-        if (!username || !name || !email || !password) {
+        const { username, name, email, password, confirmPassword } = this.state;
+        if (!username || !name || !email || !password || !confirmPassword) {
             alert('Silakan isi semua field.');
+            return;
+        }
+        if (password !== confirmPassword) {
+            alert("Password dan Confirm Password harus sama");
             return;
         }
         this.props.register({
@@ -66,14 +76,21 @@ class RegisterInput extends React.Component {
             showPassword: !prevState.showPassword,
         }));
     }
+    
+    toggleShowPassword2 = () => {
+        this.setState((prevState) => ({
+            showPassword2: !prevState.showPassword2,
+        }));
+    }
 
     render() {
-        const { showPassword } = this.state;
+        const { showPassword, showPassword2} = this.state;
 
         return (
             <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 h-screen flex flex-col justify-center items-center'>
-            <section>
+                <section>
                 <div className='flex flex-wrap justify-center items-center'>
+
                     <div className='w-full self-center px-9 lg:w-1/2'>
                         <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
                     </div>
@@ -103,31 +120,39 @@ class RegisterInput extends React.Component {
                             </FloatingLabel>
                         </div>
 
-                        <div className='mr-3 ml-3 mb-5 shadow-sm'>
+                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
                             <FloatingLabel controlId="password" label="Password">
-                            <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" />
-                            <Link variant="btn" onClick={this.toggleShowPassword} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
-                                {showPassword ? "Hide" : "Show"}
-                            </Link>
+                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" />
+                                <Link variant="btn" onClick={this.toggleShowPassword} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
+                                    {showPassword ? "Hide" : "Show"}
+                                </Link>
+                            </FloatingLabel>
+                        </div>
+
+                        <div className='mr-3 ml-3 mb-5 shadow-sm'>
+                            <FloatingLabel controlId="confirmPassword" label="Confirm Password">
+                                    <Form.Control type={showPassword2 ? "text" : "password"} placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" />
+                                    <Link variant="btn" onClick={this.toggleShowPassword2} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
+                                        {showPassword2 ? "Hide" : "Show"}
+                                    </Link>
                             </FloatingLabel>
                         </div>
 
                         <div className='text-center'>
                             <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
-                            Register
+                                Register
                             </button>
                         </div>
+
                         <p className='text-center mb-4 text-sky-900'>
                             Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
                         </p>
                         </form>
                     </div>
                     </div>
-
                 </div>
             </section>
             </div>
-
         );
     }
 }

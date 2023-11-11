@@ -21,7 +21,7 @@ class UsersData extends Component {
         this.state = {
             users: [],
             keyword: props.defaultKeyword || '',
-            selectedOption: 'name',
+            selectedOption: 'username',
         };
 
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
@@ -55,10 +55,10 @@ class UsersData extends Component {
     filterUsersByOption(user) {
         const { selectedOption, keyword } = this.state;
 
-        if (selectedOption === 'name') {
-            return user.name.toLowerCase().includes(keyword.toLowerCase());
-        } else if (selectedOption === 'username') {
+        if (selectedOption === 'username') {
             return user.username.toLowerCase().includes(keyword.toLowerCase());
+        } else if (selectedOption === 'name') {
+            return user.name.toLowerCase().includes(keyword.toLowerCase());
         } else if (selectedOption === 'email') {
             return user.email.toLowerCase().includes(keyword.toLowerCase());
         }
