@@ -7,7 +7,7 @@ import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
 function HistoryList({ savepredict, onDelete }) {
     return (
-        <div className="">
+        <div>
         {savepredict.map((predict) => (
             <div className="" key={predict.id}>
                 <div className="mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
@@ -16,20 +16,10 @@ function HistoryList({ savepredict, onDelete }) {
                             <div>
                                 <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                                     <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
-                                    <ChevronUpIcon
-                                        className={`${
-                                            open ? 'rotate-180 transform' : ''
-                                            } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`}
-                                    />
+                                    <ChevronUpIcon className={`${ open ? 'rotate-180 transform' : '' } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`} />
                                 </Disclosure.Button>
-                                <Transition
-                                    as={Fragment}
-                                    enter="transition ease-in-out duration-300 transform"
-                                    enterFrom="opacity-0 scale-95"
-                                    enterTo="opacity-100 scale-100"
-                                    leave="transition ease-in-out duration-300 transform"
-                                    leaveFrom="opacity-100 scale-100"
-                                    leaveTo="opacity-0 scale-95">
+
+                                <Transition as={Fragment} enter="transition ease-in-out duration-300 transform" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="transition ease-in-out duration-300 transform" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
                                     <Disclosure.Panel className="px-4 pt-4 pb-2 transform origin-center">
                                         <div>
                                             <p className="mb-2"><b className="text-sky-900">Jenis penyakit : </b>{predict.kelas}</p>

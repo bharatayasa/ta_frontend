@@ -48,7 +48,7 @@ function NavbarAdmin({logout, name}) {
                                 })}
                             </Nav>
                             <div className='text-center'>
-                            <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+                                <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
                             </div>
                         </Navbar.Collapse>
                         </Container>

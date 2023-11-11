@@ -17,7 +17,7 @@ class RegisterInput extends React.Component {
             confirmPassword: '',
             registrationSuccess: false,
             showPassword: false,
-            showPassword: false,
+            showPassword2: false,
         };
     }
 
