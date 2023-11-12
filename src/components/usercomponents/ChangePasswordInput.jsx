@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import PropTypes from "prop-types";
 
 class ChangePasswordInput extends Component {
@@ -10,17 +6,19 @@ class ChangePasswordInput extends Component {
         super(props);
 
         this.state = {
-            show: false,
             currentPassword: "",
             newPassword: "",
+            confirmPassword: "", 
             showPassword: false,
             showPassword2: false,
+            showPassword3: false,
         };
 
         this.onCurrentPasswordChangeEventHandler = this.onCurrentPasswordChangeEventHandler.bind(this);
         this.onNewPasswordChangeEventHandler = this.onNewPasswordChangeEventHandler.bind(this);
-        
         this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
+        this.toggleShowPassword = this.toggleShowPassword.bind(this);
+        this.onConfirmPasswordChangeEventHandler = this.onConfirmPasswordChangeEventHandler.bind(this);
     }
 
     onCurrentPasswordChangeEventHandler(event) {
@@ -38,58 +36,62 @@ class ChangePasswordInput extends Component {
     onSubmitEventHandler(event) {
         event.preventDefault();
         this.props.updatePassword(this.state);
-        this.handleClose();
     }
 
-    handleShow = () => {
-        this.setState({ show: true });
-    };
-
-    handleClose = () => {
-        this.setState({ show: false });
-    };
-
-    toggleShowPassword = () => {
+    onConfirmPasswordChangeEventHandler(event) {
+        this.setState({
+            confirmPassword: event.target.value,
+        });
+    }
+    toggleShowPassword(field) {
         this.setState((prevState) => ({
-            showPassword: !prevState.showPassword,
+            [field]: !prevState[field],
         }));
     }
     
-    toggleShowPassword2 = () => {
+    toggleShowPassword2(field) {
         this.setState((prevState) => ({
-            showPassword2: !prevState.showPassword2,
+            [field]: !prevState[field],
+        }));
+    }
+    
+    toggleShowPassword3(field) {
+        this.setState((prevState) => ({
+            [field]: !prevState[field],
         }));
     }
 
     render() {
-        const { showPassword } = this.state;
-        const { showPassword2 } = this.state;
+        const { showPassword, showPassword2, showPassword3 } = this.state;
 
         return (
-            <div>
-            <h5 variant="" onClick={this.handleShow}> {" "} Ubah Password {" "}</h5>
-            <Modal show={this.state.show} onHide={this.handleClose} className="py-5">
-                    <h3 className="text-center mt-3">Password</h3>
-                <Modal.Body className="lg">
-                    <Form onSubmit={this.onSubmitEventHandler}>
-                    
-                        <FloatingLabel controlId="passwordlama" label="Password Lama" value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler}>
-                            <Form.Control type={showPassword ? "text" : "password"} className="mb-3 bg-white" placeholder="Password Lama" autoComplete="off"/>
-                        <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>{showPassword ? "Hide" : "Show"}</Button>
-                        </FloatingLabel>
-                        
-                        <FloatingLabel controlId="passwordbaru" label="Password Baru" value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler}>
-                            <Form.Control type={showPassword2 ? "text" : "password"} className="mb-3 bg-white" placeholder="Password Baru" autoComplete="off"/>
-                        <Button variant="btn" onClick={this.toggleShowPassword2} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>{showPassword2 ? "Hide" : "Show"}</Button>
-                        </FloatingLabel>
-                        <div className="text-center">
-                            <button className="btn btn-success mt-4 m-2" type="submit"> {" "} Simpan {" "} </button>
-                        </div>
-                    </Form>
-                </Modal.Body>
-            </Modal>
+            <div className="mt-4">
+                <h1 className='text-xl font-semibold text-sky-900 text-center'>Ubah Password</h1>
+                <form onSubmit={this.onSubmitEventHandler}>
+                    <div className="mb-4 relative">
+                        <label htmlFor="passwordlama" className="block text-sky-900 text-sm font-bold mb-2">Password Lama:</label>
+                        <input type={showPassword ? "text" : "password"} value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Lama" autoComplete="off"/>
+                        <span onClick={() => this.toggleShowPassword('showPassword')} className="text-sm py-1 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword ? "Hide" : "Show"}</span>
+                    </div>
+
+                    <div className="mb-4 relative">
+                        <label htmlFor="passwordbaru" className="block text-sky-900 text-sm font-bold mb-2">Password Baru:</label>
+                        <input type={showPassword2 ? "text" : "password"} value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Baru"autoComplete="off"/>
+                        <span onClick={() => this.toggleShowPassword2('showPassword2')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword2 ? "Hide" : "Show"}</span>
+                    </div>
+
+                    <div className="mb-4 relative">
+                        <label htmlFor="confirmPassword" className="block text-sky-900 text-sm font-bold mb-2">Konfirmasi Password:</label>
+                        <input type={showPassword3 ? "text" : "password"} value={this.state.confirmPassword} onChange={this.onConfirmPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" placeholder="Konfirmasi Password" autoComplete="off" />
+                        <span onClick={() => this.toggleShowPassword3('showPassword3')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword3 ? "Hide" : "Show"}</span>
+                    </div>
+
+                    <div className="text-center">
+                        <button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded" type="submit">Simpan</button>
+                    </div>
+                </form>
             </div>
-        )
+        );
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { getUserLogged } from '../utils/api'
 
 function Coba() {
     return (

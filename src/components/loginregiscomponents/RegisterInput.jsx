@@ -92,9 +92,9 @@ class RegisterInput extends React.Component {
                             <div className='w-full self-center px-9 lg:w-1/2'>
                                 <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
                             </div>
-                            <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
+                            <div className='w-full self-end px-2 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
                                 <div className='mt-10'>
-                                    <form onSubmit={this.onSubmitHandler} className="mb-3">
+                                    <form onSubmit={this.onSubmitHandler}>
                                         <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
                                             <h1>Register</h1>
                                         </div>

@@ -80,7 +80,7 @@ function PredictComponent() {
 					Masukkan Gambar Daun Tomat
 				</h2>
 			<p className="lg:text-lg sm:text-xs text-slate-400">
-				masukkan gambar atau drag & drop gambar ke dalam kotak
+				pilih gambar atau drag & drop gambar ke dalam kotak
 			</p>
 			</div>
 			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
@@ -88,7 +88,7 @@ function PredictComponent() {
 				<input
 					type="file"
 					accept="image/*"
-					className="file:mr-4s lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out"
+					className="file:mr-4s lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl sm:file:text-lg file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out"
 					onChange={handleFileChange} />
 				</div>
 			</div>
