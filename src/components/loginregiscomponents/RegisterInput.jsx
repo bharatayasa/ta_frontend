@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Tomatigirl from '../../assets/img/tomatigirl.png'
+import Tomatigirl from '../../assets/img/tomatigirl.png';
 
 class RegisterInput extends React.Component {
     constructor(props) {
@@ -84,74 +82,69 @@ class RegisterInput extends React.Component {
     }
 
     render() {
-        const { showPassword, showPassword2} = this.state;
+        const { showPassword, showPassword2 } = this.state;
 
         return (
-            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 h-screen flex flex-col justify-center items-center'>
+            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col justify-center items-center'>
                 <section>
-                <div className='flex flex-wrap justify-center items-center'>
+                    <div className='container'>
+                        <div className='flex flex-wrap justify-center items-center'>
+                            <div className='w-full self-center px-9 lg:w-1/2'>
+                                <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
+                            </div>
+                            <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
+                                <div className='mt-10'>
+                                    <form onSubmit={this.onSubmitHandler} className="mb-3">
+                                        <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
+                                            <h1>Register</h1>
+                                        </div>
 
-                    <div className='w-full self-center px-9 lg:w-1/2'>
-                        <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
+                                        <div className='mr-3 ml-3 mb-3 '>
+                                            <label htmlFor="username" className="block mb-1 text-sky-900 font-semibold">Username</label>
+                                            <input type="text" id="username" placeholder="Username" value={this.state.username} onChange={this.onUsernameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" autoComplete="none"/>
+                                        </div>
+
+                                        <div className='mr-3 ml-3 mb-3 '>
+                                            <label htmlFor="name" className="block mb-1 text-sky-900 font-semibold">Name</label>
+                                            <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.onNameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400"  autoComplete="none" />
+                                        </div>
+
+                                        <div className='mr-3 ml-3 mb-3 '>
+                                            <label htmlFor="email" className="block mb-1 text-sky-900 font-semibold">E-mail</label>
+                                            <input type="email" id="email" placeholder="E-Mail" value={this.state.email} onChange={this.onEmailChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400"  autoComplete="none"/>
+                                        </div>
+
+                                        <div className='mr-3 ml-3 mb-3  relative'>
+                                            <label htmlFor="password" className="block mb-1 text-sky-900 font-semibold">Password</label>
+                                            <input type={showPassword ? "text" : "password"} id="password" placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" />
+                                            <span onClick={this.toggleShowPassword} className="absolute mt-4 transform -translate-y-1/2 right-3 cursor-pointer text-blue-500">
+                                                {showPassword ? "Hide" : "Show"}
+                                            </span>
+                                        </div>
+
+                                        <div className='mr-3 ml-3 mb-5  relative'>
+                                            <label htmlFor="confirmPassword" className="block mb-1 text-sky-900 font-semibold">Confirm Password</label>
+                                            <input type={showPassword2 ? "text" : "password"} id="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" />
+                                            <span onClick={this.toggleShowPassword2} className="absolute mt-4 transform -translate-y-1/2 right-3 cursor-pointer text-blue-500">
+                                                {showPassword2 ? "Hide" : "Show"}
+                                            </span>
+                                        </div>
+
+                                        <div className='text-center'>
+                                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
+                                                Register
+                                            </button>
+                                        </div>
+
+                                        <p className="text-center mb-4 lg:text-lg sm:text-xs text-sky-900">
+                                            Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div className='w-full self-end px-4 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
-                    <div className='mt-10'>
-                        <form onSubmit={this.onSubmitHandler} className="mb-3">
-                        <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
-                            <h1>Register</h1>
-                        </div>
-
-                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
-                            <FloatingLabel controlId="floatingInput" label="Username">
-                            <Form.Control type="text" placeholder="Username" autoComplete="off" value={this.state.username} onChange={this.onUsernameChange} />
-                            </FloatingLabel>
-                        </div>
-
-                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
-                            <FloatingLabel controlId="floatingInput" label="Name">
-                            <Form.Control type="text" placeholder="Name" autoComplete="off" value={this.state.name} onChange={this.onNameChange} />
-                            </FloatingLabel>
-                        </div>
-
-                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
-                            <FloatingLabel controlId="floatingInput" label="E-mail">
-                            <Form.Control type="email" placeholder="E-Mail" autoComplete="off" value={this.state.email} onChange={this.onEmailChange} />
-                            </FloatingLabel>
-                        </div>
-
-                        <div className='mr-3 ml-3 mb-3 shadow-sm'>
-                            <FloatingLabel controlId="password" label="Password">
-                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" />
-                                <Link variant="btn" onClick={this.toggleShowPassword} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
-                                    {showPassword ? "Hide" : "Show"}
-                                </Link>
-                            </FloatingLabel>
-                        </div>
-
-                        <div className='mr-3 ml-3 mb-5 shadow-sm'>
-                            <FloatingLabel controlId="confirmPassword" label="Confirm Password">
-                                    <Form.Control type={showPassword2 ? "text" : "password"} placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" />
-                                    <Link variant="btn" onClick={this.toggleShowPassword2} className="absolute top-1/2 right-4 transform -translate-y-1/2" >
-                                        {showPassword2 ? "Hide" : "Show"}
-                                    </Link>
-                            </FloatingLabel>
-                        </div>
-
-                        <div className='text-center'>
-                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
-                                Register
-                            </button>
-                        </div>
-
-                        <p className='text-center mb-4 text-sky-900'>
-                            Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
-                        </p>
-                        </form>
-                    </div>
-                    </div>
-                </div>
-            </section>
+                </section>
             </div>
         );
     }

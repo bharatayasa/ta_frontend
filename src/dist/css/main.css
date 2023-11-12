@@ -14,24 +14,15 @@
     --text--color: #0c4a6e;
 }
 
-.background-radial-gradient {
-        background-color: hsl(218, 41%, 15%);
-        background: #c6ffdd;
-        background: -webkit-linear-gradient(to left, #f7797d, #fbd786, #c6ffdd);
-        background: linear-gradient(to left, #f7797d, #fbd786, #c6ffdd); 
-}
-
-
 /*  navbar style */
 div .navbar {
-    top : -5px; 
+    top : -5px;
     position: fixed;
     padding-top: 15px;
     padding-right: 0px;
     padding-bottom: 15px;
     padding-left: 0px;
     width: 100%;
-    Background: rgba(255, 255, 255, 0);
     transition: all 0.2s ease;
     z-index: 99999;
 }
@@ -39,7 +30,7 @@ div .navbar {
 .navbar .color-active {
     top : -5px; 
     background-color: var(--text-color);
-    padding: 20px 0px 20px 0px ;
+    padding: 15px 0px 15px 0px ;
     border-bottom: 2px solid #ffffff60;
 }
 

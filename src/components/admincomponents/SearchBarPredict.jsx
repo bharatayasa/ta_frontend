@@ -15,8 +15,8 @@ function SearchBarPredict({ selectedOption, keyword, keywordChange, handleOption
                         <option value="kelas">kelas</option>
                     </select>
                 </div>
-                <div className="lg:w-1/2 sm:w-full ml-2 shadow-md">
-                    <input type="text" value={keyword} onChange={(e) => keywordChange(e.target.value)} placeholder={`cari berdasarkan ${selectedOption}`}className="rounded-r-lg px-3 py-2 w-full hover:bg-slate-100 transition duration-100 ease-in-out" />
+                <div className="lg:w-1/2 sm:w-full ml-2">
+                    <input type="text" value={keyword} onChange={(e) => keywordChange(e.target.value)} placeholder={`cari berdasarkan ${selectedOption}`}className="shadow-md rounded-r-lg px-3 py-2 w-full hover:bg-slate-100 transition duration-100 ease-in-out" />
                 </div>
             </form>
         </div>

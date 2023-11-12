@@ -28,8 +28,7 @@ function PredictComponent() {
 		setIsLoading(true);
 
 		try {
-		const response = await fetch(
-			"https://us-central1-deploymodel-403616.cloudfunctions.net/predict",
+		const response = await fetch( "https://us-central1-deploymodel-403616.cloudfunctions.net/predict",
 			{
 			method: "POST",
 			body: formData,
@@ -81,7 +80,7 @@ function PredictComponent() {
 					Masukkan Gambar Daun Tomat
 				</h2>
 			<p className="lg:text-lg sm:text-xs text-slate-400">
-				masukkan gambar atau drag atau drop gambar ke dalam kotak
+				masukkan gambar atau drag & drop gambar ke dalam kotak
 			</p>
 			</div>
 			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
@@ -146,7 +145,7 @@ function PredictComponent() {
 						<Disclosure.Panel className="px-4 pt-4 pb-2">
 							<div>
 								<div className="text-2xl font-semibold text-sky-900 mb-2">
-									<h1 className="py-2">Deskripsi</h1>
+									<h1 className="py-2 text-center">Deskripsi</h1>
 								</div>
 							<div>
 								<p>
