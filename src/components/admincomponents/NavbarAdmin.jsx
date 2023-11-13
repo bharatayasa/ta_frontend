@@ -34,7 +34,7 @@ function NavbarAdmin({logout, name}) {
                         <Navbar.Brand className='fs-3 fw-bold'> Admin </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mx-auto text-center">
+                            <Nav className="mx-auto text-center font-semibold">
                                 {navLinksAdmin.map((link) => {
                                 return (
                                         <div key={link.id} className='nav-link'>

@@ -1,12 +1,13 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 
 function AboutPage() {
     return(
-        <div className="py-5 min-vh-100">
-            <Container>
+        <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col justify-center items-center'>
+            <div className="py-5 min-vh-100 container mx-auto">
                 <h1>ini halaman About</h1>
-            </Container>
+                <p>website ini dibangun dengan menggunakan teknologi machine learning dengan dataset yang di proleh dari kagle</p>
+                <p>dengan akurasi dari machine learning model yang mencapai 92%</p>
+            </div>
         </div>
     )
 }
