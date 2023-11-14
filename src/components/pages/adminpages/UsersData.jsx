@@ -1,17 +1,9 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import AllUsersList from "../../admincomponents/AllUsersList.jsx";
 import { getUsers, deleteUser } from "../../../utils/api";
 import { useSearchParams } from 'react-router-dom';
 import AddUser from "../../admincomponents/AddUser.jsx";
 import SearchBar from "../../admincomponents/SearchBar.jsx";
-=======
-import AllUsersList from "../../admincomponents/AllUsersList";
-import { getUsers, deleteUser } from "../../../utils/api";
-import { useSearchParams } from 'react-router-dom';
-import AddUser from "../../admincomponents/AddUser";
-import SearchBar from "../../admincomponents/SearchBar";
->>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 
 function UsersDatasWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -58,7 +50,6 @@ class UsersData extends Component {
         const { data } = await getUsers();
 
         this.setState({ users: data });
-<<<<<<< HEAD
     }
 
     filterUsersByOption(user) {
@@ -74,23 +65,6 @@ class UsersData extends Component {
         return false;
     }
 
-=======
-    }
-
-    filterUsersByOption(user) {
-        const { selectedOption, keyword } = this.state;
-
-        if (selectedOption === 'username') {
-            return user.username.toLowerCase().includes(keyword.toLowerCase());
-        } else if (selectedOption === 'name') {
-            return user.name.toLowerCase().includes(keyword.toLowerCase());
-        } else if (selectedOption === 'email') {
-            return user.email.toLowerCase().includes(keyword.toLowerCase());
-        }
-        return false;
-    }
-
->>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
     render() {
         const users = this.state.users.filter(user => this.filterUsersByOption(user));
 

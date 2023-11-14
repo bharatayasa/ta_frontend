@@ -2,21 +2,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // Users Page
-<<<<<<< HEAD
 import NavbarUsers from "./usercomponents/NavbarUser.jsx";
 import HomePage from "./pages/userpages/HomePage.jsx";
 import PredictPage from "./pages/predict/PredictPage.jsx";
 import HistoryPage from "./pages/userpages/HistoryPage.jsx"
 import AboutPage from "./pages/userpages/AboutPage.jsx";
 import FooterComponent from "./FooterComponent.jsx";
-=======
-import NavbarUsers from "./usercomponents/NavbarUser";
-import HomePage from "./pages/userpages/HomePage";
-import PredictPage from "./pages/predict/PredictPage";
-import HistoryPage from "./pages/userpages/HistoryPage"
-import AboutPage from "./pages/userpages/AboutPage";
-import FooterComponent from "./FooterComponent";
->>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 
 // Admin Page
 import NavbarAdmin from "./admincomponents/NavbarAdmin.jsx";

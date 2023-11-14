@@ -1,10 +1,6 @@
 import { React, Fragment } from "react";
 import PropTypes from "prop-types";
-<<<<<<< HEAD
 import DeleteButton from "../../DeleteButton.jsx";
-=======
-import DeleteButton from "../../DeleteButton";
->>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 import moment from "moment";
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
