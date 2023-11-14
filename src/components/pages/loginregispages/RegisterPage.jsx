@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate } from "react-router-dom";
-import RegisterInput from "../../loginregiscomponents/RegisterInput";
+import RegisterInput from "../../loginregiscomponents/RegisterInput.jsx";
 import { register } from "../../../utils/api";
 
 function RegisterPage() {

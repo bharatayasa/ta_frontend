@@ -1,15 +1,13 @@
 import React from "react";
 import { updateuser } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
-import EditButton from "./EditButton";
+import EditButton from "./EditInput.jsx";
 
 export default function EditUser({ user }) {
 	const navigate = useNavigate();
 
 	async function onEditUserHandler(user) {
 		const response = await updateuser(user);
-		// console.log(user);
-		// console.log(response);
 
 		if (!response.error) {
 		navigate("/");

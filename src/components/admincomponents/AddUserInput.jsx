@@ -1,135 +1,131 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-class AddUserInput extends React.Component {
-    constructor(props) {
-        super(props);
+const AddUserInput = ({ adduser }) => {
+    const [show, setShow] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
+    const [userData, setUserData] = useState({
+        username: '',
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        role: '',
+    });
 
-        this.state = {
-            username: '',
-            name: '',
-            email: '',
-            password: '',
-            role: '',
-            show: false,
-            showPassword: false
-        };
+    const modalRef = useRef();
 
-        this.onUsernameChangeEventHandler = this.onUsernameChangeEventHandler.bind(this);
-        this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
-        this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
-        this.onPasswordChangeEventHandler = this.onPasswordChangeEventHandler.bind(this);
-        this.onRoleChangeEventHandler = this.onRoleChangeEventHandler.bind(this);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
 
-        this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
-    }
-
-    onUsernameChangeEventHandler(event) {
-        this.setState({
-            username: event.target.value,
-        });
-    }
-
-    onNameChangeEventHandler(event) {
-        this.setState({
-            name: event.target.value,
-        });
-    }
-
-    onEmailChangeEventHandler(event) {
-        this.setState({
-            email: event.target.value,
-        });
-    }
-
-    onPasswordChangeEventHandler(event) {
-        this.setState({
-            password: event.target.value,
-        });
-    }
-
-    onRoleChangeEventHandler(event) {
-        this.setState({
-            role: event.target.value,
-        });
-    }
-
-    onSubmitEventHandler(event) {
-        event.preventDefault();
-        this.props.adduser(this.state);
-        this.handleClose();
-    }
-
-    handleShow = () => {
-        this.setState({ show: true });
-    }
-
-    handleClose = () => {
-        this.setState({ show: false });
-    }
-
-    toggleShowPassword = () => {
-        this.setState((prevState) => ({
-            showPassword: !prevState.showPassword,
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData((prevData) => ({
+            ...prevData,
+            [name]: value,
         }));
-    }
+    };
 
-    render() {
-        const { showPassword } = this.state;
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (userData.password !== userData.confirmPassword) {
+            alert("Password dan Confirm Password harus sama");
+            return;
+        }
+        adduser(userData);
+        handleClose();
+    };
 
-        return (
-            <div>
-                <Button variant="primary" onClick={this.handleShow} className='mb-3'>
-                    tambah user
-                </Button>
+    const handleOutsideClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            handleClose();
+        }
+    };
 
-                <Modal show={this.state.show} onHide={this.handleClose} className='py-5'>
-                    <Modal.Header>
-                        <Modal.Title>Tambah Data User</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className='lg'>
-                        <Form noValidate onSubmit={this.onSubmitEventHandler}>
-                            <FloatingLabel controlId="floatingUsername" label="Username" value={this.state.username} onChange={this.onUsernameChangeEventHandler}>
-                                <Form.Control type="text" placeholder="Username" className='mb-3' autoComplete="off"/>
-                            </FloatingLabel>
+    const toggleShowPassword = () => setShowPassword(!showPassword);
+    const toggleShowPassword2 = () => setShowPassword2(!showPassword2);
 
-                            <FloatingLabel controlId="floatingName" label="Name" value={this.state.name} onChange={this.onNameChangeEventHandler} className='mb-3'>
-                                <Form.Control type="text" placeholder="Name" autoComplete="off"/>
-                            </FloatingLabel>
+    return (
+        <div>
+            <button onClick={handleShow} className="text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3">
+                Tambah User
+            </button>
+            {show && (
+                <div className="fixed inset-0 mt-16" onClick={handleOutsideClick}>
+                    <div className="text-center pb-10">
+                        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div className="absolute inset-0 bg-slate-600 opacity-40"></div>
+                        </div>
 
-                            <FloatingLabel controlId="floatingEmail" label="E-Mail" value={this.state.email} onChange={this.onEmailChangeEventHandler} className='mb-3'>
-                                <Form.Control type="email" placeholder="Email" autoComplete="off"/>
-                            </FloatingLabel>
+                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                            <div className="bg-white/40 backdrop-blur-sm pt-4 sm:p-6 sm:pb-4">
+                                <h3 className="text-center text-2xl font-semibold text-sky-900">Tambah Data User</h3>
+                                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                                    <div>
+                                        <label htmlFor="username" className="block text-lg text-sky-900 font-semibold">
+                                            Username
+                                        </label>
+                                        <input type="text" name="username" id="username" value={userData.username} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
+                                    </div>
 
-                            <FloatingLabel controlId="floatingEmail" label="Password" value={this.state.password} onChange={this.onPasswordChangeEventHandler} className='mb-3'>
-                                <Form.Control type={showPassword ? "text" : "password"} placeholder="Email" autoComplete="off"/>
-                            <Button variant="btn" onClick={this.toggleShowPassword} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
-                            {showPassword ? "Hide" : "Show"}
-                            </Button>
-                            </FloatingLabel>
+                                    <div>
+                                        <label htmlFor="name" className="block text-lg text-sky-900 font-semibold">
+                                            Name
+                                        </label>
+                                        <input type="text" name="name" id="name" value={userData.name} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="name" autoComplete="off" />
+                                    </div>
 
-                            <FloatingLabel controlId="floatingSelect" label="Pilih Peran">
-                                <Form.Select aria-label="Floating label select example" value={this.state.role} onChange={this.onRoleChangeEventHandler}>
-                                    <option >pilih</option>
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </Form.Select>
-                            </FloatingLabel>
+                                    <div>
+                                        <label htmlFor="email" className="block text-lg text-sky-900 font-semibold">
+                                            E-Mail
+                                        </label>
+                                        <input type="email" name="email" id="email" value={userData.email} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="e-mail" autoComplete="off" />
+                                    </div>
 
-                            <div className='text-center'>
-                                <button className='btn btn-primary mt-4' type="submit">Tambah</button>
+                                    <div style={{ position: 'relative' }}>
+                                        <label htmlFor="password" className="block text-lg text-sky-900 font-semibold">
+                                            Password
+                                        </label>
+                                        <input type={showPassword ? 'text' : 'password'} name="password" id="password" value={userData.password} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="Password" autoComplete="off"/>
+                                        <button type="button" onClick={toggleShowPassword} style={{ position: 'absolute', top: '70%', right: '10px', transform: 'translateY(-50%)' }} >
+                                            {showPassword ? 'Hide' : 'Show'}
+                                        </button>
+                                    </div>
+
+                                    <div style={{ marginTop: '20px', position: 'relative' }}>
+                                        <label htmlFor="confirmPassword" className="block text-lg text-sky-900 font-semibold">
+                                            Confirm Password
+                                        </label>
+                                        <input type={showPassword2 ? 'text' : 'password'} name="confirmPassword" id="confirmPassword" value={userData.confirmPassword} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="Confirm Password" autoComplete="off" />
+                                        <button type="button" onClick={toggleShowPassword2} style={{ position: 'absolute', top: '70%', right: '10px', transform: 'translateY(-50%)' }} >
+                                            {showPassword2 ? 'Hide' : 'Show'}
+                                        </button>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor="role" className="block text-lg text-sky-900 font-semibold">Role</label>
+                                        <select id="role" name="role" value={userData.role} onChange={handleChange} autoComplete="off" className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" >
+                                            <option value="">Pilih Role</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="text-center mt-6">
+                                        <button type="submit" className="text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md">
+                                            Simpan
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                        </Form>
-                    </Modal.Body>
-                </Modal>
-            </div>
-        );
-    }
-}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 AddUserInput.propTypes = {
     adduser: PropTypes.func.isRequired,

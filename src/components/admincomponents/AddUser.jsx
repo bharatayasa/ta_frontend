@@ -1,7 +1,7 @@
 import React from 'react';
 import { adduser } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-import AddUserInput from './AddUserInput';
+import AddUserInput from './AddUserInput.jsx';
 
 function AddUser() {
     const navigate = useNavigate();

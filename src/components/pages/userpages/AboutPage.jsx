@@ -1,14 +1,11 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React from 'react'
 
 function AboutPage() {
-    return(
-        <div className="py-5 min-vh-100">
-            <Container>
-                <h1>ini halaman About</h1>
-            </Container>
-        </div>
-    )
+  return (
+    <div>
+      about page
+    </div>
+  )
 }
 
-export default AboutPage;
+export default AboutPage

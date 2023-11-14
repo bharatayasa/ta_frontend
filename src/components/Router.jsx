@@ -2,23 +2,23 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // Users Page
-import NavbarUsers from "./usercomponents/NavbarUser";
-import HomePage from "./pages/userpages/HomePage";
-import PredictComponent from "./predictcomponents/PredictComponent";
-import HistoryPage from "./pages/userpages/HistoryPage"
-import AboutPage from "./pages/userpages/AboutPage";
-import FooterComponent from "./FooterComponent";
+import NavbarUsers from "./usercomponents/NavbarUser.jsx";
+import HomePage from "./pages/userpages/HomePage.jsx";
+import PredictPage from "./pages/predict/PredictPage.jsx";
+import HistoryPage from "./pages/userpages/HistoryPage.jsx"
+import AboutPage from "./pages/userpages/AboutPage.jsx";
+import FooterComponent from "./FooterComponent.jsx";
 
 // Admin Page
-import NavbarAdmin from "./admincomponents/NavbarAdmin";
-import UsersData from "./pages/adminpages/UsersData";
-import PredictsData from "./pages/adminpages/PredictsData";
+import NavbarAdmin from "./admincomponents/NavbarAdmin.jsx";
+import UsersData from "./pages/adminpages/UsersData.jsx";
+import PredictsData from "./pages/adminpages/PredictsData.jsx";
 
 // Login Register 
-import LoginPage from "./pages/loginregispages/LoginPage";
-import RegisterPage from "./pages/loginregispages/RegisterPage";
+import LoginPage from "./pages/loginregispages/LoginPage.jsx";
+import RegisterPage from "./pages/loginregispages/RegisterPage.jsx";
 
-import { getUserLogged, putAccessToken } from "../utils/api";
+import { getUserLogged, putAccessToken } from "../utils/api.js";
 
 class Router extends React.Component {
     constructor(props) {
@@ -101,7 +101,7 @@ class Router extends React.Component {
                     <main>
                         <Routes>
                             <Route path="/" element={<HomePage />}/>
-                            <Route path="/predict" element={<PredictComponent />}/>
+                            <Route path="/predict" element={<PredictPage />}/>
                             <Route path="/history" element={<HistoryPage />}/>
                             <Route path="/about" element={<AboutPage />}/>
                         </Routes>
