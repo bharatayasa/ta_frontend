@@ -52,7 +52,7 @@ const AddUserInput = ({ adduser }) => {
                 Tambah User
             </button>
             {show && (
-                <div className="fixed inset-0 mt-16" onClick={handleOutsideClick}>
+                <div className="fixed inset-0 mt-20 " onClick={handleOutsideClick}>
                     <div className="text-center pb-10">
                         <div className="fixed inset-0 transition-opacity" aria-hidden="true">
                             <div className="absolute inset-0 bg-slate-600 opacity-40"></div>

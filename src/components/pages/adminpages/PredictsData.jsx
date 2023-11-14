@@ -62,7 +62,7 @@ class PredictsData extends React.Component {
 
         return (
             <div className="mx-auto bg-slate-200 min-vh-100">
-                <div className="container py-5">
+                <div className="container mx-auto py-20">
                     <h1 className="text-center text-2xl mt-5 mb-5 font-semibold text-sky-900">
                         Hasil Prediksi Oleh Users
                     </h1>

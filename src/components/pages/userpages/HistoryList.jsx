@@ -10,7 +10,7 @@ function HistoryList({ savepredict, onDelete }) {
         <div>
         {savepredict.map((predict) => (
             <div key={predict.id}>
-                <div className="mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
+                <div className=" container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
                     <Disclosure>
                         {({ open }) => (
                             <div>

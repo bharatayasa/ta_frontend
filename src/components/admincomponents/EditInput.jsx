@@ -40,7 +40,7 @@ const EditInput = (props) => {
       </button>
 
       {show && (
-        <div className="fixed inset-0 mt-16" onClick={handleClose}>
+        <div className="fixed inset-0 mt-20" onClick={handleClose}>
           <div className="text-center pb-10">
 
             <div className="fixed inset-0 transition-opacity" aria-hidden="true">

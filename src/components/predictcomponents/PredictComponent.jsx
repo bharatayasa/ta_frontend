@@ -73,7 +73,7 @@ function PredictComponent() {
 
 	return (
 		<div className="bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col items-center">
-		<div className="text-center container mt-20 self-start lg:w-1/2">
+		<div className="text-center container mx-auto mt-28 self-start lg:w-1/2">
 			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg">
 			<div className="mb-5 pt-5">
 				<h2 className="lg:text-3xl sm:text-xl font-semibold text-sky-900">
