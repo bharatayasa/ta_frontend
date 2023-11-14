@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Tab } from '@headlessui/react';
 import BioDataModal from './BioData.jsx';
 import EditProfile from './EditProfile.jsx';
 import ChangePassword from './ChangePassword.jsx';
@@ -26,25 +25,26 @@ const UserProfile = () => {
         };
     }, []);
 
-    const [selectedTab, setSelectedTab] = useState(0); 
-    
+    const [selectedTab, setSelectedTab] = useState(0);
+
     return (
         <div>
             <div>
-                <button onClick={handleShow} className="text-l text-white bg-sky-400 px-2 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0">
+                <button
+                    onClick={handleShow}
+                    className="text-lg text-white bg-sky-400 px-2 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0">
                     My Profile
                 </button>
             </div>
 
             {show && (
-                <div className="fixed inset-0 mt-16" onClick={handleClose}>
+                <div className="fixed inset-0 mt-20" onClick={handleClose}>
                     <div className="text-center pb-10">
-                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <div className="bg-white/40 backdrop-blur-sm pt-4 sm:p-6 sm:pb-4">
-                                <div className='w-full max-w-md px-2 sm:px-0'>
-                                <Tab.Group>
-                                    <Tab.List className="flex space-x-1 rounded-lg bg-emerald-900/20 p-1">
-                                        <Tab
+                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full bg-emerald-500/25">
+                            <div className="pt-4 sm:p-6 sm:pb-4">
+                                <div className="w-full max-w-md px-2 sm:px-0">
+                                    <div className="flex space-x-1 rounded-lg">
+                                        <button
                                             className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
                                                 selectedTab === 0
                                                     ? 'bg-emerald-400 shadow font-semibold'
@@ -53,8 +53,8 @@ const UserProfile = () => {
                                             onClick={() => setSelectedTab(0)}
                                         >
                                             Bio Data
-                                        </Tab>
-                                        <Tab
+                                        </button>
+                                        <button
                                             className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
                                                 selectedTab === 1
                                                     ? 'bg-emerald-400 shadow font-semibold'
@@ -63,8 +63,8 @@ const UserProfile = () => {
                                             onClick={() => setSelectedTab(1)}
                                         >
                                             Ubah Biodata
-                                        </Tab>
-                                        <Tab
+                                        </button>
+                                        <button
                                             className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
                                                 selectedTab === 2
                                                     ? 'bg-emerald-400 shadow font-semibold'
@@ -73,20 +73,14 @@ const UserProfile = () => {
                                             onClick={() => setSelectedTab(2)}
                                         >
                                             Ubah Password
-                                        </Tab>
-                                    </Tab.List>
-                                    <Tab.Panels>
-                                        <Tab.Panel>
-                                            <BioDataModal />
-                                        </Tab.Panel>
-                                        <Tab.Panel>
-                                            <EditProfile />
-                                        </Tab.Panel>
-                                        <Tab.Panel>
-                                            <ChangePassword />
-                                        </Tab.Panel>
-                                    </Tab.Panels>
-                                </Tab.Group>
+                                        </button>
+                                    </div>
+
+                                    <div>
+                                        {selectedTab === 0 && <BioDataModal />}
+                                        {selectedTab === 1 && <EditProfile />}
+                                        {selectedTab === 2 && <ChangePassword />}
+                                    </div>
                                 </div>
                             </div>
                         </div>

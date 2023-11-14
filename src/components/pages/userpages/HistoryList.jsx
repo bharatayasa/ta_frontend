@@ -1,4 +1,4 @@
-import { React, Fragment } from "react";
+import { React, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import DeleteButton from "../../DeleteButton.jsx";
 import moment from "moment";
@@ -6,15 +6,26 @@ import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
 function HistoryList({ savepredict, onDelete }) {
+    const [visibleItems, setVisibleItems] = useState(5);
+
+    const handleLoadMore = () => {
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 5);
+    };
+
+    const sortedSavepredict = savepredict.sort((a, b) => {
+        return new Date(b.created_at) - new Date(a.created_at);
+    });
+
     return (
-        <div>
-        {savepredict.map((predict) => (
-            <div key={predict.id}>
-                <div className=" container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
-                    <Disclosure>
-                        {({ open }) => (
-                            <div>
-                                <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-300 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
+        <div className="px-6 lg:px-0">
+            {sortedSavepredict.slice(0, visibleItems).map((predict) => (
+                <div key={predict.id}>
+                    <div className=" container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
+                        <Disclosure>
+                            {({ open }) => (
+                                <div>
+                                    <div>
+                                <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                                     <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
                                     <ChevronUpIcon className={`${ open ? 'rotate-180 transform' : '' } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`} />
                                 </Disclosure.Button>
@@ -33,11 +44,19 @@ function HistoryList({ savepredict, onDelete }) {
                                     </Disclosure.Panel>
                                 </Transition>
                             </div>
-                        )}
-                    </Disclosure>
+                                </div>
+                            )}
+                        </Disclosure>
+                    </div>
                 </div>
-            </div>
-        ))}
+            ))}
+            {sortedSavepredict.length > visibleItems && (
+                <div className="text-center py-5">
+                    <button className="text-lg text-white bg-sky-400 px-4 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-lg" onClick={handleLoadMore}>
+                        Load More
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

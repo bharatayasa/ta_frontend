@@ -74,12 +74,7 @@ class UsersData extends Component {
                     <section>
                         <h2 className="text-center text-2xl mt-5 font-semibold text-sky-900">Data Users</h2>
                         <AddUser />
-                        <SearchBar
-                            selectedOption={this.state.selectedOption}
-                            keyword={this.state.keyword}
-                            keywordChange={this.onKeywordChangeHandler}
-                            handleOptionChange={this.onOptionChangeHandler}
-                        />
+                        <SearchBar selectedOption={this.state.selectedOption} keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} handleOptionChange={this.onOptionChangeHandler}/>
                         <AllUsersList users={users} onDelete={this.onDeleteHandler} />
                     </section>
                 </div>

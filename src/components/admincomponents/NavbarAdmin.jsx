@@ -31,7 +31,7 @@ function NavbarUser({ logout, name }) {
         <div className='navbar'>
             <nav className={`backdrop-blur-sm font-medium ${scrolled ? 'shadow-md bg-white/5' : ''} fixed w-full top-0 z-50`}>
                 <div className="container flex justify-between items-center mx-auto px-4 py-4 sm:px-16 sm:py-8">
-                    <div className='order-1 sm:order-2 lg:order-1'>
+                    <div className='order-1 sm:order-2 lg:order-1 text-2xl font-semibold text-sky-900'>
                         <h1>Admin</h1>
                     </div>
                     <div className='cursor-pointer order-2 sm:order-1 lg:hidden' onClick={toggleNav}>
@@ -52,7 +52,7 @@ function NavbarUser({ logout, name }) {
                     </div>
 
                     <div className='hidden sm:block order-3'>
-                      <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out' onClick={logout}>Logout</button>
+                        <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out' onClick={logout}>Logout</button>
                     </div>
                 </div>
 

@@ -101,31 +101,31 @@ class RegisterInput extends React.Component {
 
                                         <div className='mr-3 ml-3 mb-3 '>
                                             <label htmlFor="username" className="block mb-1 text-sky-900 font-semibold">Username</label>
-                                            <input type="text" id="username" placeholder="Username" value={this.state.username} onChange={this.onUsernameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" autoComplete="none"/>
+                                            <input type="text" id="username" placeholder="Username" value={this.state.username} onChange={this.onUsernameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" autoComplete="none"/>
                                         </div>
 
                                         <div className='mr-3 ml-3 mb-3 '>
                                             <label htmlFor="name" className="block mb-1 text-sky-900 font-semibold">Name</label>
-                                            <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.onNameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400"  autoComplete="none" />
+                                            <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.onNameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900"  autoComplete="none" />
                                         </div>
 
                                         <div className='mr-3 ml-3 mb-3 '>
                                             <label htmlFor="email" className="block mb-1 text-sky-900 font-semibold">E-mail</label>
-                                            <input type="email" id="email" placeholder="E-Mail" value={this.state.email} onChange={this.onEmailChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400"  autoComplete="none"/>
+                                            <input type="email" id="email" placeholder="E-Mail" value={this.state.email} onChange={this.onEmailChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900"  autoComplete="none"/>
                                         </div>
 
                                         <div className='mr-3 ml-3 mb-3  relative'>
                                             <label htmlFor="password" className="block mb-1 text-sky-900 font-semibold">Password</label>
-                                            <input type={showPassword ? "text" : "password"} id="password" placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" />
-                                            <span onClick={this.toggleShowPassword} className="absolute mt-4 transform -translate-y-1/2 right-3 cursor-pointer text-blue-500">
+                                            <input type={showPassword ? "text" : "password"} id="password" placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" />
+                                            <span onClick={this.toggleShowPassword} className="absolute mt-4 transform -translate-y-1 right-3 cursor-pointer text-blue-500">
                                                 {showPassword ? "Hide" : "Show"}
                                             </span>
                                         </div>
 
                                         <div className='mr-3 ml-3 mb-5  relative'>
                                             <label htmlFor="confirmPassword" className="block mb-1 text-sky-900 font-semibold">Confirm Password</label>
-                                            <input type={showPassword2 ? "text" : "password"} id="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" />
-                                            <span onClick={this.toggleShowPassword2} className="absolute mt-4 transform -translate-y-1/2 right-3 cursor-pointer text-blue-500">
+                                            <input type={showPassword2 ? "text" : "password"} id="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" />
+                                            <span onClick={this.toggleShowPassword2} className="absolute mt-4 transform -translate-y-1 right-3 cursor-pointer text-blue-500">
                                                 {showPassword2 ? "Hide" : "Show"}
                                             </span>
                                         </div>
