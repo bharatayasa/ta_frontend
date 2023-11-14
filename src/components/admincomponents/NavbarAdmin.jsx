@@ -5,12 +5,17 @@ import { navLinksAdmin } from '../../utils/navbarAdmin.js';
 import { NavLink } from "react-router-dom";
 
 
+<<<<<<< HEAD
 function NavbarUser({ logout, name }) {
     const [toggleNavBar, setToggleNavBar] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     const toggleNav = () => setToggleNavBar(!toggleNavBar);
     const hamburgerIcon = toggleNavBar ? hamburgerActive : hamburgerNonActive;
+=======
+function NavbarAdmin({logout, name}) {
+    const [changeColor, setChangeColor] = useState (false);
+>>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -56,6 +61,7 @@ function NavbarUser({ logout, name }) {
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div className={`${toggleNavBar ? 'block' : 'hidden'} lg:hidden`}>
                     <ul className='cursor-pointer text-lg text-black flex-col gap-2'>
                         {navLinksAdmin.map((link) => (
@@ -65,6 +71,32 @@ function NavbarUser({ logout, name }) {
                                         isPending ? "pending" : (isActive || isExact) ? "active" : ""} end>
                                     {link.text}
                                 </NavLink>
+=======
+    return(
+        <div>
+            <div className='navbar'>
+                <nav className="bg-body-tertiary">
+                    <Navbar expand="lg" className={changeColor ? "backdrop-blur-sm shadow-sm" : ""}>
+                        <Container>
+                        <Navbar.Brand className='fs-3 fw-bold'> Admin </Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mx-auto text-center font-semibold">
+                                {navLinksAdmin.map((link) => {
+                                return (
+                                        <div key={link.id} className='nav-link'>
+                                            <NavLink to={link.path} 
+                                                className={({ isActive, isPending }) =>
+                                                isPending ? "pending" : isActive ? "active" : ""} end>
+                                                {link.text}
+                                            </NavLink>
+                                        </div>
+                                        )
+                                })}
+                            </Nav>
+                            <div className='text-center'>
+                                <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+>>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
                             </div>
                         ))}
                     </ul>

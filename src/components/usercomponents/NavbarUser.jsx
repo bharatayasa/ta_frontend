@@ -5,7 +5,6 @@ import { navLinks } from '../../utils/navbarUser.js';
 import { NavLink } from "react-router-dom";
 import UserProfile from './UserProfile.jsx';
 
-
 function NavbarUser({ logout, name }) {
     const [toggleNavBar, setToggleNavBar] = useState(false);
     const [scrolled, setScrolled] = useState(false);

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { updatePassword } from "../../utils/api";
+<<<<<<< HEAD
 import ChangePasswordInput from "./ChangePasswordInput.jsx";
 import CustomAlert from "../../CustomAlert.jsx";
+=======
+import ChangePasswordInput from "./ChangePasswordInput";
+import CustomAlert from "./CustomAlert";
+>>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 
 export default function ChangePassword() {
 	const [alertData, setAlertData] = useState({ show: false, message: "", isSuccess: false });

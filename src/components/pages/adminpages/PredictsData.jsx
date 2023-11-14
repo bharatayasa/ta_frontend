@@ -1,7 +1,12 @@
 import React from "react";
 import { getAllPredict, deleteHistory } from "../../../utils/api";
+<<<<<<< HEAD
 import AllPredictList from "../../admincomponents/AllPredictsList.jsx";
 import SearchBarPredict from "../../admincomponents/SearchBarPredict.jsx";
+=======
+import AllPredictList from "../../admincomponents/AllPredictsList";
+import SearchBarPredict from "../../admincomponents/SearchBarPredict";
+>>>>>>> 11bb46e90940d3c5cf5b016e914613aeac393dae
 
 function PredictDataWraper({ keywordChange }) {
     return <PredictsData keywordChange={keywordChange} />;
