@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import Tomatigirl from '../../assets/img/tomatigirl.png';
+import { Input } from "@material-tailwind/react";
+import show from "../../assets/password/show.svg"
+import hide from "../../assets/password/hide.svg"
 
 class RegisterInput extends React.Component {
     constructor(props) {
@@ -85,60 +88,63 @@ class RegisterInput extends React.Component {
         const { showPassword, showPassword2 } = this.state;
 
         return (
-            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col justify-center items-center'>
+            <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col justify-center items-center'>
                 <section>
-                    <div className='container'>
-                        <div className='flex flex-wrap justify-center items-center'>
-                            <div className='w-full self-center px-9 lg:w-1/2'>
-                                <img className="hidden lg:block" style={{ width: '80%' }} src={Tomatigirl} alt="Tomatigirl" />
+                    <div className='container mx-auto'>
+                        <div className='flex justify-center'>
+
+                            <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
+                                <img className="hidden lg:block" style={{ width: '90%' }} src={Tomatigirl} alt="Tomatigirl" />
                             </div>
-                            <div className='w-full self-end px-2 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
-                                <div className='mt-10'>
+
+                            <div className='w-full self-end px-10 lg:px-6 md:px-20 sm:px-10 md:w-full lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out'>
+                                <div className=''>
                                     <form onSubmit={this.onSubmitHandler}>
-                                        <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
+                                        <div className='text-center text-2xl mt-10 mb-3 font-semibold text-sky-900'>
                                             <h1>Register</h1>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-3 '>
-                                            <label htmlFor="username" className="block mb-1 text-sky-900 font-semibold">Username</label>
-                                            <input type="text" id="username" placeholder="Username" value={this.state.username} onChange={this.onUsernameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" autoComplete="none"/>
+                                        <div className='mx-auto mb-5'>
+                                            <Input type="text" variant="standard" label="Username" size="lg" value={this.state.username} onChange={this.onUsernameChange}/>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-3 '>
-                                            <label htmlFor="name" className="block mb-1 text-sky-900 font-semibold">Name</label>
-                                            <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.onNameChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900"  autoComplete="none" />
+                                        <div className='mx-auto mb-5 relative'>
+                                            <Input type="text" variant="standard" label="Name" size="lg" value={this.state.name} onChange={this.onNameChange}/>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-3 '>
-                                            <label htmlFor="email" className="block mb-1 text-sky-900 font-semibold">E-mail</label>
-                                            <input type="email" id="email" placeholder="E-Mail" value={this.state.email} onChange={this.onEmailChange} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900"  autoComplete="none"/>
+                                        <div className='mx-auto mb-5 relative'>
+                                            <Input type="email" variant="standard" label="E-Mail" size="lg" value={this.state.email} onChange={this.onEmailChange}/>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-3  relative'>
-                                            <label htmlFor="password" className="block mb-1 text-sky-900 font-semibold">Password</label>
-                                            <input type={showPassword ? "text" : "password"} id="password" placeholder="Password" value={this.state.password} onChange={this.onPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" />
-                                            <span onClick={this.toggleShowPassword} className="absolute mt-4 transform -translate-y-1 right-3 cursor-pointer text-blue-500">
-                                                {showPassword ? "Hide" : "Show"}
+                                        <div className='mx-auto mb-5 relative'>
+                                            <Input  type={showPassword ? "text" : "password"} variant="standard" label="Password" value={this.state.password} onChange={this.onPasswordChange}/>
+                                            <span onClick={this.toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                            {showPassword ?
+                                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                                            }
                                             </span>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-5  relative'>
-                                            <label htmlFor="confirmPassword" className="block mb-1 text-sky-900 font-semibold">Confirm Password</label>
-                                            <input type={showPassword2 ? "text" : "password"} id="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange} autoComplete="off" className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" />
-                                            <span onClick={this.toggleShowPassword2} className="absolute mt-4 transform -translate-y-1 right-3 cursor-pointer text-blue-500">
-                                                {showPassword2 ? "Hide" : "Show"}
+                                        <div className='mx-auto mb-5 relative'>
+                                            <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange}/>
+                                            <span onClick={this.toggleShowPassword2} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                            {showPassword2 ?
+                                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                                            }
                                             </span>
                                         </div>
 
                                         <div className='text-center'>
-                                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
+                                        <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
                                                 Register
                                             </button>
                                         </div>
 
-                                        <p className="text-center mb-4 lg:text-lg sm:text-xs text-sky-900">
-                                            Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span>
-                                        </p>
+                                        <div className="text-center mb-4 lg:text-lg sm:text-sm text-sm ">
+                                            <p className="text-sky-900">Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span></p>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

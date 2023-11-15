@@ -1,10 +1,12 @@
 import React from 'react';
 import HeroImage from '../../../assets/img/kebun_tomat.png';
 import { Link } from 'react-router-dom';
+import TutorialPredict from '../../usercomponents/TutorialPredict';
+import BioDataModal from '../../usercomponents/BioData';
 
 function HomePage() {
     return (
-        <div className="bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex justify-center items-center">
+        <div className="bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex justify-center items-center">
             <div className="container mx-auto py-10 mt-5 sm:mt-10 lg:mt-0">
                 <div className="flex flex-col lg:flex-row items-center justify-center">
 
@@ -25,6 +27,9 @@ function HomePage() {
                         <img className="w-full" src={HeroImage} alt="Hero" />
                     </div>
 
+                </div>
+                <div className='text-center'>
+                    <TutorialPredict />
                 </div>
             </div>
         </div>

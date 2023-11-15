@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import show from "../../assets/password/show.svg"
+import hide from "../../assets/password/hide.svg"
 
 class ChangePasswordInput extends Component {
     constructor(props) {
@@ -71,19 +73,34 @@ class ChangePasswordInput extends Component {
                     <div className="mb-4 relative">
                         <label htmlFor="passwordlama" className="block text-sky-900 text-sm font-bold mb-2">Password Lama:</label>
                         <input type={showPassword ? "text" : "password"} value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Lama" autoComplete="off"/>
-                        <span onClick={() => this.toggleShowPassword('showPassword')} className="text-sm py-1 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword ? "Hide" : "Show"}</span>
+                        <span onClick={() => this.toggleShowPassword('showPassword')} className="text-sm py-1 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+                            {showPassword ?
+                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                            }
+                        </span>
                     </div>
 
                     <div className="mb-4 relative">
                         <label htmlFor="passwordbaru" className="block text-sky-900 text-sm font-bold mb-2">Password Baru:</label>
                         <input type={showPassword2 ? "text" : "password"} value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Baru"autoComplete="off"/>
-                        <span onClick={() => this.toggleShowPassword2('showPassword2')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword2 ? "Hide" : "Show"}</span>
+                        <span onClick={() => this.toggleShowPassword2('showPassword2')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+                            {showPassword2 ?
+                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                            }
+                        </span>
                     </div>
 
                     <div className="mb-4 relative">
                         <label htmlFor="confirmPassword" className="block text-sky-900 text-sm font-bold mb-2">Konfirmasi Password:</label>
                         <input type={showPassword3 ? "text" : "password"} value={this.state.confirmPassword} onChange={this.onConfirmPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" placeholder="Konfirmasi Password" autoComplete="off" />
-                        <span onClick={() => this.toggleShowPassword3('showPassword3')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">{showPassword3 ? "Hide" : "Show"}</span>
+                        <span onClick={() => this.toggleShowPassword3('showPassword3')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+                            {showPassword3 ?
+                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                            }
+                        </span>
                     </div>
 
                     <div className="text-center">

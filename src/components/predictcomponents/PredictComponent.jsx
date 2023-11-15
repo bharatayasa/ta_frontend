@@ -1,9 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { getUserLogged, savepredict } from "../../utils/api";
-import scananimate from "../../../src/assets/img/predict_proccess.png";
+import scananimate from "../../../src/assets/img/scan.png";
 
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+
+import { Spinner } from "@material-tailwind/react";
 
 function PredictComponent() {
 	const [file, setFile] = useState(null);
@@ -72,7 +74,7 @@ function PredictComponent() {
 	}, []);
 
 	return (
-		<div className="bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col items-center">
+		<div className="bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col items-center">
 
 		<div className="text-center container mx-auto mt-[80px] self-start lg:w-1/2 px-4">
 			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg">
@@ -85,15 +87,18 @@ function PredictComponent() {
 			</p>
 			</div>
 			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
-				<div className="mb-5 mt-5 px-8">
-					<input type="file" accept="image/*" className="file:mr-4s lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl sm:file:text-lg file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out" onChange={handleFileChange} />
+				<div className="mb-5 mt-5">
+					<input type="file" accept="image/*" className="lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl sm:file:text-sm file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out" onChange={handleFileChange} />
 				</div>
 			</div>
 			<div>
 				{isLoading ? (
-				<button className="text-xl text-white bg-emerald-500 px-3 py-2 rounded-md shadow-md mb-5" disabled>
-					Loading...
-				</button>
+				<div className="items-center flex justify-center">
+					<button className="text-xl text-white bg-emerald-500 px-3 py-2 rounded-md shadow-md flex items-center mb-5" disabled>
+						Loading
+						<div className=""><Spinner className="h-8 w-10 text-white-900/50" /></div>
+					</button>
+				</div>
 				) : (
 				<button onClick={handleUpload} className="text-xl text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-5 transition duration-300 ease-in-out shadow-md">
 					Prediksi
@@ -104,9 +109,9 @@ function PredictComponent() {
 			{isLoading && (
 			<div className="flex justify-center">
 				<div className="animate-pulse justify-center mb-5">
-				<div>
-					<img src={scananimate} />
-				</div>
+					<div>
+						<img style={{ width: '90%' }} src={scananimate} />
+					</div>
 				</div>
 			</div>
 			)}

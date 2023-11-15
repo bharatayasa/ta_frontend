@@ -36,7 +36,17 @@ const EditInput = (props) => {
   return (
     <div>
       <button onClick={handleShow} className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md">
-        Ubah
+        <div className='flex'>
+          <div>
+            Ubah
+          </div>
+          <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+          </svg>
+          </div>
+        </div>
       </button>
 
       {show && (
@@ -48,27 +58,27 @@ const EditInput = (props) => {
             </div>
 
             <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <div className="bg-white/40 backdrop-blur-sm pt-4 sm:p-6 sm:pb-4">
-                <h3 className="text-center text-2xl font-semibold text-sky-900">Ubah Data User</h3>
+              <div className="bg-white/40 backdrop-blur-sm pt-4 sm:px-6 sm:pb-4 px-10 py-6">
+                <h3 className="text-center lg:text-2xl md:text-xl text-md font-semibold text-sky-900">Ubah Data User</h3>
                 <form onSubmit={onSubmitEventHandler} className="space-y-5">
 
                   <div>
-                    <label htmlFor="username" className="block text-lg text-sky-900 font-semibold">Username</label>
+                    <label htmlFor="username" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">Username</label>
                     <input type="text" name="username" value={userData.username} onChange={(e) => handleFieldChange('username', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
                   </div>
 
                   <div>
-                    <label htmlFor="name" className="block text-lg text-sky-900 font-semibold">Name</label>
+                    <label htmlFor="name" className="block md:text-sm text-sm lg:text-sm text-sky-900 font-semibold">Name</label>
                     <input type="text" name="name" value={userData.name} onChange={(e) => handleFieldChange('name', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-lg text-sky-900 font-semibold">E-Mail</label>
+                    <label htmlFor="email" className="block md:text-sm text-sm lg:text-sm text-sky-900 font-semibold">E-Mail</label>
                     <input type="email" name="email" value={userData.email} onChange={(e) => handleFieldChange('email', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 focus:border-sky-900" placeholder="username" autoComplete="off" />
                   </div>
 
                   <div>
-                    <label htmlFor="role" className="block text-lg text-sky-900 font-semibold">Pilih Role</label>
+                    <label htmlFor="role" className="block md:text-sm text-sm lg:text-sm text-sky-900 font-semibold">Pilih Role</label>
                     <select name="role" value={userData.role} onChange={(e) => handleFieldChange('role', e.target.value)} className="w-full py-2 rounded-lg shadow-lg px-3 focus:border-sky-900" placeholder="username" autoComplete="off">
                       <option value="user">user</option>
                       <option value="admin">admin</option>

@@ -20,7 +20,7 @@ function HistoryList({ savepredict, onDelete }) {
         <div className="px-6 lg:px-0">
             {sortedSavepredict.slice(0, visibleItems).map((predict) => (
                 <div key={predict.id}>
-                    <div className=" container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
+                    <div className="container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
                         <Disclosure>
                             {({ open }) => (
                                 <div>
@@ -53,7 +53,21 @@ function HistoryList({ savepredict, onDelete }) {
             {sortedSavepredict.length > visibleItems && (
                 <div className="text-center py-5">
                     <button className="text-lg text-white bg-sky-400 px-4 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-lg" onClick={handleLoadMore}>
-                        Load More
+                        <div className="flex">
+                            <div className="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                    <path fillRule="evenodd" d="M20.03 4.72a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 11.69l6.97-6.97a.75.75 0 011.06 0zm0 6a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06L12 17.69l6.97-6.97a.75.75 0 011.06 0z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                Load More
+                            </div>
+                            <div className="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                    <path fillRule="evenodd" d="M20.03 4.72a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 11.69l6.97-6.97a.75.75 0 011.06 0zm0 6a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06L12 17.69l6.97-6.97a.75.75 0 011.06 0z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
                     </button>
                 </div>
             )}

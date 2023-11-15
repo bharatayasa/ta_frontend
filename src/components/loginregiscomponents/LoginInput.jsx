@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Input } from "@material-tailwind/react";
+import show from "../../assets/password/show.svg"
+import hide from "../../assets/password/hide.svg"
 
 class LoginInput extends Component {
     constructor(props) {
@@ -53,9 +56,9 @@ class LoginInput extends Component {
 
     render() {
         const { showPassword } = this.state;
-    
+
         return (
-            <div className='bg-gradient-to-r from-red-300 via-yellow-200 to-emerald-300 min-h-screen flex flex-col justify-center items-center'>
+            <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col justify-center items-center'>
                 <section>
                     <div className='container'>
                         <div className='flex flex-wrap justify-center items-center'>
@@ -69,35 +72,38 @@ class LoginInput extends Component {
                                 </p>
                             </div>
 
-                            <div className='w-full self-end px-2 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-sm'>
+                            <div className='w-full self-end px-10 lg:px-6 md:px-10 sm:px-10 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out'>
                                 <div className='mt-10'>
                                     <form onSubmit={this.onSubmitHandler}>
+
                                         <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
                                             <h1>Login</h1>
                                         </div>
-                                        
-                                        <div className='mr-3 ml-3 mb-3'>
-                                            <label htmlFor="username" className="block mb-1 text-sky-900 font-semibold">Username</label>
-                                            <input type="text" placeholder="Username" value={this.state.username} onChange={this.onUsernameChangeHandler} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" autoComplete="none"/>
+
+                                        <div className='mx-auto mb-5 '>
+                                            <Input type='text' variant="standard" label="Username" size="lg" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
                                         </div>
 
-                                        <div className='mr-3 ml-3 mb-5 relative'>
-                                            <label htmlFor="username" className="block mb-1 text-sky-900 font-semibold">Password</label>
-                                            <input type={showPassword ? "text" : "password"} placeholder="Password" value={this.state.password} onChange={this.onPasswordChangeHandler} className="w-full border-2 rounded-md py-2 px-3 focus:outline-none focus:border-sky-900" autoComplete="none"/>
-                                            <span onClick={this.toggleShowPassword} className="absolute mt-4 transform -translate-y-1 right-3 cursor-pointer text-blue-500">
-                                                {showPassword ? "Hide" : "Show"}
+                                        <div className='mx-auto mb-5 relative'>
+                                            <Input  type={showPassword ? "text" : "password"} variant="standard" label="Password" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
+                                            <span onClick={this.toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                            {showPassword ?
+                                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                                            }
                                             </span>
                                         </div>
 
                                         <div className='text-center'>
-                                            <button type="submit" className='text-xl text-white bg-emerald-400 px-5 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
+                                            <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
                                                 Login
                                             </button>
                                         </div>
 
-                                        <div className="text-center mb-4 lg:text-lg sm:text-xs">
+                                        <div className="text-center mb-4 lg:text-lg sm:text-sm text-sm">
                                             <p className='text-sky-900'>Belum punya akun..? <Link to="/register"><span className='text-blue-500'>Register Disini</span></Link></p>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
