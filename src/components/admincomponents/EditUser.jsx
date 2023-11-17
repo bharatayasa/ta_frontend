@@ -1,7 +1,7 @@
 import React from "react";
 import { updateuser } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
-import EditButton from "./EditInput.jsx";
+import EditInput from "./EditInput.jsx";
 
 export default function EditUser({ user }) {
 	const navigate = useNavigate();
@@ -17,5 +17,5 @@ export default function EditUser({ user }) {
 		}
 	}
 
-	return <EditButton {...user} updateuser={onEditUserHandler} />;
+	return <EditInput {...user} updateuser={onEditUserHandler} />;
 }

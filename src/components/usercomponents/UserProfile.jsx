@@ -40,12 +40,12 @@ const UserProfile = () => {
             {show && (
                 <div className="fixed inset-0 mt-20" onClick={handleClose}>
                     <div className="text-center pb-10">
-                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full bg-emerald-500/25">
+                    <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full bg-white/30 backdrop-blur-md !important">
                             <div className="pt-4 sm:p-6 sm:pb-4">
-                                <div className="w-full max-w-md px-2 sm:px-0">
-                                    <div className="flex space-x-1 rounded-lg">
+                                <div className="w-full max-w-md px-2">
+                                    <div className="flex justify-between rounded-lg bg-sky-400/30">
                                         <button
-                                            className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
+                                            className={`w-full text-sky-900 rounded-md py-2 px-5 text-xs font-medium m-1 ${
                                                 selectedTab === 0
                                                     ? 'bg-emerald-400 shadow font-semibold'
                                                     : 'hover:bg-emerald-400 hover:text-white font-semibold'
@@ -55,7 +55,7 @@ const UserProfile = () => {
                                             Bio Data
                                         </button>
                                         <button
-                                            className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
+                                            className={`w-full text-sky-900 rounded-md py-2 px-3 text-xs font-medium m-1 ${
                                                 selectedTab === 1
                                                     ? 'bg-emerald-400 shadow font-semibold'
                                                     : 'hover:bg-emerald-400 hover:text-white font-semibold'
@@ -65,7 +65,7 @@ const UserProfile = () => {
                                             Ubah Biodata
                                         </button>
                                         <button
-                                            className={`w-full text-sky-900 rounded-lg py-2.5 text-sm font-medium ${
+                                            className={`lg:w-full text-sky-900 rounded-md py-2 px-2 text-xs font-medium m-1 ${
                                                 selectedTab === 2
                                                     ? 'bg-emerald-400 shadow font-semibold'
                                                     : 'hover:bg-emerald-400 hover:text-white font-semibold'

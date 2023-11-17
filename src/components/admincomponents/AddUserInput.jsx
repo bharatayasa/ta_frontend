@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import showing from "../../assets/password/show.svg"
 import hide from "../../assets/password/hide.svg"
+import { Input } from "@material-tailwind/react";
 
 const AddUserInput = ({ adduser }) => {
     const [show, setShow] = useState(false);
@@ -74,33 +75,22 @@ const AddUserInput = ({ adduser }) => {
                             <div className="bg-white/40 backdrop-blur-sm pt-4 sm:px-6 sm:pb-4 px-10 py-6">
                                 <h3 className="text-center lg:text-2xl md:text-xl text-md font-semibold text-sky-900">Tambah Data User</h3>
                                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+
                                     <div>
-                                        <label htmlFor="username" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">
-                                            Username
-                                        </label>
-                                        <input type="text" name="username" id="username" value={userData.username} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="username" autoComplete="off" />
+                                        <Input label="Username" name="username" type='text' id="username" value={userData.username} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="name" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">
-                                            Name
-                                        </label>
-                                        <input type="text" name="name" id="name" value={userData.name} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="name" autoComplete="off" />
+                                        <Input label="Name" name="name" type='text' id="name" value={userData.name} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="email" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">
-                                            E-Mail
-                                        </label>
-                                        <input type="email" name="email" id="email" value={userData.email} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="e-mail" autoComplete="off" />
+                                        <Input label="E-Mail" name="email" type='enail' id="emial" value={userData.email} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
                                     </div>
 
                                     <div style={{ position: 'relative' }}>
-                                        <label htmlFor="password" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">
-                                            Password
-                                        </label>
-                                        <input type={showPassword ? 'text' : 'password'} name="password" id="password" value={userData.password} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" placeholder="Password" autoComplete="off"/>
-                                        <button type="button" onClick={toggleShowPassword} style={{ position: 'absolute', top: '70%', right: '10px', transform: 'translateY(-50%)' }} className='text-sm text-blue-400' >
+                                        <Input label="Password" type={showPassword ? 'text' : 'password'} name="password" id="password" value={userData.password} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
+                                        <button type="button" onClick={toggleShowPassword} style={{ position: 'absolute', top: '50%', right: '10px', transform: 'translateY(-50%)' }} className='text-sm text-blue-400' >
                                             {showPassword ?
                                                 <img src={showing} alt="Show Password" className="h-5 w-5" /> :
                                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
@@ -109,11 +99,8 @@ const AddUserInput = ({ adduser }) => {
                                     </div>
 
                                     <div style={{ marginTop: '20px', position: 'relative' }}>
-                                        <label htmlFor="confirmPassword" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">
-                                            Confirm Password
-                                        </label>
-                                        <input type={showPassword2 ? 'text' : 'password'} name="confirmPassword" id="confirmPassword" value={userData.confirmPassword} onChange={handleChange} className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900 text-sm" placeholder="Confirm Password" autoComplete="off" />
-                                        <button type="button" onClick={toggleShowPassword2} style={{ position: 'absolute', top: '70%', right: '10px', transform: 'translateY(-50%)' }} className='text-sm text-blue-400' >
+                                        <Input label='Confirm Password' type={showPassword2 ? 'text' : 'password'} name="confirmPassword" id="confirmPassword" value={userData.confirmPassword} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
+                                        <button type="button" onClick={toggleShowPassword2} style={{ position: 'absolute', top: '50%', right: '10px', transform: 'translateY(-50%)' }} className='text-sm text-blue-400' >
                                             {showPassword2 ?
                                                 <img src={showing} alt="Show Password" className="h-5 w-5" /> :
                                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
@@ -122,8 +109,7 @@ const AddUserInput = ({ adduser }) => {
                                     </div>
 
                                     <div>
-                                        <label htmlFor="role" className="block md:text-sm lg:text-sm text-sm text-sky-900 font-semibold">Role</label>
-                                        <select id="role" name="role" value={userData.role} onChange={handleChange} autoComplete="off" className="w-full py-2 rounded-lg shadow-lg px-3 border-sky-900" >
+                                        <select id="role" name="role" value={userData.role} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg w-full rounded-lg py-2 px-3'>
                                             <option value="">Pilih Role</option>
                                             <option value="admin">Admin</option>
                                             <option value="user">User</option>
@@ -135,6 +121,7 @@ const AddUserInput = ({ adduser }) => {
                                             Simpan
                                         </button>
                                     </div>
+
                                 </form>
                             </div>
                         </div>

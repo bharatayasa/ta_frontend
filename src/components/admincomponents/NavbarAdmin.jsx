@@ -53,7 +53,7 @@ function NavbarUser({ logout, name }) {
 
                 <div className='hidden sm:block md:block order-3'>
                     <div className='flex justify-between'>
-                        <button className="text-lg text-white bg-pink-400 px-2 py-2 rounded-md hover:shadow-xl hover:bg-pink-500 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0" onClick={logout}>Logout</button>
+                        <button className="text-lg text-white bg-pink-600 px-2 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0" onClick={logout}>Logout</button>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,6 @@ import hamburgerActive from '../../assets/img/navbar/hamburger-active.svg';
 import hamburgerNonActive from '../../assets/img/navbar/hamburger-non-active.svg';
 import { navLinks } from '../../utils/navbarUser.js';
 import { NavLink } from "react-router-dom";
-import UserProfile from './UserProfile.jsx';
 
 function NavbarUser({ logout, name }) {
     const [toggleNavBar, setToggleNavBar] = useState(false);
@@ -53,8 +52,7 @@ function NavbarUser({ logout, name }) {
 
                     <div className='hidden sm:block md:block order-3'>
                         <div className='flex justify-between'>
-                            <UserProfile />
-                            <button className="text-lg text-white bg-pink-400 px-2 py-2 rounded-md hover:shadow-xl hover:bg-pink-500 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0" onClick={logout}>Logout</button>
+                            <button className="text-lg text-white bg-pink-600 px-2 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0" onClick={logout}>Logout</button>
                         </div>
                     </div>
                 </div>
@@ -73,8 +71,8 @@ function NavbarUser({ logout, name }) {
                     </ul>
                     <div className='sm:hidden order-3 text-center'>
                         <div className='mb-3 flex justify-center items-center'>
-                            <UserProfile />
-                            <button className='ml-5 text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>
+                            <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>
+                                Logout
                             </button>
                         </div>
                     </div>

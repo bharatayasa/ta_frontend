@@ -127,7 +127,7 @@ class RegisterInput extends React.Component {
                                         </div>
 
                                         <div className='mx-auto mb-5 relative'>
-                                            <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange}/>
+                                            <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange}/>
                                             <span onClick={this.toggleShowPassword2} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
                                             {showPassword2 ?
                                                 <img src={show} alt="Show Password" className="h-5 w-5" /> :

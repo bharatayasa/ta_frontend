@@ -2,7 +2,7 @@ import React from 'react';
 import HeroImage from '../../../assets/img/kebun_tomat.png';
 import { Link } from 'react-router-dom';
 import TutorialPredict from '../../usercomponents/TutorialPredict';
-import BioDataModal from '../../usercomponents/BioData';
+import UserProfile from '../../usercomponents/UserProfile';
 
 function HomePage() {
     return (
@@ -20,6 +20,9 @@ function HomePage() {
                         <div className="flex flex-col lg:flex-row px-10 lg:px-0">
                             <button className="text-lg lg:text-xl text-white bg-sky-400 px-6 py-3 rounded-lg mb-3 lg:mb-0 lg:mr-3 transition duration-300 hover:bg-sky-500 shadow-lg">Tutorial Prediksi</button>
                             <button className="text-lg lg:text-xl text-white bg-emerald-400 px-6 py-3 rounded-lg mb-3 lg:mb-0 lg:mr-3 transition duration-300 hover:bg-emerald-500 shadow-lg"><Link to="/predict"><span>Prediksi Sekarang</span></Link></button>
+                            <div>
+                                <UserProfile />
+                            </div>
                         </div>
                     </div>
 
