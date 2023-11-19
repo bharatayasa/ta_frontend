@@ -65,9 +65,11 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {currentPredict.map((predict, index) => (
                                         <tr key={predict.id} className="hover:bg-slate-100 hover:shadow-md transition duration-200 ease-in-out">
+
                                         <td className="text-center">
                                             <b>{lastIndex + index + 1}</b>
                                         </td>
+
                                         <td className="text-center">
                                             {predict.id}
                                         </td>
@@ -76,7 +78,7 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                                             <div className=" text-gray-900">{predict.userId}</div>
                                         </td>
 
-                                        <td className="px-6 py-4 whitespace-nowrap text-center">
+                                        <td className="px-6 py-4 whitespace-nowrap">
                                             <div className=" text-gray-900">{predict.kelas}</div>
                                         </td>
 

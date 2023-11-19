@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import show from "../../assets/password/show.svg"
 import hide from "../../assets/password/hide.svg"
+import { Input } from "@material-tailwind/react";
 
 class ChangePasswordInput extends Component {
     constructor(props) {
@@ -70,42 +71,41 @@ class ChangePasswordInput extends Component {
             <div className="mt-4">
                 <h1 className='text-xl font-semibold text-sky-900 text-center'>Ubah Password</h1>
                 <form onSubmit={this.onSubmitEventHandler}>
-                    <div className="mb-4 relative">
-                        <label htmlFor="passwordlama" className="block text-sky-900 text-sm font-bold mb-2">Password Lama:</label>
-                        <input type={showPassword ? "text" : "password"} value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Lama" autoComplete="off"/>
-                        <span onClick={() => this.toggleShowPassword('showPassword')} className="text-sm py-1 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+
+                <div className='mx-auto mb-5 relative'>
+                    <Input  type={showPassword ? "text" : "password"} variant="standard" label="password saat ini" value={this.state.currentPassword} onChange={this.onCurrentPasswordChangeEventHandler}/>
+                        <span onClick={() => this.toggleShowPassword('showPassword')} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
                             {showPassword ?
                                 <img src={show} alt="Show Password" className="h-5 w-5" /> :
                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
                             }
                         </span>
-                    </div>
+                </div>
 
-                    <div className="mb-4 relative">
-                        <label htmlFor="passwordbaru" className="block text-sky-900 text-sm font-bold mb-2">Password Baru:</label>
-                        <input type={showPassword2 ? "text" : "password"} value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3"placeholder="Password Baru"autoComplete="off"/>
-                        <span onClick={() => this.toggleShowPassword2('showPassword2')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+                <div className='mx-auto mb-5 relative'>
+                    <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="password baru" value={this.state.newPassword} onChange={this.onNewPasswordChangeEventHandler}/>
+                        <span onClick={() => this.toggleShowPassword2('showPassword2')} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
                             {showPassword2 ?
                                 <img src={show} alt="Show Password" className="h-5 w-5" /> :
                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
                             }
                         </span>
-                    </div>
+                </div>
 
-                    <div className="mb-4 relative">
-                        <label htmlFor="confirmPassword" className="block text-sky-900 text-sm font-bold mb-2">Konfirmasi Password:</label>
-                        <input type={showPassword3 ? "text" : "password"} value={this.state.confirmPassword} onChange={this.onConfirmPasswordChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" placeholder="Konfirmasi Password" autoComplete="off" />
-                        <span onClick={() => this.toggleShowPassword3('showPassword3')} className="text-sm py-2 px-2 absolute right-2 top-12 transform -translate-y-1/2 cursor-pointer">
+                <div className='mx-auto relative'>
+                    <Input  type={showPassword3 ? "text" : "password"} variant="standard" label="confirm password baru" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChangeEventHandler}/>
+                        <span onClick={() => this.toggleShowPassword3('showPassword3')} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
                             {showPassword3 ?
                                 <img src={show} alt="Show Password" className="h-5 w-5" /> :
                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
                             }
                         </span>
-                    </div>
+                </div>
 
-                    <div className="text-center">
-                        <button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded" type="submit">Simpan</button>
-                    </div>
+                <div className="text-center py-5">
+                    <button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-md transition duration-200 ease-in-out shadow-md hover:shadow-lg" type="submit">Simpan</button>
+                </div>
+
                 </form>
             </div>
         );

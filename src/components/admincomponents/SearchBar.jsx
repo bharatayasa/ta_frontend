@@ -11,6 +11,7 @@ function SearchBar({ selectedOption, keyword, keywordChange, handleOptionChange 
             <form onSubmit={onSearch} className="flex mb-3 items-center">
                 <div className="text-lg rounded-md shadow-md">
                     <select value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)} className="py-2 px-3 rounded-l-lg text-center w-36 hover:bg-slate-100 transition duration-100 ease-in-out">
+                        <option value="id">id</option>
                         <option value="username">username</option>
                         <option value="name">name</option>
                         <option value="email">email</option>

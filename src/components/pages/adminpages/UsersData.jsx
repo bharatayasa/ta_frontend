@@ -21,7 +21,7 @@ class UsersData extends Component {
         this.state = {
             users: [],
             keyword: props.defaultKeyword || '',
-            selectedOption: 'username',
+            selectedOption: 'id',
         };
 
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
@@ -46,9 +46,7 @@ class UsersData extends Component {
 
     async onDeleteHandler(id) {
         await deleteUser(id);
-
         const { data } = await getUsers();
-
         this.setState({ users: data });
     }
 
@@ -61,7 +59,10 @@ class UsersData extends Component {
             return user.name.toLowerCase().includes(keyword.toLowerCase());
         } else if (selectedOption === 'email') {
             return user.email.toLowerCase().includes(keyword.toLowerCase());
+        } else if (selectedOption === 'id') {
+            return String(user.id).toLowerCase().includes(keyword.toLowerCase());
         }
+        
         return false;
     }
 

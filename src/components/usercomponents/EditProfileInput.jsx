@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getUserLogged } from "../../utils/api";
 import PropTypes from "prop-types";
+import { Input } from "@material-tailwind/react";
 
 class EditProfileInput extends Component {
     constructor(props) {
@@ -58,19 +59,16 @@ class EditProfileInput extends Component {
                 <h1 className='text-xl font-semibold text-sky-900 text-center'>Ubah Profile</h1>
                 <form onSubmit={this.onSubmitEventHandler} >
                     <div className="mb-4">
-                        <label htmlFor="username" className="block text-sm font-bold mb-2 text-sky-900">Username:</label>
-                        <input type="text" id="username" value={this.state.username} onChange={this.onUsernameChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" autoComplete="off" />
+                        <Input variant="standard" label="username" type="text" value={this.state.username} onChange={this.onUsernameChangeEventHandler} />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="name" className="block text-sm font-bold mb-2 text-sky-900">Name:</label>
-                        <input type="text" id="name" value={this.state.name} onChange={this.onNameChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" autoComplete="off" />
+                        <Input variant="standard" label="name" type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-bold mb-2 text-sky-900">Email:</label>
-                        <input type="email" id="email" value={this.state.email} onChange={this.onEmailChangeEventHandler} className="block w-full border border-gray-300 rounded py-2 px-3" autoComplete="off" />
+                    <div className="mb-2">
+                        <Input variant="standard" label="e-mail" type="text" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
                     </div>
-                    <div className="text-center">
-                        <button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded" type="submit">Simpan</button>
+                    <div className="text-center py-5">
+                        <button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-md transition duration-200 ease-in-out shadow-md hover:shadow-lg" type="submit">Simpan</button>
                     </div>
                 </form>
             </div>

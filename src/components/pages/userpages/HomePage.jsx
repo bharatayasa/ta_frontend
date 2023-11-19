@@ -18,7 +18,9 @@ function HomePage() {
                             <p className="mb-4 text-lg text-sky-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam nam cumque excepturi qui dicta!</p>
                         </div>
                         <div className="flex flex-col lg:flex-row px-10 lg:px-0">
-                            <button className="text-lg lg:text-xl text-white bg-sky-400 px-6 py-3 rounded-lg mb-3 lg:mb-0 lg:mr-3 transition duration-300 hover:bg-sky-500 shadow-lg">Tutorial Prediksi</button>
+                            <div>
+                                <TutorialPredict />
+                            </div>
                             <button className="text-lg lg:text-xl text-white bg-emerald-400 px-6 py-3 rounded-lg mb-3 lg:mb-0 lg:mr-3 transition duration-300 hover:bg-emerald-500 shadow-lg"><Link to="/predict"><span>Prediksi Sekarang</span></Link></button>
                             <div>
                                 <UserProfile />
@@ -30,9 +32,6 @@ function HomePage() {
                         <img className="w-full" src={HeroImage} alt="Hero" />
                     </div>
 
-                </div>
-                <div className='text-center'>
-                    <TutorialPredict />
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ export default function ChangePassword() {
 	return (
 		<div>
 		{alertData.show && <CustomAlert message={alertData.message} isSuccess={alertData.isSuccess} />}
-		<ChangePasswordInput updatePassword={onEditPassword} />
+			<ChangePasswordInput updatePassword={onEditPassword} />
 		</div>
 	);
 }
