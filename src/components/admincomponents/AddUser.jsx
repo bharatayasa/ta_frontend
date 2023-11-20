@@ -13,7 +13,9 @@ function AddUser() {
     }
     
     return (
-        <AddUserInput adduser={onAddUserHandler}/>
+        <div>
+            <AddUserInput adduser={onAddUserHandler}/>
+        </div>
     )
 }
 

@@ -31,12 +31,15 @@ function NavbarUser({ logout, name }) {
         <div className='navbar'>
         <nav className={`backdrop-blur-sm font-medium ${scrolled ? 'shadow-md bg-white/5' : ''} fixed w-full top-0 z-50`}>
             <div className="container flex justify-between items-center mx-auto px-4 md:py-3 sm:py-3 lg:py-4 py-6 sm:px-16">
+
                 <div className='order-1 sm:order-2 lg:order-1'>
                     <h1 className='lg:text-2xl text-xl font-semibold text-sky-900'>Tomatify</h1>
                 </div>
+
                 <div className='cursor-pointer order-2 sm:order-1 lg:hidden' onClick={toggleNav}>
                     <img src={hamburgerIcon} alt='toggle'/>
                 </div>
+
                 <div className='hidden lg:block lg:order-2'>
                     <ul className='cursor-pointer flex items-center gap-4 font-semibold'>
                         {navLinksAdmin.map((link) => (
@@ -56,6 +59,7 @@ function NavbarUser({ logout, name }) {
                         <button className="text-lg text-white bg-pink-600 px-2 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md lg:mr-2 sm:mr-0 sm:mb-2 lg:mb-0" onClick={logout}>Logout</button>
                     </div>
                 </div>
+
             </div>
 
             <div className={`${toggleNavBar ? 'block' : 'hidden'} lg:hidden`}>
@@ -72,7 +76,7 @@ function NavbarUser({ logout, name }) {
                 </ul>
                 <div className='sm:hidden order-3 text-center'>
                     <div className='mb-3 flex justify-center'>
-                        <button className='ml-5 text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
+                        <button className='text-l text-white bg-pink-600 px-3 py-2 rounded-md hover:shadow-xl hover:bg-pink-700 transition duration-300 ease-in-out shadow-md' onClick={logout}>Logout</button>
                     </div>
                 </div>
             </div>

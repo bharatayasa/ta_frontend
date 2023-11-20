@@ -17,7 +17,7 @@ function SearchBar({ selectedOption, keyword, keywordChange, handleOptionChange 
                         <option value="email">email</option>
                     </select>
                 </div>
-                <div className="lg:w-1/2 sm:w-full ml-2">
+                <div className="lg:w-1/2 w-full ml-2">
                     <input type="text" value={keyword} onChange={(e) => keywordChange(e.target.value)} placeholder={`cari berdasarkan ${selectedOption}`}className="shadow-md rounded-r-lg px-3 py-2 w-full hover:bg-slate-100 transition duration-100 ease-in-out" />
                 </div>
             </form>

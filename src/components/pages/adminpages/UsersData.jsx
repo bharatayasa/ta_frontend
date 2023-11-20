@@ -70,14 +70,14 @@ class UsersData extends Component {
         const users = this.state.users.filter(user => this.filterUsersByOption(user));
 
         return (
-            <div className=" bg-slate-200 min-vh-100">
+            <div className=" bg-slate-200 ">
                 <div className="py-20 container mx-auto">
-                    <section>
+                    <div>
                         <h2 className="text-center text-2xl mt-5 font-semibold text-sky-900">Data Users</h2>
                         <AddUser />
                         <SearchBar selectedOption={this.state.selectedOption} keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} handleOptionChange={this.onOptionChangeHandler}/>
                         <AllUsersList users={users} onDelete={this.onDeleteHandler} />
-                    </section>
+                    </div>
                 </div>
             </div>
         );

@@ -55,7 +55,7 @@ const EditInput = (props) => {
 			<div className="text-center pb-10">
 
 				<div className="fixed inset-0 transition-opacity" aria-hidden="true">
-					<div className="absolute inset-0 bg-slate-600 opacity-40"></div>
+					<div className="absolute inset-0 bg-slate-600/30 backdrop-blur-sm"></div>
 				</div>
 
 				<div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
