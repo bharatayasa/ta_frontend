@@ -9,7 +9,7 @@ export const steps = [
 	},
 	{
 		label: 'melakukan prediksi',
-		description: `apabila gambar sudah dimasukkan, tekan tombol predict dan tunggu beberapa saat sampai hasih dari prediksi keluar.`,
+		description: `apabila gambar sudah dimasukkan, tekan tombol predict dan tunggu beberapa saat sampai hasil dari prediksi muncul.`,
 	},
 	{
 		label: 'menyimpan hasil prediksi',

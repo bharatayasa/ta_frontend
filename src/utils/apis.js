@@ -1,5 +1,5 @@
 // const BASE_URL = "http://localhost:5000";
-const BASE_URL = "https://backend-405811.et.r.appspot.com";
+const BASE_URL = "https://backend-2381121231.et.r.appspot.com";
 // const BASE_URL = process.env.REACT_API_URL;
 // const BASE_URL = import.meta.env.REACT_API_URL;
 // BASE_URL = import.meta.env.BASE_URL;
