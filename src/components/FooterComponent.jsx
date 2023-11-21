@@ -37,10 +37,10 @@ return (
                     <h1 className="text-xl font-bold">Find me</h1>
                     <div className="mt-5 text-sky-900">
                         <Link to={'https://www.instagram.com/bharatayasa/'} target="_blank" rel="noopener noreferrer">
-                            <div class="fab fa-instagram fa-2xl px-2 py-2 hover:text-emerald-500 transition duration-200 ease-in-out"></div>
+                            <div className="fab fa-instagram fa-2xl px-2 py-2 hover:text-emerald-500 transition duration-200 ease-in-out"></div>
                         </Link>
                         <Link to={'https://www.tiktok.com/@sadahnyem?is_from_webapp=1&sender_device=pc'} target="_blank" rel="noopener noreferrer">
-                            <div class="fab fa-tiktok fa-2xl px-2 py-2 hover:text-emerald-500 transition duration-200 ease-in-out"></div>
+                            <div className="fab fa-tiktok fa-2xl px-2 py-2 hover:text-emerald-500 transition duration-200 ease-in-out"></div>
                         </Link>
                         <Link to={'https://www.linkedin.com/in/wayan-bharata-897a20261/'} target="_blank" rel="noopener noreferrer">
                             <div className="fab fa-linkedin fa-2xl px-2 py-2 hover:text-emerald-500 transition duration-200 ease-in-out"></div>

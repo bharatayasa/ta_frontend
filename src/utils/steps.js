@@ -5,7 +5,7 @@ export const steps = [
 	},
 	{
 		label: 'pilih dan masukkan gambar daun tanaman tomat',
-		description:'pilih lalu masukkan gambar dari daun tanaman tomat yang akan di prediksi, pilih gambar yang jelas sehingga lebih mudah untuk di deteksi',
+		description:'pilih lalu masukkan gambar daun tanaman tomat yang akan di prediksi, pilih gambar yang jelas sehingga lebih mudah untuk di deteksi',
 	},
 	{
 		label: 'melakukan prediksi',
@@ -13,6 +13,6 @@ export const steps = [
 	},
 	{
 		label: 'menyimpan hasil prediksi',
-		description: `apabila hasil prediksi sudah muncul, hasil prediksi akan tersimpan secara automatis di halaman history, dan history prediksi juga dapat di hapus`,
+		description: `apabila hasil prediksi sudah muncul, hasil prediksi akan tersimpan secara automatis di halaman history.`,
 	},
 ];

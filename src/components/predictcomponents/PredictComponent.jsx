@@ -6,6 +6,7 @@ import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 import { Spinner } from "@material-tailwind/react";
+import { TooltipCustomStyles } from "./TooltipCustomStyles";
 
 function PredictComponent() {
 	const [file, setFile] = useState(null);
@@ -132,7 +133,10 @@ function PredictComponent() {
 					{({ open }) => (
 					<div>
 						<Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-200 ease-in-out shadow-md hover:shadow-xl">
-						<span>Deskripsi</span>
+						<div className="flex">
+							<span>Deskripsi</span>
+							<div className="ml-2 mt-[2px]"><TooltipCustomStyles /></div>
+						</div>
 						<ChevronUpIcon className={`${open ? "rotate-180 transform" : ""} h-5 w-5 to-black font-semibold`} />
 						</Disclosure.Button>
 						<Transition as={Fragment} enter="transition ease-out duration-300" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
@@ -149,8 +153,12 @@ function PredictComponent() {
 							</div>
 							<div>
 								<p className="overflow-x-hidden whitespace-normal text-justify">
-								<b className="text-sky-900">Confidence : </b>
-								{result.confidence}
+									<div>
+										<div>
+										<b className="text-sky-900">Confidence : </b>
+											{result.confidence}
+										</div>
+									</div>
 								</p>
 							</div>
 								<div className="text-justify">
@@ -179,7 +187,7 @@ function PredictComponent() {
 						<Disclosure.Panel className="px-4 pt-4 pb-2">
 							<div>
 							<div className="text-center text-2xl font-semibold text-sky-900 mb-2">
-								<h1 className="py-2">Cara Peanggulangan</h1>
+								<h1 className="py-2">Cara Penanggulangan</h1>
 							</div>
 							<p className="mb-2 text-justify leading-relaxed">
 								{result.prevention}
