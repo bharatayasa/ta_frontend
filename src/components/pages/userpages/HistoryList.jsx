@@ -4,7 +4,6 @@ import DeleteButton from "../../DeleteButton.jsx";
 import moment from "moment";
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { TooltipCustomStyles } from "../../predictcomponents/TooltipCustomStyles.jsx";
 function HistoryList({ savepredict, onDelete }) {
     const [visibleItems, setVisibleItems] = useState(5);
 
@@ -26,11 +25,8 @@ function HistoryList({ savepredict, onDelete }) {
                                 <div>
                                     <div>
                                         <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
-                                            <div className="flex">
+                                            <div>
                                                 <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
-                                                <div className="ml-2 mt-[2px]">
-                                                    <TooltipCustomStyles />
-                                                </div>
                                             </div>
                                             <ChevronUpIcon className={`${ open ? 'rotate-180 transform' : '' } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`} />
                                         </Disclosure.Button>
