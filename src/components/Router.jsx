@@ -20,8 +20,6 @@ import RegisterPage from "./pages/loginregispages/RegisterPage.jsx";
 
 import { getUserLogged, putAccessToken } from "../utils/api.js";
 
-// import tes from "./tes";
-
 class Router extends React.Component {
     constructor(props) {
         super(props);

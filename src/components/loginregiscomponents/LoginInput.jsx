@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Input } from "@material-tailwind/react";
 import show from "../../assets/password/show.svg"
 import hide from "../../assets/password/hide.svg"
+import { contents } from '../../utils/content';
 
 class LoginInput extends Component {
     constructor(props) {
@@ -67,8 +68,8 @@ class LoginInput extends Component {
                                 <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900'>
                                     Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
                                 </h1>
-                                <p className='text-2xl leading-relaxed text-gray-800'>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora at cupiditate quis eum maiores liber veritatis? Dicta facilis sint aliquid ipsumatque?
+                                <p className='text-xl text-sky-900 opacity-80'>
+                                    {contents[0].loginContent}
                                 </p>
                             </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { contents } from '../utils/content';
 
 const FooterComponent = () => {
 return (
@@ -7,8 +8,10 @@ return (
         <div className="container mx-auto px-4 ">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-1">
-                    <h3 className="text-xl mb-3 font-semibold">Tomatify</h3>
-                    <p className="text-sm text-sky-900 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem cum tempora tempore? Distinctio, ab tempore a officiis explicabo velit iusto praesentium quidem, recusandae, ipsa architecto.</p>
+                    <h3 className="text-xl mb-3 font-semibold text-center">Tomatify</h3>
+                    <p className="text-sm text-sky-900 text-justify">
+                        {contents[2].footerContent}
+                    </p>
                     <div className="flex items-center mt-4 font-semibold">
                     <Link to="https://api.whatsapp.com/send?phone=6281999934616" className="flex items-center text-sky-900 hover:text-emerald-500 transition duration-200 ease-in-out" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-whatsapp"></i>
@@ -25,7 +28,7 @@ return (
 
                 <div className="col-span-1 lg:col-span-1 text-center">
                     <h5 className="font-bold text-xl mb-3">Menu</h5>
-                    <div className='font-semibold'>
+                    <div className='font-semibold flex justify-center gap-5'>
                         <Link to="/" className="block text-sky-900 mb-2 hover:text-emerald-500 transition duration-200 ease-in-out">Home</Link>
                         <Link to="/predict" className="block text-sky-900 mb-2 hover:text-emerald-500 transition duration-200 ease-in-out">Predict</Link>
                         <Link to="/history" className="block text-sky-900 mb-2 hover:text-emerald-500 transition duration-200 ease-in-out">History</Link>
@@ -53,7 +56,7 @@ return (
             </div>
 
             <div className="text-center mt-6">
-            <p className="text-gray-600">&copy; copyright {new Date().getFullYear()} by <span className="font-bold">Bharata,</span>  All rights reserved</p>
+                <p className="text-gray-600">&copy; copyright {new Date().getFullYear()} by <span className="font-bold">Bharata,</span>  All rights reserved</p>
             </div>
         </div>
     </div>

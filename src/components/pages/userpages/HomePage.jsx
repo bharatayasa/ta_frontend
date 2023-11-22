@@ -3,6 +3,7 @@ import HeroImage from '../../../assets/img/kebun_tomat.png';
 import { Link } from 'react-router-dom';
 import TutorialPredict from '../../usercomponents/TutorialPredict';
 import UserProfile from '../../usercomponents/UserProfile';
+import { contents } from '../../../utils/content';
 
 function HomePage() {
     return (
@@ -15,7 +16,9 @@ function HomePage() {
                             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
                                 <span className='text-sky-900'>Ketahui<br />Penyakit Tomatmu<br />bersama kami</span>
                             </h1>
-                            <p className="mb-4 text-lg text-sky-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam nam cumque excepturi qui dicta!</p>
+                            <p className="mb-4 text-lg text-sky-900">
+                                {contents[1].homeContent}
+                            </p>
                         </div>
                         <div className="flex flex-col lg:flex-row px-10 lg:px-0 text-center">
                             <div className='mb-3'>

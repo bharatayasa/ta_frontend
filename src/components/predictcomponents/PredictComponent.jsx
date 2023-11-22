@@ -8,6 +8,8 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Spinner } from "@material-tailwind/react";
 import { TooltipCustomStyles } from "./TooltipCustomStyles";
 
+const MODEL_URL = import.meta.env.VITE_MODEL_URL;
+
 function PredictComponent() {
 	const [file, setFile] = useState(null);
 	const [result, setResult] = useState(null);
@@ -31,7 +33,7 @@ function PredictComponent() {
 		setIsLoading(true);
 
 		try {
-		const response = await fetch( "https://us-central1-deploymodel-403616.cloudfunctions.net/predict",
+		const response = await fetch( MODEL_URL,
 			{
 			method: "POST",
 			body: formData,
