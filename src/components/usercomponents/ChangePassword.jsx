@@ -19,7 +19,7 @@ export default function ChangePassword() {
 	}
 
 	return (
-		<div>
+		<div data-aos="zoom-in-up">
 		{alertData.show && <CustomAlert message={alertData.message} isSuccess={alertData.isSuccess} />}
 			<ChangePasswordInput updatePassword={onEditPassword} />
 		</div>

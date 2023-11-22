@@ -13,10 +13,10 @@ function HomePage() {
 
                     <div className="lg:w-1/2 lg:text-left lg:pl-12 mt-5">
                         <div className='px-5 lg:px-0'>
-                            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                            <h1 className="text-4xl lg:text-5xl font-bold mb-4 animate__animated animate__fadeInDown">
                                 <span className='text-sky-900'>Ketahui<br />Penyakit Tomatmu<br />bersama kami</span>
                             </h1>
-                            <p className="mb-4 text-lg text-sky-900">
+                            <p className="mb-4 text-lg text-sky-900 animate__animated animate__fadeInDown">
                                 {contents[1].homeContent}
                             </p>
                         </div>
@@ -34,7 +34,7 @@ function HomePage() {
                     </div>
 
                     <div className="lg:w-1/2 pt-5 lg:pt-0">
-                        <img className="w-full" src={HeroImage} alt="Hero" />
+                        <img className="w-full" src={HeroImage} alt="Hero"/>
                     </div>
 
                 </div>

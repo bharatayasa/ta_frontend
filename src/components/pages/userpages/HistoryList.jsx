@@ -23,7 +23,7 @@ function HistoryList({ savepredict, onDelete }) {
                         <Disclosure>
                             {({ open }) => (
                                 <div>
-                                    <div>
+                                    <div data-aos="zoom-in">
                                         <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                                             <div>
                                                 <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>

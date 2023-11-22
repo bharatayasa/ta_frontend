@@ -4,7 +4,7 @@ export default function CustomAlert({ message, isSuccess }) {
     const [show, setShow] = useState(true);
 
     return (
-        <>
+        <div>
         {show && (
             <div className={`p-4 rounded-md shadow-md ${isSuccess ? 'bg-emerald-100 text-emerald-800 mt-3 mb-3' : 'bg-pink-100 text-pink-800'}`}>
                 <div className="text-center font-semibold">
@@ -15,6 +15,6 @@ export default function CustomAlert({ message, isSuccess }) {
                 </div>
             </div>
         )}
-        </>
+        </div>
     );
 }

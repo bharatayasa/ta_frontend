@@ -24,8 +24,8 @@ function PredictComponent() {
 
 	const handleUpload = async () => {
 		if (!file) {
-		alert("Silakan pilih file gambar terlebih dahulu.");
-		return;
+			alert("Silakan pilih file gambar terlebih dahulu.");
+			return;
 		}
 
 		const formData = new FormData();
@@ -35,8 +35,8 @@ function PredictComponent() {
 		try {
 		const response = await fetch( MODEL_URL,
 			{
-			method: "POST",
-			body: formData,
+				method: "POST",
+				body: formData,
 			}
 		);
 
@@ -45,32 +45,32 @@ function PredictComponent() {
 			setResult(data);
 
 			if (authedUser && data) {
-			const saveResult = await savepredict({
-				kelas: data.kelas,
-				confidence: data.confidence,
-				description: data.description,
-				prevention: data.prevention,
-				userId: authedUser.id,
-			});
+				const saveResult = await savepredict({
+					kelas: data.kelas,
+					confidence: data.confidence,
+					description: data.description,
+					prevention: data.prevention,
+					userId: authedUser.id,
+				});
 
-			if (saveResult.error) {
-				setSaveError(true);
-			}
+				if (saveResult.error) {
+					setSaveError(true);
+				}
 			}
 		} else {
 			alert("Terjadi kesalahan saat mengunggah gambar.");
 		}
 		} catch (error) {
-		console.error("Error:", error);
+			console.error("Error:", error);
 		} finally {
-		setIsLoading(false);
+			setIsLoading(false);
 		}
 	};
 
 	useEffect(() => {
-		async function fetchData() {
-		const { data } = await getUserLogged();
-		setAuthedUser(data);
+			async function fetchData() {
+			const { data } = await getUserLogged();
+			setAuthedUser(data);
 		}
 
 		fetchData();
@@ -85,9 +85,9 @@ function PredictComponent() {
 				<h2 className="lg:text-3xl sm:text-xl text-xl font-semibold text-sky-900">
 					Masukkan Gambar Daun Tomat
 				</h2>
-			<p className="lg:text-lg sm:text-xs text-slate-400 text-xs">
-				pilih gambar atau drag & drop gambar ke dalam kotak
-			</p>
+				<p className="lg:text-lg sm:text-xs text-slate-400 text-xs">
+					pilih gambar atau drag & drop gambar ke dalam kotak
+				</p>
 			</div>
 			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
 				<div className="mb-5 mt-5">
@@ -124,7 +124,7 @@ function PredictComponent() {
 			<div className="container">
 			<div className="mt-4 mb-3">
 				<h2 className="text-center text-3xl font-semibold text-sky-900">
-				Hasil Prediksi:
+					Hasil Prediksi:
 				</h2>
 				<p className="text-center text-sm font-semibold text-sky-900">silahkan masukkan gambar untuk memprediksi lagi</p>
 			</div>
@@ -147,22 +147,25 @@ function PredictComponent() {
 								<div className="text-2xl font-semibold text-sky-900 mb-2">
 									<h1 className="py-2 text-center">Deskripsi</h1>
 								</div>
-							<div>
-								<p>
-								<b className="text-sky-900">Jenis Penyakit : </b>
-									{result.kelas}
-								</p>
-							</div>
-							<div>
-								<p className="overflow-x-hidden whitespace-normal text-justify">
-									<div>
+
+								<div>
+									<p>
+									<b className="text-sky-900">Jenis Penyakit : </b>
+										{result.kelas}
+									</p>
+								</div>
+
+								<div>
+									<p className="overflow-x-hidden whitespace-normal text-justify">
 										<div>
-										<b className="text-sky-900">Confidence : </b>
-											{result.confidence}
+											<div>
+											<b className="text-sky-900">Confidence : </b>
+												{result.confidence}
+											</div>
 										</div>
-									</div>
-								</p>
-							</div>
+									</p>
+								</div>
+
 								<div className="text-justify">
 									<p className="leading-relaxed">{result.description}</p>
 								</div>

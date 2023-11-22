@@ -27,7 +27,7 @@ export default function BioDataModal() {
     }, []);
 
     return (
-        <div className='mt-4'>
+        <div className='mt-4' data-aos="zoom-in">
             <h1 className='text-xl font-semibold text-sky-900 text-center'>My Biodata</h1>
             <form>
                 <div className='mx-auto mb-5'>

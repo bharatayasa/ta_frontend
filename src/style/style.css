@@ -25,6 +25,8 @@ div .navbar {
     width: 100%;
     transition: all 0.2s ease;
     z-index: 99999;
+    animation-name: fadeIn;
+    animation-duration: 1s;
 }
 
 .navbar .color-active {
@@ -56,6 +58,10 @@ div .navbar {
 
 .navbar .nav-link .active:hover{
     color: var(--navbar-color);
+}
+
+.animate__animated.animate__fadeInUp {
+    --animate-duration: 1s;
 }
 
 /* end navbar style */

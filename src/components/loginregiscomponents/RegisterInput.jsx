@@ -93,11 +93,11 @@ class RegisterInput extends React.Component {
                     <div className='container mx-auto'>
                         <div className='flex justify-center'>
 
-                            <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
+                            <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block animate__animated animate__fadeInUp'>
                                 <img className="hidden lg:block" style={{ width: '90%' }} src={Tomatigirl} alt="Tomatigirl" />
                             </div>
 
-                            <div className='w-full self-end px-10 lg:px-6 md:px-20 sm:px-10 md:w-full lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out'>
+                            <div className='w-full self-end px-14 lg:px-6 md:px-20 sm:px-10 md:w-full lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out animate__animated animate__fadeInDown'>
                                 <div className=''>
                                     <form onSubmit={this.onSubmitHandler}>
                                         <div className='text-center text-2xl mt-10 mb-3 font-semibold text-sky-900'>

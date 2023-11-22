@@ -65,15 +65,15 @@ class LoginInput extends Component {
                         <div className='flex flex-wrap justify-center items-center'>
 
                             <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
-                                <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900'>
+                                <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900 animate__animated animate__fadeInDown'>
                                     Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
                                 </h1>
-                                <p className='text-xl text-sky-900 opacity-80'>
+                                <p className='text-xl text-sky-900 opacity-80 animate__animated animate__fadeInUp'>
                                     {contents[0].loginContent}
                                 </p>
                             </div>
 
-                            <div className='w-full self-end px-10 lg:px-6 md:px-10 sm:px-10 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out'>
+                            <div className='w-full self-end px-10 lg:px-6 md:px-10 sm:px-10 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out animate__animated animate__fadeInDown'>
                                 <div className='mt-10'>
                                     <form onSubmit={this.onSubmitHandler}>
 

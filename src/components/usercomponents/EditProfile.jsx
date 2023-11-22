@@ -19,7 +19,7 @@ export default function EditProfile({ data }) {
 	}
 
 	return (
-		<div>
+		<div data-aos="zoom-in-up">
 		{alertData.show && <CustomAlert message={alertData.message} isSuccess={alertData.isSuccess} />}
 		<EditProfileInput {...data} updateMe={onEditProfile} />
 		</div>

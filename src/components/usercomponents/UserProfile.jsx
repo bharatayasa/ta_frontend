@@ -44,7 +44,7 @@ const UserProfile = () => {
                         </div>
 
                     <div className="text-center pb-10">
-                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-auto shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full bg-white/40 backdrop-blur-sm hover:backdrop-blur-md transition duration-200 ease-in-out">
+                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-auto shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full bg-white/40 backdrop-blur-sm hover:backdrop-blur-md transition duration-200 ease-in-out" data-aos="zoom-in-up">
                             <div className="pt-4 sm:p-6 sm:pb-4">
                                 <div className="w-full max-w-md px-2">
 
