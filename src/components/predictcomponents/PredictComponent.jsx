@@ -80,7 +80,7 @@ function PredictComponent() {
 		<div className="bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col items-center">
 
 		<div className="text-center container mx-auto mt-[80px] self-start lg:w-1/2 px-4">
-			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg">
+			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg" data-aos="zoom-in">
 			<div className="mb-5 pt-5">
 				<h2 className="lg:text-3xl sm:text-xl text-xl font-semibold text-sky-900">
 					Masukkan Gambar Daun Tomat

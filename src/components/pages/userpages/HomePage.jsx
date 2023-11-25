@@ -24,9 +24,11 @@ function HomePage() {
                             <div className='mb-3'>
                                 <UserProfile />
                             </div>
+
                             <div>
                                 <button className="text-lg lg:text-xl text-white bg-emerald-400 px-6 py-3 rounded-lg mb-3 lg:mb-0 lg:mr-3 transition duration-300 hover:bg-emerald-500 shadow-lg"><Link to="/predict"><span>Prediksi Sekarang</span></Link></button>
                             </div>
+
                             <div>
                                 <TutorialPredict />
                             </div>

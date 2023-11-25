@@ -42,7 +42,7 @@ import { steps } from '../../utils/steps';
 				<span className="mr-2">Tutorial Prediksi</span>
 		</button>
 		{show && (
-			<div className="fixed inset-0 mt-20 mx-5" onClick={handleOutsideClick} >
+			<div className="fixed inset-0 mt-20 mx-5" onClick={handleOutsideClick}>
 			<div className="text-center pb-10">
 
 			<div className="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -50,7 +50,7 @@ import { steps } from '../../utils/steps';
 			</div>
 
 				<div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" >
-				<div className="bg-white/40 backdrop-blur-sm hover:backdrop-blur-md pt-4 sm:px-6 sm:pb-4 px-10 py-6 transition duration-200 ease-in-out">
+				<div className="bg-white/40 backdrop-blur-sm hover:backdrop-blur-md pt-4 sm:px-6 sm:pb-4 px-10 py-6 transition duration-200 ease-in-out" data-aos="zoom-in">
 					<h3 className="text-center lg:text-2xl text-xl font-semibold text-sky-900">
 					Tutorial Prediksi
 					</h3>

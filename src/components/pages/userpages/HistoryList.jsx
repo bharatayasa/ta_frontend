@@ -19,11 +19,11 @@ function HistoryList({ savepredict, onDelete }) {
         <div className="px-6 lg:px-0">
             {sortedSavepredict.slice(0, visibleItems).map((predict) => (
                 <div key={predict.id}>
-                    <div className="container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3">
+                    <div className="container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3" data-aos="zoom-in">
                         <Disclosure>
                             {({ open }) => (
                                 <div>
-                                    <div data-aos="zoom-in">
+                                    <div>
                                         <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                                             <div>
                                                 <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>

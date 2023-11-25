@@ -15,8 +15,11 @@ import UsersData from "./pages/adminpages/UsersData.jsx";
 import PredictsData from "./pages/adminpages/PredictsData.jsx";
 
 // Login Register 
-import LoginPage from "./pages/loginregispages/LoginPage.jsx";
+// import LoginPage from "./pages/loginregispages/LoginPage.jsx";
 import RegisterPage from "./pages/loginregispages/RegisterPage.jsx";
+
+// landing pages
+import LandingPage from "./pages/landingpages/LandingPage.jsx";
 
 import { getUserLogged, putAccessToken } from "../utils/api.js";
 
@@ -70,7 +73,8 @@ class Router extends React.Component {
         if (this.state.authedUser === null) {
             return (
                 <Routes>
-                    <Route path="/*" element={<LoginPage loginSuccess={this.onLoginSuccess} />} />
+                    {/* <Route path="/*" element={<LoginPage loginSuccess={this.onLoginSuccess} />} /> */}
+                    <Route path="/*" element={<LandingPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             );
