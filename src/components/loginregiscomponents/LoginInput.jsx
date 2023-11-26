@@ -1,36 +1,41 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Input } from "@material-tailwind/react";
-import show from "../../assets/password/show.svg"
-import hide from "../../assets/password/hide.svg"
-import { contents } from '../../utils/content';
+import show from "../../assets/password/show.svg";
+import hide from "../../assets/password/hide.svg";
 
-class LoginInput extends Component {
-    constructor(props) {
-        super(props);
+const LoginInput = ({ login }) => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '',
+    });
+    const [showPassword, setShowPassword] = useState(false);
 
-        this.state = {
-            username: '',
-            password: '',
-            showPassword: false,
-        };
-    }
+    const modalRef = useRef();
 
-    onUsernameChangeHandler = (event) => {
-        this.setState({
-            username: event.target.value
+    const handleOutsideClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            setModalOpen(false);
+        }
+    };
+
+    const onUsernameChangeHandler = (event) => {
+        setFormData({
+            ...formData,
+            username: event.target.value,
         });
     }
 
-    onPasswordChangeHandler = (event) => {
-        this.setState({
-            password: event.target.value
+    const onPasswordChangeHandler = (event) => {
+        setFormData({
+            ...formData,
+            password: event.target.value,
         });
     }
 
-    validateForm = () => {
-        const { username, password } = this.state;
+    const validateForm = () => {
+        const { username, password } = formData;
         if (!username || !password) {
             alert("Silakan isi semua field.");
             return false;
@@ -38,91 +43,66 @@ class LoginInput extends Component {
         return true;
     }
 
-    onSubmitHandler = (event) => {
+    const onSubmitHandler = (event) => {
         event.preventDefault();
-        
-        if (this.validateForm()) {
-            this.props.login({
-                username: this.state.username,
-                password: this.state.password,
-            });
+        if (validateForm()) {
+            login(formData);
+            setModalOpen(false);
         }
     }
 
-    toggleShowPassword = () => {
-        this.setState((prevState) => ({
-            showPassword: !prevState.showPassword,
-        }));
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
     }
 
-    render() {
-        const { showPassword } = this.state;
+    return (
+        <div>
+            <button onClick={() => setModalOpen(true)} className="text-l text-white bg-sky-400 px-6 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3">
+                Login
+            </button>
 
-        return (
-            <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400'>
-                <div className='justify-center items-center flex flex-col min-h-screen'>
-                <section>
-                    <div className='container'>
-                        <div className='flex flex-wrap justify-center items-center'>
+            {isModalOpen && (
+                <div className="fixed inset-0 mt-36 " onClick={handleOutsideClick}>
+                    <div className="text-center pb-10">
 
-                            <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block'>
-                                <h1 className='text-4xl font-semibold mb-3 leading-10 text-sky-900'>
-                                    Solusi Mudah <br/><span>Untuk mendeteksi penyakit tomat</span>
-                                </h1>
-                                <p className='text-xl text-sky-900 opacity-80'>
-                                    {contents[0].loginContent}
-                                </p>
-                            </div>
+                        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div className="absolute inset-0 bg-slate-600/30 backdrop-blur-sm"></div>
+                        </div>
 
-                            <div className='w-full self-end px-10 lg:px-6 md:px-10 sm:px-10 lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out'>
-                                <div className='mt-10'>
-                                    <form onSubmit={this.onSubmitHandler}>
+                        <section>
+                        <div ref={modalRef} className="inline-block rounded-lg text-left overflow-hidden shadow-xl transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                            <div className="bg-white/40 backdrop-blur-md pt-4 sm:px-6 sm:pb-4 px-10 py-6">
+                                <h3 className="text-center lg:text-2xl md:text-xl text-md text-sky-900 font-semibold">Login</h3>
 
-                                        <div className='text-center text-2xl mt-4 mb-3 font-semibold text-sky-900'>
-                                            <h1>Login</h1>
-                                        </div>
+                                <form onSubmit={onSubmitHandler}>
+                                    <div className='mx-auto mb-5 '>
+                                        <Input type='text' variant="standard" label="Username" size="lg" value={formData.username} onChange={onUsernameChangeHandler} />
+                                    </div>
 
-                                        <div className='mx-auto mb-5 '>
-                                            <Input type='text' variant="standard" label="Username" size="lg" value={this.state.username} onChange={this.onUsernameChangeHandler}/>
-                                        </div>
-
-                                        <div className='mx-auto mb-5 relative'>
-                                            <Input  type={showPassword ? "text" : "password"} variant="standard" label="Password" value={this.state.password} onChange={this.onPasswordChangeHandler}/>
-                                            <span onClick={this.toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                    <div className='mx-auto mb-5 relative'>
+                                        <Input type={showPassword ? "text" : "password"} variant="standard" label="Password" value={formData.password} onChange={onPasswordChangeHandler} />
+                                        <span onClick={toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
                                             {showPassword ?
                                                 <img src={show} alt="Show Password" className="h-5 w-5" /> :
                                                 <img src={hide} alt="Hide Password" className="h-5 w-5" />
                                             }
-                                            </span>
-                                        </div>
+                                        </span>
+                                    </div>
 
-                                        <div className='text-center'>
-                                            <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
-                                                Login
-                                            </button>
-                                        </div>
-
-                                        <div className="text-center mb-4 lg:text-lg sm:text-sm text-sm">
-                                            <p className='text-sky-900'>Belum punya akun..? <Link to="/register"><span className='text-blue-500'>Register Disini</span></Link></p>
-                                        </div>
-
-                                    </form>
-                                </div>
+                                    <div className='text-center'>
+                                        <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                        </section>
                     </div>
-                </section>
                 </div>
-
-                <div>
-                    <section>
-                        <h1>tes</h1>
-                    </section>
-                </div>
-
-            </div>
-        );
-    }
+            )}
+        </div>
+    );
 }
 
 LoginInput.propTypes = {

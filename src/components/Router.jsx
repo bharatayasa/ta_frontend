@@ -14,10 +14,6 @@ import NavbarAdmin from "./admincomponents/NavbarAdmin.jsx";
 import UsersData from "./pages/adminpages/UsersData.jsx";
 import PredictsData from "./pages/adminpages/PredictsData.jsx";
 
-// Login Register 
-// import LoginPage from "./pages/loginregispages/LoginPage.jsx";
-import RegisterPage from "./pages/loginregispages/RegisterPage.jsx";
-
 // landing pages
 import LandingPage from "./pages/landingpages/LandingPage.jsx";
 
@@ -32,7 +28,6 @@ class Router extends React.Component {
             initializing: true,
         };
 
-        this.onLoginSuccess = this.onLoginSuccess.bind(this);
         this.onLogout = this.onLogout.bind(this);
     }
 
@@ -50,14 +45,6 @@ class Router extends React.Component {
         }
     }
 
-    async onLoginSuccess({ accessToken }) {
-        putAccessToken(accessToken);
-        const { data } = await getUserLogged();
-        this.setState({
-            authedUser: data,
-        });
-    }
-
     onLogout() {
         this.setState({
             authedUser: null,
@@ -73,9 +60,7 @@ class Router extends React.Component {
         if (this.state.authedUser === null) {
             return (
                 <Routes>
-                    {/* <Route path="/*" element={<LoginPage loginSuccess={this.onLoginSuccess} />} /> */}
                     <Route path="/*" element={<LandingPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             );
         }

@@ -1,159 +1,155 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
-import Tomatigirl from '../../assets/img/tomatigirl.png';
 import { Input } from "@material-tailwind/react";
-import show from "../../assets/password/show.svg"
-import hide from "../../assets/password/hide.svg"
+import show from "../../assets/password/show.svg";
+import hide from "../../assets/password/hide.svg";
 
-class RegisterInput extends React.Component {
-    constructor(props) {
-        super(props);
+const RegisterInput = ({ register }) => {
+    const [formData, setFormData] = useState({
+        username: '',
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const modalRef = useRef();
 
-        this.state = {
-            username: '',
-            name: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            registrationSuccess: false,
-            showPassword: false,
-            showPassword2: false,
-        };
-    }
+    const handleOutsideClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            setModalOpen(false);
+        }
+    };
 
-    onUsernameChange = (event) => {
-        this.setState({
+    const onUsernameChange = (event) => {
+        setFormData({
+            ...formData,
             username: event.target.value,
         });
     }
 
-    onNameChange = (event) => {
-        this.setState({
+    const onNameChange = (event) => {
+        setFormData({
+            ...formData,
             name: event.target.value,
         });
     }
 
-    onEmailChange = (event) => {
-        this.setState({
+    const onEmailChange = (event) => {
+        setFormData({
+            ...formData,
             email: event.target.value,
         });
     }
 
-    onPasswordChange = (event) => {
-        this.setState({
+    const onPasswordChange = (event) => {
+        setFormData({
+            ...formData,
             password: event.target.value,
         });
     }
 
-    onConfirmPasswordChange = (event) => {
-        this.setState({
+    const onConfirmPasswordChange = (event) => {
+        setFormData({
+            ...formData,
             confirmPassword: event.target.value,
         });
     }
 
-    onSubmitHandler = (event) => {
+    const onSubmitHandler = (event) => {
         event.preventDefault();
-        const { username, name, email, password, confirmPassword } = this.state;
-        if (!username || !name || !email || !password || !confirmPassword) {
+        if (!formData.username || !formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
             alert('Silakan isi semua field.');
             return;
         }
-        if (password !== confirmPassword) {
+        if (formData.password !== formData.confirmPassword) {
             alert("Password dan Confirm Password harus sama");
             return;
         }
-        this.props.register({
-            username: this.state.username,
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
+        register({
+            username: formData.username,
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
         });
-        this.setState({ registrationSuccess: true });
+        setModalOpen(false);
     }
 
-    toggleShowPassword = () => {
-        this.setState((prevState) => ({
-            showPassword: !prevState.showPassword,
-        }));
-    }
-    
-    toggleShowPassword2 = () => {
-        this.setState((prevState) => ({
-            showPassword2: !prevState.showPassword2,
-        }));
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
     }
 
-    render() {
-        const { showPassword, showPassword2 } = this.state;
+    const toggleShowPassword2 = () => {
+        setShowPassword2(!showPassword2);
+    }
 
-        return (
-            <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col justify-center items-center'>
-                <section>
-                    <div className='container mx-auto'>
-                        <div className='flex justify-center'>
+    return (
+        <div>
+            <button onClick={() => setModalOpen(true)} className="text-l text-white bg-sky-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-sky-500 transition duration-300 ease-in-out shadow-md mb-3">
+                Register
+            </button>
 
-                            <div className='w-full self-center px-4 lg:w-1/2 text-center hidden lg:block animate__animated animate__fadeInUp'>
-                                <img className="hidden lg:block" style={{ width: '90%' }} src={Tomatigirl} alt="Tomatigirl" />
-                            </div>
+            {isModalOpen && (
+                <div className="fixed inset-0 lg:mt-36" onClick={handleOutsideClick}>
+                    <div className="flex items-center justify-center min-h-screen px-4 pb-20 text-center sm:block sm:p-0">
+                        <div className="fixed inset-0 transition-opacity">
+                            <div className="absolute inset-0 bg-slate-600/30 backdrop-blur-sm"></div>
+                        </div>
 
-                            <div className='w-full self-end px-14 lg:px-6 md:px-20 sm:px-10 md:w-full lg:w-1/2 backdrop-blur-2xl bg-white/30 rounded-xl shadow-lg hover:bg-white/40 hover:shadow-xl transition duration-200 ease-in-out animate__animated animate__fadeInDown'>
-                                <div className=''>
-                                    <form onSubmit={this.onSubmitHandler}>
-                                        <div className='text-center text-2xl mt-10 mb-3 font-semibold text-sky-900'>
-                                            <h1>Register</h1>
-                                        </div>
-
-                                        <div className='mx-auto mb-5'>
-                                            <Input type="text" variant="standard" label="Username" size="lg" value={this.state.username} onChange={this.onUsernameChange}/>
-                                        </div>
-
-                                        <div className='mx-auto mb-5 relative'>
-                                            <Input type="text" variant="standard" label="Name" size="lg" value={this.state.name} onChange={this.onNameChange}/>
-                                        </div>
-
-                                        <div className='mx-auto mb-5 relative'>
-                                            <Input type="email" variant="standard" label="E-Mail" size="lg" value={this.state.email} onChange={this.onEmailChange}/>
-                                        </div>
-
-                                        <div className='mx-auto mb-5 relative'>
-                                            <Input  type={showPassword ? "text" : "password"} variant="standard" label="Password" value={this.state.password} onChange={this.onPasswordChange}/>
-                                            <span onClick={this.toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
-                                            {showPassword ?
-                                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
-                                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
-                                            }
-                                            </span>
-                                        </div>
-
-                                        <div className='mx-auto mb-5 relative'>
-                                            <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="Confirm Password" value={this.state.confirmPassword} onChange={this.onConfirmPasswordChange}/>
-                                            <span onClick={this.toggleShowPassword2} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
-                                            {showPassword2 ?
-                                                <img src={show} alt="Show Password" className="h-5 w-5" /> :
-                                                <img src={hide} alt="Hide Password" className="h-5 w-5" />
-                                            }
-                                            </span>
-                                        </div>
-
-                                        <div className='text-center'>
-                                        <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
-                                                Register
-                                            </button>
-                                        </div>
-
-                                        <div className="text-center mb-4 lg:text-lg sm:text-sm text-sm ">
-                                            <p className="text-sky-900">Kembali ke <span className="text-blue-500"><Link to="/">Login</Link></span></p>
-                                        </div>
-                                    </form>
+                        <div ref={modalRef} className="inline-block align-bottom text-left overflow-hidden transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                            <div className="bg-white/40 rounded-lg backdrop-blur-md">
+                            <form onSubmit={onSubmitHandler} className=" lg:px-5 px-10 pb-4 sm:p-6 sm:pb-4">
+                                <div className='text-center text-2xl mb-3 font-semibold text-sky-900'>
+                                    <h1>Register</h1>
                                 </div>
+
+                                <div className='mx-auto mb-5'>
+                                    <Input type="text" variant="standard" label="Username" size="lg" value={formData.username} onChange={onUsernameChange}/>
+                                </div>
+
+                                <div className='mx-auto mb-5 relative'>
+                                    <Input type="text" variant="standard" label="Name" size="lg" value={formData.name} onChange={onNameChange}/>
+                                </div>
+
+                                <div className='mx-auto mb-5 relative'>
+                                    <Input type="email" variant="standard" label="E-Mail" size="lg" value={formData.email} onChange={onEmailChange}/>
+                                </div>
+
+                                <div className='mx-auto mb-5 relative'>
+                                    <Input  type={showPassword ? "text" : "password"} variant="standard" label="Password" value={formData.password} onChange={onPasswordChange}/>
+                                    <span onClick={toggleShowPassword} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                        {showPassword ?
+                                            <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                            <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                                        }
+                                    </span>
+                                </div>
+
+                                <div className='mx-auto mb-5 relative'>
+                                    <Input  type={showPassword2 ? "text" : "password"} variant="standard" label="Confirm Password" value={formData.confirmPassword} onChange={onConfirmPasswordChange}/>
+                                    <span onClick={toggleShowPassword2} className="absolute -mt-6 md:-mr-7 lg:-mr-4 -mr-7 transform -translate-y-1 right-8 cursor-pointer text-sm text-blue-500">
+                                        {showPassword2 ?
+                                            <img src={show} alt="Show Password" className="h-5 w-5" /> :
+                                            <img src={hide} alt="Hide Password" className="h-5 w-5" />
+                                        }
+                                    </span>
+                                </div>
+
+                                <div className='text-center'>
+                                    <button type="submit" className='lg:text-xl text-white bg-emerald-400 lg:px-5 lg:py-2 px-4 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-3 transition duration-300 ease-in-out shadow-md'>
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-        );
-    }
+                </div>
+            )}
+        </div>
+    );
 }
 
 RegisterInput.propTypes = {
