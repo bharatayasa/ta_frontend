@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllPredict, deleteHistory } from "../../../utils/api";
+import { getAllPredict, deleteHistory, updateStatusUser } from "../../../utils/api";
 import AllPredictList from "../../admincomponents/AllPredictsList.jsx";
 import SearchBarPredict from "../../admincomponents/SearchBarPredict.jsx";
 
@@ -20,6 +20,7 @@ class PredictsData extends React.Component {
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
         this.onOptionChangeHandler = this.onOptionChangeHandler.bind(this);
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onUpdateStatusHandler = this.onUpdateStatusHandler.bind(this);
     }
 
     async componentDidMount() {
@@ -49,6 +50,14 @@ class PredictsData extends React.Component {
             predict: data,
         });
     }
+    
+    async onUpdateStatusHandler(id) {
+        await updateStatusUser(id);
+        const { data } = await getAllPredict();
+        this.setState({
+            predict: data,
+        });
+    }
 
     render() {
         const filteredPredicts = this.state.predict.filter(predict => {
@@ -72,10 +81,7 @@ class PredictsData extends React.Component {
                         keywordChange={this.onKeywordChangeHandler}
                         handleOptionChange={this.onOptionChangeHandler}
                     />
-                    <AllPredictList
-                        savepredict={filteredPredicts}
-                        onDelete={this.onDeleteHandler}
-                    />
+                    <AllPredictList savepredict={filteredPredicts} onDelete={this.onDeleteHandler} onUpdateStatus={this.onUpdateStatusHandler} />
                 </div>
             </div>
         );

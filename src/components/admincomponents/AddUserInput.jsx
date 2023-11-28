@@ -113,7 +113,7 @@ const AddUserInput = ({ adduser }) => {
                                         <select id="role" name="role" value={userData.role} onChange={handleChange} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg w-full rounded-lg py-2 px-3'>
                                             <option value="">Pilih Role</option>
                                             <option value="admin">Admin</option>
-                                            <option value="user">User</option>
+                                            <option value="petani">Petani</option>
                                         </select>
                                     </div>
 

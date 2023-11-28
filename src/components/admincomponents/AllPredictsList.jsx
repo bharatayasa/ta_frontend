@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DeleteButton from '../DeleteButton';
+import UpdateStatus from '../UpdateStatus';
 import moment from 'moment';
 
-const AllPredictList = ({ savepredict, onDelete }) => {
+const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [lastIndex, setLastIndex] = useState(0);
     const predictsPerPage = 10;
@@ -55,6 +56,9 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                                         Prevention
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
+                                        Status
+                                    </th>
+                                    <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                         Prediced at
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
@@ -104,6 +108,11 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                                                 </details>
                                             </button>
                                         </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-gray-900 text-center">
+                                            <p className="overflow-x-hidden whitespace-normal text-justify">
+                                                {predict.status}
+                                            </p>
+                                        </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
                                             {moment(predict.created_at).format('DD MMMM YYYY')}
                                         </td>
@@ -111,6 +120,7 @@ const AllPredictList = ({ savepredict, onDelete }) => {
                                             <div className="flex justify-evenly">
                                                 <div>
                                                     <DeleteButton id={predict.id} onDelete={onDelete} />
+                                                    <UpdateStatus id={predict.id} onUpdateStatus={onUpdateStatus} />
                                                 </div>
                                             </div>
                                         </td>
@@ -171,6 +181,7 @@ AllPredictList.propTypes = {
         })
     ).isRequired,
     onDelete: PropTypes.func.isRequired,
+    onUpdateStatus: PropTypes.func.isRequired,
 };
 
 export default AllPredictList;

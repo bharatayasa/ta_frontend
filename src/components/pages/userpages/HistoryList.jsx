@@ -1,10 +1,11 @@
 import { React, Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import DeleteButton from "../../DeleteButton.jsx";
+import UpdateStatus from "../../usercomponents/UpdateStatus.jsx";
 import moment from "moment";
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-function HistoryList({ savepredict, onDelete }) {
+
+function HistoryList({ savepredict, onUpdateStatus }) {
     const [visibleItems, setVisibleItems] = useState(5);
 
     const handleLoadMore = () => {
@@ -40,10 +41,11 @@ function HistoryList({ savepredict, onDelete }) {
                                                     <p className="mb-2 text-justify leading-relaxed"><b className="text-sky-900">Penanganan :  </b><br />{predict.prevention}</p>
                                                 </div>
                                                 <div className="text-center mb-2 mt-3">
-                                                    <DeleteButton id={predict.id} onDelete={onDelete} />
+                                                    <UpdateStatus id={predict.id} onUpdateStatus={onUpdateStatus} />
                                                 </div>
                                             </Disclosure.Panel>
                                         </Transition>
+
                                     </div>
                                 </div>
                             )}
@@ -88,7 +90,7 @@ HistoryList.propTypes = {
             created_at: PropTypes.string.isRequired,
         })
     ).isRequired,
-    onDelete: PropTypes.func.isRequired,
+    onUpdateStatus: PropTypes.func.isRequired,
 };
 
 export default HistoryList;

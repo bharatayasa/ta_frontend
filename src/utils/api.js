@@ -1,5 +1,5 @@
-// const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
+// const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function getAccessToken() {
     return localStorage.getItem("accessToken");
@@ -244,6 +244,46 @@ async function deleteHistory(id) {
     return { error: false };
 }
 
+async function updateStatus(id, newStatus) {
+    try {
+        const response = await fetch(`${BASE_URL}/update/status/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ newStatus }),
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+            console.log(result.message);
+            return { success: true };
+        } else {
+            console.error(result.message);
+            return { success: false };
+        }
+    } catch (error) {
+        console.error('An error occurred:', error.message);
+        return { success: false, error: error.message };
+    }
+}
+
+async function updateStatusUser(id) {
+    const response = await fetchWithToken(`${BASE_URL}/update/status/user/${id}`, {
+        method: "PUT",
+    });
+
+    const responseJson = await response.json();
+
+    if (responseJson.status !== "success") {
+        alert(responseJson.message);
+        return { error: true };
+    }
+
+    return { error: false };
+}
+
 export {
     getAccessToken,
     putAccessToken,
@@ -260,5 +300,7 @@ export {
     savepredict,
     getAllPredict,
     getPredictUser,
-    deleteHistory
+    deleteHistory, 
+    updateStatus, 
+    updateStatusUser
 };

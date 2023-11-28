@@ -77,8 +77,8 @@ const EditInput = (props) => {
 
 					<div>
 						<select name="role" value={userData.role} onChange={(e) => handleFieldChange('role', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg w-full rounded-lg py-2 px-3 border-1-emerald'>
-						<option value="user">user</option>
-						<option value="admin">admin</option>
+						<option value="petani">Petani</option>
+						<option value="admin">Admin</option>
 						</select>
 					</div>
 

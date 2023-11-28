@@ -1,5 +1,5 @@
 import React from "react";
-import { getPredictUser, deleteHistory } from "../../../utils/api";
+import { getPredictUser, updateStatusUser } from "../../../utils/api";
 import HistoryList from "./HistoryList.jsx";
 
 function DataPredictWrapper({ keywordChange }) {
@@ -15,7 +15,7 @@ class HistoryPage extends React.Component {
             keyword: props.defaultKeyword || "",
         };
 
-        this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onUpdateStatusHandler = this.onUpdateStatusHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
@@ -38,13 +38,12 @@ class HistoryPage extends React.Component {
         this.props.keywordChange(keyword);
     }
 
-    async onDeleteHandler(id) {
-        await deleteHistory(id);
+    async onUpdateStatusHandler(id) {
+        await updateStatusUser(id);
+        
         const { data } = await getPredictUser();
-        this.setState(() => {
-            return {
-                users: data,
-            };
+        this.setState({
+            users: data,
         });
     }
 
@@ -53,7 +52,7 @@ class HistoryPage extends React.Component {
             <div className="bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400 min-h-screen flex flex-col items-center">
                 <div className="container mt-[55px] lg:mt-14 lg:w-1/2">
                     <h1 className="text-center mb-5 mt-5 text-2xl font-semibold text-sky-900">History Prediksi</h1>
-                    <HistoryList savepredict={this.state.users} onDelete={this.onDeleteHandler} />
+                    <HistoryList savepredict={this.state.users} onUpdateStatus={this.onUpdateStatusHandler}/>
                 </div>
             </div>
         );
