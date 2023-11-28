@@ -4,7 +4,7 @@ import DeleteButton from "../DeleteButton";
 import EditUser from "./EditUser.jsx";
 import moment from "moment";
 
-const AllUsersList = ({ users, onDelete }) => {
+const AllUsersList = ({ users, onDelete, onUpdateUser }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [lastIndex, setLastIndex] = useState(0);
     const usersPerPage = 10;
@@ -98,7 +98,7 @@ const AllUsersList = ({ users, onDelete }) => {
                                     <td className="whitespace-nowrap font-medium text-center">
                                         <div className="flex justify-evenly">
                                             <div>
-                                                <EditUser user={user}/>
+                                                <EditUser user={user} onUpdateUser={onUpdateUser}/>
                                             </div>
                                             <div>
                                                 <DeleteButton id={user.id} onDelete={onDelete} />
@@ -162,6 +162,7 @@ AllUsersList.propTypes = {
         })
     ).isRequired,
     onDelete: PropTypes.func.isRequired,
+    onUpdateUser: PropTypes.func.isRequired,
 };
 
 export default AllUsersList;

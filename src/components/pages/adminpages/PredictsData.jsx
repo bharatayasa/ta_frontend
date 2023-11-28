@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllPredict, deleteHistory, updateStatusUser } from "../../../utils/api";
+import { getAllPredict, deleteHistory, updateStatus } from "../../../utils/api";
 import AllPredictList from "../../admincomponents/AllPredictsList.jsx";
 import SearchBarPredict from "../../admincomponents/SearchBarPredict.jsx";
 
@@ -52,7 +52,7 @@ class PredictsData extends React.Component {
     }
     
     async onUpdateStatusHandler(id) {
-        await updateStatusUser(id);
+        await updateStatus(id);
         const { data } = await getAllPredict();
         this.setState({
             predict: data,
@@ -81,7 +81,7 @@ class PredictsData extends React.Component {
                         keywordChange={this.onKeywordChangeHandler}
                         handleOptionChange={this.onOptionChangeHandler}
                     />
-                    <AllPredictList savepredict={filteredPredicts} onDelete={this.onDeleteHandler} onUpdateStatus={this.onUpdateStatusHandler} />
+                    <AllPredictList savepredict={filteredPredicts} onDelete={this.onDeleteHandler} onUpdateStatus={this.onDeleteHandler} />
                 </div>
             </div>
         );

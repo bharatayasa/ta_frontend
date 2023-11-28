@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AllUsersList from "../../admincomponents/AllUsersList.jsx";
-import { getUsers, deleteUser } from "../../../utils/api";
+import { getUsers, deleteUser, updateuser } from "../../../utils/api";
 import { useSearchParams } from 'react-router-dom';
 import AddUser from "../../admincomponents/AddUser.jsx";
 import SearchBar from "../../admincomponents/SearchBar.jsx";
@@ -25,6 +25,7 @@ class UsersData extends Component {
         };
 
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.onUpdateHandler = this.onUpdateHandler.bind(this);
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
         this.onOptionChangeHandler = this.onOptionChangeHandler.bind(this);
     }
@@ -46,6 +47,12 @@ class UsersData extends Component {
 
     async onDeleteHandler(id) {
         await deleteUser(id);
+        const { data } = await getUsers();
+        this.setState({ users: data });
+    }
+
+    async onUpdateHandler(id) {
+        await updateuser(id);
         const { data } = await getUsers();
         this.setState({ users: data });
     }
@@ -76,7 +83,7 @@ class UsersData extends Component {
                         <h2 className="text-center text-2xl mt-5 font-semibold text-sky-900">Data Users</h2>
                         <AddUser />
                         <SearchBar selectedOption={this.state.selectedOption} keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} handleOptionChange={this.onOptionChangeHandler}/>
-                        <AllUsersList users={users} onDelete={this.onDeleteHandler} />
+                        <AllUsersList users={users} onDelete={this.onDeleteHandler} onUpdateUser={this.onUpdateHandler}/>
                     </div>
                 </div>
             </div>

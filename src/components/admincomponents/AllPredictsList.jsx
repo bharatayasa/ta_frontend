@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DeleteButton from '../DeleteButton';
-import UpdateStatus from '../UpdateStatus';
 import moment from 'moment';
+import EditStatus from './EditStatus';
 
 const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -120,7 +120,7 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                             <div className="flex justify-evenly">
                                                 <div>
                                                     <DeleteButton id={predict.id} onDelete={onDelete} />
-                                                    <UpdateStatus id={predict.id} onUpdateStatus={onUpdateStatus} />
+                                                    <EditStatus id={predict.id} onUpdateStatus={onUpdateStatus}/>
                                                 </div>
                                             </div>
                                         </td>
