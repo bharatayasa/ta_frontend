@@ -244,44 +244,29 @@ async function deleteHistory(id) {
     return { error: false };
 }
 
-// async function updateStatus(id, newStatus) {
-//     try {
-//         const response = await fetch(`${BASE_URL}/update/status/${id}`, {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({ newStatus }),
-//         });
-
-//         const result = await response.json();
-
-//         if (response.status === 200) {
-//             console.log(result.message);
-//             return { success: true };
-//         } else {
-//             console.error(result.message);
-//             return { success: false };
-//         }
-//     } catch (error) {
-//         console.error('An error occurred:', error.message);
-//         return { success: false, error: error.message };
-//     }
-// }
-
-async function updateStatus({ id, newStatus }) {
+async function updateStatus({ id, status }) {
     const response = await fetchWithToken(`${BASE_URL}/update/status/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ newStatus }),
+        body: JSON.stringify({ status }),
     });
 
     const responseJson = await response.json();
 
     if (responseJson.status !== "success") {
         alert(responseJson.message);
+        return { error: true };
+    }
+
+    if (responseJson.status !== "success") {
+        alert(`Status update failed: ${responseJson.message}`);
+        return { error: true };
+    }
+
+    if (!response.ok) {
+        alert(`Status update failed with status code: ${response.status}`);
         return { error: true };
     }
 

@@ -18,9 +18,9 @@ class PredictsData extends React.Component {
         };
 
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
-        this.onOptionChangeHandler = this.onOptionChangeHandler.bind(this);
-        this.onDeleteHandler = this.onDeleteHandler.bind(this);
-        this.onUpdateStatusHandler = this.onUpdateStatusHandler.bind(this);
+        this.onOptionChangeHandler  = this.onOptionChangeHandler.bind(this);
+        this.onDeleteHandler        = this.onDeleteHandler.bind(this);
+        this.onUpdateStatusHandler  = this.onUpdateStatusHandler.bind(this);
     }
 
     async componentDidMount() {
@@ -51,8 +51,8 @@ class PredictsData extends React.Component {
         });
     }
     
-    async onUpdateStatusHandler(id) {
-        await updateStatus(id);
+    async onUpdateStatusHandler(id, status) {
+        await updateStatus({ id, status });
         const { data } = await getAllPredict();
         this.setState({
             predict: data,
@@ -75,13 +75,8 @@ class PredictsData extends React.Component {
                     <h1 className="text-center text-2xl mt-5 mb-5 font-semibold text-sky-900">
                         Hasil Prediksi Oleh Users
                     </h1>
-                    <SearchBarPredict
-                        selectedOption={this.state.selectedOption}
-                        keyword={this.state.keyword}
-                        keywordChange={this.onKeywordChangeHandler}
-                        handleOptionChange={this.onOptionChangeHandler}
-                    />
-                    <AllPredictList savepredict={filteredPredicts} onDelete={this.onDeleteHandler} onUpdateStatus={this.onDeleteHandler} />
+                    <SearchBarPredict selectedOption={this.state.selectedOption} keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} handleOptionChange={this.onOptionChangeHandler} />
+                    <AllPredictList savepredict={filteredPredicts} onDelete={this.onDeleteHandler} onUpdateStatus={(id, status) => this.onUpdateStatusHandler(id, status)}/>
                 </div>
             </div>
         );

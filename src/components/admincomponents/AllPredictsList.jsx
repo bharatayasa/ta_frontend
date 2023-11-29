@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DeleteButton from '../DeleteButton';
-import moment from 'moment';
 import EditStatus from './EditStatus';
+import moment from 'moment';
 
 const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +28,7 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
     return (
         <div>
             <div className="flex flex-col">
-                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-10">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg table-fixed">
                             <table className="min-w-full divide-y divide-gray-200">
@@ -44,10 +44,7 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                         User Id
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                        Kelas
-                                    </th>
-                                    <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                        Confidence
+                                        Kelas & Confidence
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                         Description
@@ -84,24 +81,21 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
 
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className=" text-gray-900">{predict.kelas}</div>
+                                            <div className=" text-gray-600">{predict.confidence}</div>
                                         </td>
 
-                                        <td className="px-6 py-4 whitespace-nowrap text-center">
-                                            <div className=" text-gray-900">{predict.confidence}</div>
-                                        </td>
-
-                                        <td className="px-6 py-4 whitespace-nowrap text-gray-900 text-center table-fixed">
+                                        <td className="px-2 py-4 whitespace-nowrap text-gray-900 text-center table-fixed">
                                             <button>
-                                                <details className="border rounded-lg px-6 py-3 shadow-sm transition duration-300 ease-in-out">
+                                                <details className="border rounded-lg px-3 py-3 shadow-sm transition duration-300 ease-in-out">
                                                     <p className="overflow-x-hidden whitespace-normal text-justify">
                                                         {predict.description}
                                                     </p>
                                                 </details>
                                             </button>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-gray-900 text-center">
+                                        <td className="px-2 py-4 whitespace-nowrap text-gray-900 text-center">
                                             <button>
-                                                <details className="border rounded-lg px-6 py-3 shadow-sm">
+                                                <details className="border rounded-lg px-3 py-3 shadow-sm">
                                                     <p className="overflow-x-hidden whitespace-normal text-justify">
                                                         {predict.prevention}
                                                     </p>
@@ -116,11 +110,13 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                         <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
                                             {moment(predict.created_at).format('DD MMMM YYYY')}
                                         </td>
-                                        <td className="whitespace-nowrap font-medium text-center">
-                                            <div className="flex justify-evenly">
+                                        <td className="whitespace-nowrap font-medium">
+                                            <div className="flex justify-evenly gap-2">
                                                 <div>
-                                                    <DeleteButton id={predict.id} onDelete={onDelete} />
-                                                    <EditStatus id={predict.id} onUpdateStatus={onUpdateStatus}/>
+                                                    <EditStatus id={predict} onUpdateStatus={onUpdateStatus}/>
+                                                </div>
+                                                <div>
+                                                    <DeleteButton id={predict.id} onDelete={onDelete}/>
                                                 </div>
                                             </div>
                                         </td>

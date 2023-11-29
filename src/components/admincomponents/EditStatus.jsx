@@ -3,19 +3,20 @@ import { updateStatus } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import EditStatusInput from "./EditStatusInput.jsx";
 
-export default function EditStatus({ savepredict }) {
+export default function EditStatus({ id }) {
 	const navigate = useNavigate();
 
-	async function EditStatusHandler(savepredict) {
-		const response = await updateStatus(savepredict);
+	async function editStatusHandler(updatedPredict) {
+		const response = await updateStatus(updatedPredict);
 
 		if (!response.error) {
-		navigate("/");
-		window.location.reload();
+			navigate('/hasil/prediksi');
+			window.location.reload();
 		} else {
 			console.log("Update Status failed:", response.error);
+			console.log(updatedPredict);
 		}
 	}
 
-	return <EditStatusInput {...savepredict} updateuser={EditStatusHandler} />;
+	return <EditStatusInput {...id} updateStatus={editStatusHandler} />;
 }

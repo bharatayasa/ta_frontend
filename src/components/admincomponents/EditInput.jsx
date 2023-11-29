@@ -64,15 +64,15 @@ const EditInput = (props) => {
 					<form onSubmit={onSubmitEventHandler} className="space-y-5">
 
 					<div>
-						<Input label="Username" name="username" type='text' id="username" value={userData.username} onChange={(e) => handleFieldChange('username', e.target.value)} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
+						<Input label="Username" name="username" type='text' id="username" value={userData.username} onChange={(e) => handleFieldChange('username', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg'/>
 					</div>
 
 					<div>
-						<Input label="Name" name="name" type='text' id="name" value={userData.name} onChange={(e) => handleFieldChange('name', e.target.value)} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
+						<Input label="Name" name="name" type='text' id="name" value={userData.name} onChange={(e) => handleFieldChange('name', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg'/>
 					</div>
 
 					<div>
-						<Input label="E-Mail" name="email" type='email' id="email" value={userData.email} onChange={(e) => handleFieldChange('email', e.target.value)} autoComplete="off" className='bg-white/25 backdrop-blur-xl shadow-lg'/>
+						<Input label="E-Mail" name="email" type='email' id="email" value={userData.email} onChange={(e) => handleFieldChange('email', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg'/>
 					</div>
 
 					<div>
@@ -84,7 +84,7 @@ const EditInput = (props) => {
 
 					<div className="text-center">
 						<button type="submit" className="text-l text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 transition duration-300 ease-in-out shadow-md" >
-						Simpan
+							Simpan
 						</button>
 					</div>
 
