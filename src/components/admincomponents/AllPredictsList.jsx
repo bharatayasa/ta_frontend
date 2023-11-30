@@ -102,7 +102,7 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                                 </details>
                                             </button>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-gray-900 text-center">
+                                        <td className={`px-6 py-4 whitespace-nowrap text-center font-semibold ${predict.status === 'aktif' ? 'text-emerald-500' : 'text-pink-500'}`}>
                                             <p className="overflow-x-hidden whitespace-normal text-justify">
                                                 {predict.status}
                                             </p>

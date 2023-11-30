@@ -1,5 +1,5 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
-// const BASE_URL = import.meta.env.VITE_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function getAccessToken() {
     return localStorage.getItem("accessToken");
@@ -42,7 +42,7 @@ async function register({ username, name, email, password }) {
     const response = await fetch(`${BASE_URL}/register`, {
         method: "POST",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, name, email, password }),
     });
@@ -72,7 +72,7 @@ async function adduser({ username, name, email, password, role }) {
     const response = await fetchWithToken(`${BASE_URL}/admin/add/user`, {
         method: "POST",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, name, email, password, role }),
     });
@@ -91,7 +91,7 @@ async function updateuser({ id, username, name, email, password, role }) {
     const response = await fetchWithToken(`${BASE_URL}/admin/update/user/${id}`, {
         method: "PUT",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, name, email, password, role }),
     });
@@ -110,7 +110,7 @@ async function updateMe({ username, name, email }) {
     const response = await fetchWithToken(`${BASE_URL}/user/update/me`, {
         method: "PUT",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, name, email }),
     });
@@ -129,7 +129,7 @@ async function updatePassword({ currentPassword, newPassword }) {
     const response = await fetchWithToken(`${BASE_URL}/update/my/password`, {
         method: "PUT",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ currentPassword, newPassword }),
     });
@@ -190,7 +190,7 @@ async function savepredict({ kelas, confidence, description, prevention, userId 
     const response = await fetchWithToken(`${BASE_URL}/save/predict`, {
         method: "POST",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ kelas, confidence, description, prevention, userId }),
     });
@@ -257,16 +257,6 @@ async function updateStatus({ id, status }) {
 
     if (responseJson.status !== "success") {
         alert(responseJson.message);
-        return { error: true };
-    }
-
-    if (responseJson.status !== "success") {
-        alert(`Status update failed: ${responseJson.message}`);
-        return { error: true };
-    }
-
-    if (!response.ok) {
-        alert(`Status update failed with status code: ${response.status}`);
         return { error: true };
     }
 
