@@ -6,6 +6,7 @@ import RegisterPage from '../loginregispages/RegisterPage';
 import { putAccessToken, getUserLogged } from '../../../utils/api';
 import RefrencePage from './RefrencePage';
 import AlgoritmaCnn from './AlgoritmaCnn';
+import DeploymentPage from './DeploymentPage';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class LandingPage extends React.Component {
                 </div>
                 <div><RefrencePage /></div>
                 <div><AlgoritmaCnn /></div>
+                <div><DeploymentPage /></div>
             </div>
         );
     }

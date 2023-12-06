@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { getUserLogged, savepredict } from "../../utils/api";
-import scananimate from "../../../src/assets/img/scan.png";
+import proses from "../../../src/assets/img/proses/proses.png"
 
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
@@ -111,9 +111,9 @@ function PredictComponent() {
 			</div>
 			{isLoading && (
 			<div className="flex justify-center">
-				<div className="animate-pulse justify-center mb-5">
+				<div className="justify-center mb-5 mt-5">
 					<div>
-						<img style={{ width: '90%' }} src={scananimate} />
+						<img style={{ width: '90%' }} src={proses} />
 					</div>
 				</div>
 			</div>

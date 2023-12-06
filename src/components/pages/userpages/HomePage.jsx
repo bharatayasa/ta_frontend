@@ -21,7 +21,7 @@ function HomePage() {
                             </p>
                         </div>
                         <div className="flex flex-col lg:flex-row px-10 lg:px-0 text-center">
-                            <div className='mb-3'>
+                            <div className='mb-3 lg:mx-1'>
                                 <UserProfile />
                             </div>
 
