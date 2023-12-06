@@ -2,8 +2,8 @@ import React from "react";
 import { getPredictUser, updateStatusUser } from "../../../utils/api";
 import HistoryList from "./HistoryList.jsx";
 
-function DataPredictWrapper({ keywordChange }) {
-    return <HistoryPage keywordChange={keywordChange} />;
+function DataPredictWrapper({ keywordChange}) {
+    return <HistoryPage keywordChange={keywordChange}/>;
 }
 
 class HistoryPage extends React.Component {

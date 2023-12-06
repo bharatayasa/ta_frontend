@@ -4,7 +4,7 @@ import hamburgerNonActive from '../../assets/img/navbar/hamburger-non-active.svg
 import { navLinks } from '../../utils/navbarUser.js';
 import { NavLink } from "react-router-dom";
 
-function NavbarUser({ logout, name }) {
+function NavbarUser({ logout }) {
     const [toggleNavBar, setToggleNavBar] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 

@@ -53,9 +53,10 @@ function RefrencePage() {
                             <p className='text-justify text-slate-600'>
                                 {contents[4].machineLearning}
                             </p>
-                            <h1 className="text-xl lg:text-2xl font-bold mb-4 text-sky-900 mt-5">
-                                1000++ Dataset
+                            <h1 className="text-xl lg:text-2xl font-bold text-sky-900 mt-5">
+                                16.000+ Dataset
                             </h1>
+                            <p className='text-justify text-slate-600'>model dilatih dengan total 16.000 lebih dataset yang di peroleh dari kagle</p>
                         </div>
                     </div>
 

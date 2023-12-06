@@ -12,6 +12,6 @@ export const contents = [
         about: 'Tomatify adalah sebuah platform web app yang didedikasikan untuk kesehatan tanaman tomat. yang dikembangkan menggunakan teknologi Machine Learning, Tomatify memungkinkan pengguna untuk melakukan scan daun tanaman tomat secara mudah. Hasil scan disajikan dengan detail, mencakup identifikasi nama penyakit yang mungkin terjadi pada tanaman tersebut beserta penanganan pertama yang direkomendasikan. Dengan antarmuka yang user-friendly, Tomatify memberikan para petani dan pecinta tanaman tomat informasi yang cepat dan efektif untuk menjaga keberlanjutan pertanian dan memastikan pertumbuhan tanaman yang sehat.'
     }, 
     {
-        machineLearning:'Sistem ini dikembangkan dengan menggunakan dataset berupa gambar daun tanaman tomat yang diperoleh dari Kaggle.com. terdapat 10 kelas penyakit yang 1 diantaranya kelas untuk tanaman tomat yang sehat.'
+        machineLearning:'Model Machine Learning Tomatify  dilatih dengan menggunakan dataset berupa gambar daun tanaman tomat yang diperoleh dari Kaggle.com. terdapat 10 kelas penyakit yang 1 diantaranya kelas untuk tanaman tomat yang sehat.'
     }
 ]

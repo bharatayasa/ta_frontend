@@ -2,8 +2,8 @@ import { React, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import UpdateStatus from "../../usercomponents/UpdateStatus.jsx";
 import moment from "moment";
-import { Disclosure, Transition } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import { Disclosure, Transition } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/20/solid';
 
 function HistoryList({ savepredict, onUpdateStatus }) {
     const [visibleItems, setVisibleItems] = useState(5);
@@ -27,9 +27,9 @@ function HistoryList({ savepredict, onUpdateStatus }) {
                                     <div>
                                         <Disclosure.Button className="flex w-full justify-between rounded-t-lg bg-emerald-400 px-2 py-4 font-medium hover:bg-emerald-500 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl">
                                             <div>
-                                                <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY')}</span>
+                                                <span>Tanggal : {moment(predict.created_at).format('DD MMMM YYYY HH:mm')}</span>
                                             </div>
-                                            <ChevronUpIcon className={`${ open ? 'rotate-180 transform' : '' } h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`} />
+                                            <ChevronUpIcon className={`${open ? 'rotate-180 transform' : ''} h-5 w-5 to-black font-semibold transition duration-300 ease-in-out`} />
                                         </Disclosure.Button>
 
                                         <Transition as={Fragment} enter="transition ease-in-out duration-300 transform" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="transition ease-in-out duration-300 transform" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">

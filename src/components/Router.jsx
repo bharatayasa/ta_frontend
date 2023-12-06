@@ -85,7 +85,7 @@ class Router extends React.Component {
             return(
                 <div>
                     <header>
-                        <NavbarUsers logout={this.onLogout} name={this.state.authedUser.name} />
+                        <NavbarUsers logout={this.onLogout} username={this.state.authedUser.username} />
                     </header>
                     <main>
                         <Routes>
