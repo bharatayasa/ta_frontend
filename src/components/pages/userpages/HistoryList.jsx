@@ -20,7 +20,7 @@ function HistoryList({ savepredict, onUpdateStatus }) {
         <div className="px-6 lg:px-0">
             {sortedSavepredict.slice(0, visibleItems).map((predict) => (
                 <div key={predict.id}>
-                    <div className="container mx-auto rounded-lg bg-white/40 hover:bg-white/60 transition duration-200 ease-in-out backdrop-blur-lg mb-3" data-aos="zoom-in">
+                    <div className="container mx-auto rounded-lg bg-white/30 hover:bg-white/40 transition duration-200 ease-in-out backdrop-blur-lg mb-3" data-aos="zoom-in">
                         <Disclosure>
                             {({ open }) => (
                                 <div>
