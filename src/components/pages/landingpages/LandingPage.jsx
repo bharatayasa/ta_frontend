@@ -31,11 +31,12 @@ class LandingPage extends React.Component {
         return (
             <div>
                 <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400'>
-                    <div className='justify-center items-center flex flex-col min-h-screen'>
-                        <section className='lg:flex py-10 container mx-auto gap-20 '>
-                            <div className='w-1/2 py-5 rounded-lg'>
-                                <div className='mt-24'>
-                                    <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-left">
+                    <div className='items-center flex min-h-screen'>
+                        <section className='lg:flex lg:py-10 container lg:px-0 lg:mx-auto lg:gap-20 px-10'>
+
+                            <div className='lg:w-1/2 py-5 rounded-lg'>
+                                <div className='mt-24 items-center'>
+                                    <h1 className="text-4xl lg:text-5xl font-bold mb-4 lg:text-left">
                                         <span className='text-sky-900'>Ketahui<br />Penyakit Tomatmu<br />Bersama Tomatify</span>
                                     </h1>
                                     <p className='text-justify text-slate-600'>
@@ -47,6 +48,7 @@ class LandingPage extends React.Component {
                                     </div>
                                 </div>
                             </div>
+
                             <div>
                                 <div className='w-full'>
                                     <img src={tomatto_garden_2} alt="tomato" />

@@ -16,11 +16,12 @@ function RefrencePage() {
     return (
         <div>
             <div className='bg-gradient-to-br from-red-300 via-yellow-200 to-emerald-400'>
-                <div className='container mx-auto flex gap-20'>
+                <div className='items-center'>
+                <div className='container mx-auto lg:flex gap-20 lg:items-center'>
 
-                    <div className='min-h-screen w-1/2'>
+                    <div className='lg:min-h-screen lg:w-1/2 mb-10 lg:mb-0'>
                         <div>
-                            <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true,}} pagination={true} modules={[EffectCoverflow, Pagination]} className="mySwiper" >
+                            <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true,}} pagination={true} modules={[EffectCoverflow, Pagination]} className="mySwiper">
                                 <div>
                                     <SwiperSlide className='bg-gradient-to-tr from-emerald-300/30 to-red-300/30  backdrop-blur-md rounded-lg shadow-lg'>
                                         <img src={image1}/>
@@ -45,9 +46,9 @@ function RefrencePage() {
                         </div>
                     </div>
 
-                    <div className='w-1/2'>
+                    <div className='lg:w-1/2 mx-10'>
                         <div>
-                            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900 pt-16">
+                            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900">
                                 Dataset <br /><span>Diperoleh Dari<br />Kagle.com</span>
                             </h1>
                             <p className='text-justify text-slate-600'>
@@ -61,6 +62,7 @@ function RefrencePage() {
                     </div>
 
                 </div>
+            </div>
             </div>
         </div>
     );
