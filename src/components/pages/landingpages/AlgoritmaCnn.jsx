@@ -7,7 +7,7 @@ function AlgoritmaCnn() {
                 <div className='container mx-auto'>
 
                     <div className='flex justify-center mb-5'>
-                        <h1 className='bg-white w-1/2 text-center'>Lorem ipsum dolor sit amet.</h1>
+                        <h1 className='bg-white w-1/2 text-center'>yang ini blum lese</h1>
                     </div>
 
                     <div className='flex gap-5'>

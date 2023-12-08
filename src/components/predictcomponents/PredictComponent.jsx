@@ -1,13 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { getUserLogged, savepredict } from "../../utils/api";
-import proses from "../../../src/assets/img/proses/proses.png"
-
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-
 import { Spinner } from "@material-tailwind/react";
 import { TooltipCustomStyles } from "./TooltipCustomStyles";
-
+import { getUserLogged, savepredict } from "../../utils/api";
+import proses from "../../../src/assets/img/proses/proses.png"
 const MODEL_URL = import.meta.env.VITE_MODEL_URL;
 
 function PredictComponent() {
@@ -81,39 +78,39 @@ function PredictComponent() {
 
 		<div className="text-center container mx-auto mt-[80px] self-start lg:w-1/2 px-4">
 			<div className="backdrop-blur-2xl bg-white/30 hover:bg-white/50 transition duration-300 ease-in-out rounded-xl shadow-lg" data-aos="zoom-in">
-			<div className="mb-5 pt-5">
-				<h2 className="lg:text-3xl sm:text-xl text-xl font-semibold text-sky-900">
-					Masukkan Gambar Daun Tomat
-				</h2>
-				<p className="lg:text-lg sm:text-xs text-slate-400 text-xs">
-					pilih gambar atau drag & drop gambar ke dalam kotak
-				</p>
-			</div>
-			<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
-				<div className="mb-5 mt-5">
-					<input type="file" accept="image/*" className="lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl sm:file:text-sm file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out" onChange={handleFileChange} />
+				<div className="mb-5 pt-5">
+					<h2 className="lg:text-3xl sm:text-xl text-xl font-semibold text-sky-900">
+						Masukkan Gambar Daun Tomat
+					</h2>
+					<p className="lg:text-lg sm:text-xs text-slate-400 text-xs">
+						pilih gambar atau drag & drop gambar ke dalam kotak
+					</p>
 				</div>
-			</div>
-			<div>
-				{isLoading ? (
-				<div className="items-center flex justify-center">
-					<button className="text-xl text-white bg-emerald-500 px-3 py-2 rounded-md shadow-md flex items-center mb-5" disabled>
-						Loading
-						<div className=""><Spinner className="h-8 w-10 text-white-900/50" /></div>
+				<div className="border rounded-md mb-5 outline-dashed outline-4 outline-offset-2 mr-10 ml-10 backdrop-blur-2xl shadow-lg">
+					<div className="mb-5 mt-5">
+						<input type="file" accept="image/*" className="lg:file:py-5 lg:file:px-5 md:file-px-3 md:file-py-3 file:rounded-md file:border-0 lg:file:text-xl sm:file:text-sm file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-900 hover:file:bg-sky-100 file:shadow-md file:hover:shadow-xl file:transition file:duration-300 file:ease-in-out" onChange={handleFileChange} />
+					</div>
+				</div>
+				<div>
+					{isLoading ? (
+					<div className="items-center flex justify-center">
+						<button className="text-xl text-white bg-emerald-500 px-3 py-2 rounded-md shadow-md flex items-center mb-5" disabled>
+							Loading
+							<div className=""><Spinner className="h-8 w-10 text-white-900/50" /></div>
+						</button>
+					</div>
+					) : (
+					<button onClick={handleUpload} className="text-xl text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-5 transition duration-300 ease-in-out shadow-md">
+						Prediksi
 					</button>
+					)}
 				</div>
-				) : (
-				<button onClick={handleUpload} className="text-xl text-white bg-emerald-400 px-3 py-2 rounded-md hover:shadow-xl hover:bg-emerald-500 mb-5 transition duration-300 ease-in-out shadow-md">
-					Prediksi
-				</button>
-				)}
-			</div>
 			</div>
 			{isLoading && (
 			<div className="flex justify-center">
 				<div className="justify-center mb-5 mt-5">
 					<div>
-						<img style={{ width: '90%' }} src={proses} />
+						<img style={{ width: '100%' }} src={proses} />
 					</div>
 				</div>
 			</div>

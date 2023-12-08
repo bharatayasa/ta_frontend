@@ -36,9 +36,12 @@ class LandingPage extends React.Component {
 
                             <div className='lg:w-1/2 py-5 rounded-lg'>
                                 <div className='mt-24 items-center'>
-                                    <h1 className="text-4xl lg:text-5xl font-bold mb-4 lg:text-left">
-                                        <span className='text-sky-900'>Ketahui<br />Penyakit Tomatmu<br />Bersama Tomatify</span>
-                                    </h1>
+                                    <div className='px-0 lg:px-0'>
+                                        <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-sky-900">
+                                            Ketuhui Penyakit <br /><span>Tomatmu Bersama <br />Tomatify</span>
+                                        </h1>
+                                    </div>
+
                                     <p className='text-justify text-slate-600'>
                                         {contents[0].loginContent}
                                     </p>
