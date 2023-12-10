@@ -60,20 +60,14 @@ const UserProfile = () => {
                                             className={`w-full text-sky-900 rounded-md py-2 px-5 text-xs font-medium m-1 transition duration-300 ease-in-out ${
                                                 selectedTab === 0
                                                     ? 'bg-emerald-400 shadow font-semibold'
-                                                    : 'hover:bg-emerald-400 hover:text-white font-semibold'
-                                            }`}
-                                            onClick={() => setSelectedTab(0)}
-                                        >
+                                                    : 'hover:bg-emerald-400 hover:text-white font-semibold' }`} onClick={() => setSelectedTab(0)}>
                                             Bio Data
                                         </button>
                                         <button
                                             className={`w-full text-sky-900 rounded-md py-2 px-3 text-xs font-medium m-1 transition duration-300 ease-in-out ${
                                                 selectedTab === 1
                                                     ? 'bg-emerald-400 shadow font-semibold'
-                                                    : 'hover:bg-emerald-400 hover:text-white font-semibold'
-                                            }`}
-                                            onClick={() => setSelectedTab(1)}
-                                        >
+                                                    : 'hover:bg-emerald-400 hover:text-white font-semibold'}`} onClick={() => setSelectedTab(1)}>
                                             Ubah Biodata
                                         </button>
                                         <button

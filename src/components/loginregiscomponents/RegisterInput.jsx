@@ -68,6 +68,9 @@ const RegisterInput = ({ register }) => {
             alert("Password dan Confirm Password harus sama");
             return;
         }
+        if (formData.username || formData.name || formData.email || formData.password || formData.confirmPassword) {
+            alert("register berhasil, silahkan cek E-mail anda untuk melakukan verifikasi");
+        }
         register({
             username: formData.username,
             name: formData.name,

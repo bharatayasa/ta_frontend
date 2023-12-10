@@ -10,7 +10,7 @@ function AboutPage() {
         <div>
             <div className='bg-gradient-to-tr from-red-300 via-yellow-200 to-emerald-400'>
                 <div className='items-center flex min-h-screen'>
-                <section className='lg:flex lg:py-10 container lg:px-0 lg:mx-auto lg:gap-20 px-10'>
+                <section className='lg:flex lg:py-10 container lg:px-0 lg:mx-auto lg:gap-20 px-7'>
 
                     <div className='lg:w-1/2 py-5 rounded-lg'>
                         <div className='mt-24 items-center'>

@@ -46,7 +46,7 @@ function RefrencePage() {
                         </div>
                     </div>
 
-                    <div className='lg:w-1/2 mx-10'>
+                    <div className='lg:w-1/2 mx-7'>
                         <div>
                             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900">
                                 Dataset <br /><span>Diperoleh Dari<br />Kagle.com</span>
