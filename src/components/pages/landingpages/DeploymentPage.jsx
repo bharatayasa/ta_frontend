@@ -19,7 +19,7 @@ function DeploymentPage() {
                         <div key={layanan.id} className='mb-3'>
                         <Disclosure>
                             {({ open }) => (
-                            <div>
+                            <div data-aos="zoom-in">
                                 <div className='container mx-auto rounded-lg bg-white/30 hover:bg-white/40 transition duration-200 ease-in-out backdrop-blur-lg mb-5'>
                                 <Disclosure.Button className='flex w-full justify-between rounded-t-lg bg-emerald-400/40 px-2 py-4 font-medium hover:bg-emerald-500/40 focus:outline-none transition duration-300 ease-in-out shadow-md hover:shadow-xl \'>
                                     <div className='text-lg font-semibold text-sky-900 '>
@@ -48,7 +48,7 @@ function DeploymentPage() {
                     </div>
                 </div>
 
-                <div className='container lg:mx-auto min-h-screen'>
+                <div className='container lg:mx-auto min-h-screen' data-aos="zoom-in">
                     <div className='mx-7'>
                         <h1 className='text-center text-2xl font-semibold text-sky-900 py-5'>Proses Prediksi</h1>
                         <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify '>Proses melakukan prediksi penyakit tanaman tomat di sistem ini, dapat dilihat pada gambar berikut:</p>

@@ -1,5 +1,5 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
-// const BASE_URL = import.meta.env.VITE_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_BASE_URL_LOCAL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function getAccessToken() {
     return localStorage.getItem("accessToken");
@@ -19,13 +19,13 @@ async function fetchWithToken(url, options = {}) {
     });
 }
 
-async function login({ username, password }) {
+async function login({ usernameoremail, password }) {
     const response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ usernameoremail, password }),
     });
 
     const responseJson = await response.json();

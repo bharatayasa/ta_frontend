@@ -20,7 +20,7 @@ function RefrencePage() {
                 <div className='container mx-auto lg:flex gap-20 lg:items-center'>
 
                     <div className='lg:min-h-screen lg:w-1/2 mb-10 lg:mb-0'>
-                        <div>
+                        <div data-aos="zoom-in-up">
                             <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true,}} pagination={true} modules={[EffectCoverflow, Pagination]} className="mySwiper">
                                 <div>
                                     <SwiperSlide className='bg-gradient-to-tr from-emerald-300/30 to-red-300/30  backdrop-blur-md rounded-lg shadow-lg'>
@@ -47,7 +47,7 @@ function RefrencePage() {
                     </div>
 
                     <div className='lg:w-1/2 mx-7'>
-                        <div>
+                        <div data-aos="zoom-in-up">
                             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900">
                                 Dataset <br /><span>Diperoleh Dari<br />Kagle.com</span>
                             </h1>

@@ -13,7 +13,7 @@ function HomePage() {
 
                     <div className="lg:w-1/2 lg:text-left lg:pl-12 mt-5">
                         <div className='px-5 lg:px-0'>
-                            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900">
+                            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900 animate__animated animate__fadeInDown">
                                 Solusi Mudah <br /><span>Untuk Mendeteksi <br /> Penyakit Tomat</span>
                             </h1>
                             <p className="mb-4 text-lg text-sky-900 animate__animated animate__fadeInDown">

@@ -14,18 +14,18 @@ function AboutPage() {
 
                     <div className='lg:w-1/2 py-5 rounded-lg'>
                         <div className='mt-24 items-center'>
-                            <div className='px-0 lg:px-0'>
+                            <div className='px-0 lg:px-0 animate__animated animate__fadeInDown'>
                                 <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-sky-900">
                                     Ketuhui Penyakit <br /><span>Tomatmu Bersama <br />Tomatify</span>
                                 </h1>
                             </div>
-                            <p className='text-justify text-slate-600'>
+                            <p className='text-justify text-slate-600 animate__animated animate__fadeInDown'>
                                 {contents[0].loginContent}
                             </p>
                         </div>
                     </div>
 
-                            <div>
+                            <div className='animate__animated animate__fadeInUp'>
                                 <div className='w-full'>
                                     <img src={tomatto_garden_2} alt="tomato" />
                                 </div>

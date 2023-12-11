@@ -7,8 +7,8 @@ import { login } from "../../../utils/api";
 function LoginPage({loginSuccess}) {
     const navigate = useNavigate();
 
-    async function onLogin({username, password}) {
-        const {error, data } = await login({username, password}); 
+    async function onLogin({usernameoremail, password}) {
+        const {error, data } = await login({usernameoremail, password}); 
 
         if (!error) {
             loginSuccess(data);

@@ -37,12 +37,12 @@ class LandingPage extends React.Component {
                             <div className='lg:w-1/2 py-5 rounded-lg'>
                                 <div className='mt-24 items-center'>
                                     <div className='px-0 lg:px-0'>
-                                        <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-sky-900">
+                                        <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-sky-900 animate__animated animate__fadeInUp">
                                             Ketuhui Penyakit <br /><span>Tomatmu Bersama <br />Tomatify</span>
                                         </h1>
                                     </div>
 
-                                    <p className='text-justify text-slate-600'>
+                                    <p className='text-justify text-slate-600 animate__animated animate__fadeInUp'>
                                         {contents[0].loginContent}
                                     </p>
                                     <div className='mt-5 text-lg text-sky-900 flex gap-4 justify-center'>
