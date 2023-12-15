@@ -4,9 +4,6 @@ import tomatto_garden_2 from '../../../assets/img/tomat_landingpage.png';
 import LoginPage from '../loginregispages/LoginPage';
 import RegisterPage from '../loginregispages/RegisterPage';
 import { putAccessToken, getUserLogged } from '../../../utils/api';
-import RefrencePage from './RefrencePage';
-import AlgoritmaCnn from './AlgoritmaCnn';
-import DeploymentPage from './DeploymentPage';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -60,9 +57,6 @@ class LandingPage extends React.Component {
                         </section>
                     </div>
                 </div>
-                <div><RefrencePage /></div>
-                <div><AlgoritmaCnn /></div>
-                <div><DeploymentPage /></div>
             </div>
         );
     }

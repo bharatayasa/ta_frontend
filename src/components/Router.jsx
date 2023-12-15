@@ -15,7 +15,7 @@ import UsersData from "./pages/adminpages/UsersData.jsx";
 import PredictsData from "./pages/adminpages/PredictsData.jsx";
 
 // landing pages
-import LandingPage from "./pages/landingpages/LandingPage.jsx";
+import AllPages from "./pages/landingpages/AllPages.jsx";
 
 import { getUserLogged, putAccessToken } from "../utils/api.js";
 
@@ -60,7 +60,7 @@ class Router extends React.Component {
         if (this.state.authedUser === null) {
             return (
                 <Routes>
-                    <Route path="/*" element={<LandingPage />} />
+                    <Route path="/*" element={<AllPages />} />
                 </Routes>
             );
         }

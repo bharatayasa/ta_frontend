@@ -10,9 +10,9 @@ function DeploymentPage() {
         <div className='bg-gradient-to-br from-red-300 via-yellow-200 to-emerald-400'>
             <div className='lg:flex container lg:mx-auto gap-10'>
                 <div className='container lg:mx-auto lg:min-h-screen'>
-                    <div className='mx-7'>
-                    <h1 className='text-center text-2xl font-semibold text-sky-900 py-5'>Deployment</h1>
-                    <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify'>
+                    <div className='mx-7 py-32'>
+                    <h1 className='text-center text-2xl font-semibold text-sky-900 py-5' data-aos="zoom-in">Deployment</h1>
+                    <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify' data-aos="zoom-in">
                         Proses deployment menggunakan layanan cloud computing yang disediakan oleh Google Cloud Platform
                     </p>
                     {layananGCP.map((layanan) => (
@@ -48,11 +48,11 @@ function DeploymentPage() {
                     </div>
                 </div>
 
-                <div className='container lg:mx-auto min-h-screen' data-aos="zoom-in">
-                    <div className='mx-7'>
-                        <h1 className='text-center text-2xl font-semibold text-sky-900 py-5'>Proses Prediksi</h1>
-                        <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify '>Proses melakukan prediksi penyakit tanaman tomat di sistem ini, dapat dilihat pada gambar berikut:</p>
-                        <div className='bg-gradient-to-tr from-emerald-300/30 to-red-300/20 backdrop-blur-md rounded-lg shadow-lg '>
+                <div className='container lg:mx-auto min-h-screen'>
+                    <div className='mx-7 py-32'>
+                        <h1 className='text-center text-2xl font-semibold text-sky-900 py-5' data-aos="zoom-in">Proses Prediksi</h1>
+                        <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify ' data-aos="zoom-in">Proses melakukan prediksi penyakit tanaman tomat di sistem ini, dapat dilihat pada gambar berikut:</p>
+                        <div className='bg-gradient-to-tr from-emerald-300/30 to-red-300/20 backdrop-blur-md rounded-lg shadow-lg ' data-aos="zoom-in">
                             <img className='px-5 py-5' src={prosespredict} alt='Proses Prediksi' />
                         </div>
                     </div>
