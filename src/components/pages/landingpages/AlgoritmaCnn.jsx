@@ -29,7 +29,7 @@ function AlgoritmaCnn() {
                 <div className='container mx-auto lg:flex gap-20 lg:items-center'>
                 
                 <div className='lg:w-1/2'>
-                        <div>
+                        <div className='py-8 px-8 lg:px-0'>
                             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900" data-aos="zoom-in-up">
                                 Algoritma CNN
                             </h1>
@@ -40,7 +40,7 @@ function AlgoritmaCnn() {
                         </div>
                     </div>
 
-                    <div className='lg:min-h-screen lg:w-1/2 lg:mb-0'>
+                    <div className='lg:min-h-screen lg:w-1/2 lg:mb-0 lg:px-0 px-8'>
                         <div data-aos="zoom-in-up">
                         <div>
                             <Swiper
