@@ -33,17 +33,9 @@ body {
         transition: transform 100ms;
     }
 
-    .swiper-slide:first-child img {
-        transition: box-shadow 500ms;
-    }
-
     .swiper-slide.swiper-slide-active:first-child {
         transform: translateX(50%);
         z-index: 2;
-    }
-
-    .swiper-slide.swiper-slide-active:first-child img {
-        box-shadow: 0px 32px 80px rgba(0, 0, 0, 0.35);
     }
 
     .swiper-slide:nth-child(2) {

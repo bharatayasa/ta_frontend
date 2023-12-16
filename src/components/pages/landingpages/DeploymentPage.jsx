@@ -10,7 +10,7 @@ function DeploymentPage() {
         <div className='bg-gradient-to-br from-red-300 via-yellow-200 to-emerald-400'>
             <div className='lg:flex container lg:mx-auto gap-10'>
                 <div className='container lg:mx-auto lg:min-h-screen'>
-                    <div className='mx-7 py-32'>
+                    <div className='mx-7 py-20 lg:py-32'>
                     <h1 className='text-center text-2xl font-semibold text-sky-900 py-5' data-aos="zoom-in">Deployment</h1>
                     <p className='mb-4 text-lg text-sky-900 lg:text-center text-justify' data-aos="zoom-in">
                         Proses deployment menggunakan layanan cloud computing yang disediakan oleh Google Cloud Platform
