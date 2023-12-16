@@ -59,7 +59,7 @@ function AlgoritmaCnn() {
                                     slidesPerGroup: 2,
                                 },
                                 }}
-                                scrollbar={true}
+                                scrollbar={false}
                                 navigation={true}
                                 modules={[Keyboard, Scrollbar, Navigation, Pagination]}
                                     className="mySwiper"
