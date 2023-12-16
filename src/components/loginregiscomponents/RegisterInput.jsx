@@ -104,9 +104,8 @@ const RegisterInput = ({ register }) => {
                         <div ref={modalRef} className="inline-block align-bottom text-left overflow-hidden transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                             <div className="bg-white/40 rounded-lg backdrop-blur-md" data-aos="zoom-in">
                             <form onSubmit={onSubmitHandler} className=" lg:px-5 px-10 pb-4 sm:p-6 sm:pb-4 animate__animated animate__fadeIn">
-                                <div className='text-center text-2xl mb-3 font-semibold text-sky-900'>
-                                    <h1>Register</h1>
-                                </div>
+
+                                <h3 className="text-center lg:text-2xl md:text-xl text-md text-sky-900 font-semibold lg:pt-5 pt-5">Register</h3>
 
                                 <div className='mx-auto mb-5'>
                                     <Input type="text" variant="standard" label="Username" size="lg" value={formData.username} onChange={onUsernameChange}/>
