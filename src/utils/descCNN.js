@@ -39,4 +39,8 @@ export const descCNN = [
         id:10, 
         description10: "setelah mendapatkan hasil berupa pola array 1 dimensi yang unik. masuk ke tahap fully connected layers, yang dimana pola dari masing masing array 1 dimensi ini akan di cocokan oleh neural network ke dalam kelas penyakit yang ada, kelas penyakit di dapatkan dari hasil pelatihan model. apakah hasil dari pola array ini masuk ke kategori healty, late blight, early blight dan jenis penyakit lainya, sehingga akan menghasilkan output sesuai dengan pola array yang unik tersebut."
     },
+    {
+        id:11, 
+        description11: "Convolutional Neural Network (CNN) adalah jenis arsitektur jaringan saraf tiruan yang dirancang khusus untuk memproses dan menganalisis data spasial, terutama gambar. CNN memiliki kemampuan untuk mengenali pola lokal dalam data dan mempertahankan struktur spasialnya"
+    },
 ]

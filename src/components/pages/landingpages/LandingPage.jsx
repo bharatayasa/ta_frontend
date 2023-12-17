@@ -39,7 +39,7 @@ class LandingPage extends React.Component {
                                         </h1>
                                     </div>
 
-                                    <p className='text-justify text-slate-600 animate__animated animate__fadeInUp'>
+                                    <p className='text-justify text-slate-600 animate__animated animate__fadeInUp leading-relaxed'>
                                         {contents[0].loginContent}
                                     </p>
                                     <div className='mt-5 text-lg text-sky-900 flex gap-4 justify-center'>

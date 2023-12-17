@@ -11,6 +11,7 @@ import gambar7 from '../../../assets/cnn/7.png'
 import gambar8 from '../../../assets/cnn/8.png'
 import gambar9 from '../../../assets/cnn/9.png'
 import gambar10 from '../../../assets/cnn/10.png'
+import strukturCNN from '../../../assets/cnn/struktur_cnn.png'
 import '../../../style/style2.css'
 import { descCNN } from '../../../utils/descCNN'
 
@@ -29,15 +30,20 @@ function AlgoritmaCnn() {
                 <div className='container mx-auto lg:flex gap-20 lg:items-center'>
                 
                     <div className='lg:w-1/2'>
-                        <div className='py-8 px-8 lg:px-0'>
+                        <div data-aos="zoom-in-up" className='lg:px-0 px-8 py-8'>
+                            <div className='bg-gradient-to-br from-emerald-300/30 to-red-300/30 backdrop-blur-lg shadow-lg rounded-lg'>
+                                <img src={strukturCNN} alt="" />
+                            </div>
+                        </div>
+                        <div className='px-8 lg:px-0'>
                             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-sky-900" data-aos="zoom-in-up">
                                 Algoritma CNN
                             </h1>
                             <h1 className="text-xl lg:text-2xl font-bold text-sky-900 mt-5" data-aos="zoom-in-up">
                                 Convolotional Neural Network
                             </h1>
-                            <p className='text-justify text-slate-600' data-aos="zoom-in-up">
-                                Convolutional Neural Network (CNN) adalah jenis arsitektur jaringan saraf tiruan yang dirancang khusus untuk memproses dan menganalisis data spasial, terutama gambar. CNN memiliki kemampuan untuk mengenali pola lokal dalam data dan mempertahankan struktur spasialnya
+                            <p className='text-justify text-slate-600 leading-relaxed' data-aos="zoom-in-up">
+                                {descCNN[10].description11}
                             </p>
                         </div>
                     </div>
@@ -61,6 +67,7 @@ function AlgoritmaCnn() {
                                 }}
                                 scrollbar={false}
                                 navigation={true}
+                                Pagination={true}
                                 modules={[Keyboard, Scrollbar, Navigation, Pagination]}
                                     className="mySwiper"
                                 >

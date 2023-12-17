@@ -19,7 +19,7 @@ function AboutPage() {
                                     Ketuhui Penyakit <br /><span>Tomatmu Bersama <br />Tomatify</span>
                                 </h1>
                             </div>
-                            <p className='text-justify text-slate-600 animate__animated animate__fadeInDown'>
+                            <p className='text-justify text-slate-600 leading-relaxed animate__animated animate__fadeInDown'>
                                 {contents[0].loginContent}
                             </p>
                         </div>
