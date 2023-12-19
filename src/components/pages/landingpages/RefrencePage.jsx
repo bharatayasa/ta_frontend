@@ -67,7 +67,7 @@ function RefrencePage() {
                                         <div className='mb-5'>
                                             <img src={image5}/>
                                         </div>
-                                        <p className='text-sky-900'>sampel late blight</p>
+                                        <p className='text-sky-900'>sampel spider mites</p>
                                     </SwiperSlide>
                                     <SwiperSlide className='bg-gradient-to-tr from-emerald-300/30 to-red-300/30 backdrop-blur-md rounded-lg shadow-lg'>
                                         <div className='mb-5'>

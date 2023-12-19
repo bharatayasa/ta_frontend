@@ -204,7 +204,7 @@ function PredictComponent() {
 
 			</div>
 				<div className="text-center mb-10 mt-3 font-semibold text-sky-900 text-sm px-8 lg:px-0">
-					<p>hasil prediksi akan tersimpan di history secara automatis</p>
+					<p><i>hasil prediksi akan tersimpan di history secara otomatis</i></p>
 				</div>
 			</div>
 		)}

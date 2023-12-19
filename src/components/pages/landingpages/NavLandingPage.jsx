@@ -40,13 +40,13 @@ function NavLandingPage() {
                     <div className='hidden lg:block lg:order-2'>
                         <ul className='cursor-pointer flex items-center gap-4 font-semibold'>
                             {navLinks.map((link) => (
-                                <div key={link.id} className='nav-link'>
-                                    <Link activeClass="active" smooth spy to={link.to}
+                                <li key={link.id} className='nav-link'>
+                                    <Link activeClass="active" smooth spy to={link.path}
                                         className={({ isActive, isExact, isPending }) =>
                                             isPending ? "pending" : (isActive || isExact) ? "active" : ""} end>
                                         {link.text}
                                     </Link>
-                                </div>
+                                </li>
                             ))}
                         </ul>
                     </div>
@@ -55,13 +55,13 @@ function NavLandingPage() {
                 <div className={`${toggleNavBar ? 'block' : 'hidden'} lg:hidden`}>
                     <ul className='cursor-pointer text-lg text-black flex-col gap-2'>
                         {navLinks.map((link) => (
-                            <div key={link.id} className='nav-link text-center font-semibold mb-5 text-xl'>
-                                <Link activeClass="active" smooth spy to={link.to}
+                            <li key={link.id} className='nav-link text-center font-semibold mb-5 text-xl'>
+                                <Link activeClass="active" smooth spy to={link.path}
                                     className={({ isActive, isExact, isPending }) =>
                                         isPending ? "pending" : (isActive || isExact) ? "active" : ""} end>
                                     {link.text}
                                 </Link>
-                            </div>
+                            </li>
                         ))}
                     </ul>
                 </div>

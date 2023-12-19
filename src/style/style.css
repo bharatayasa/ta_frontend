@@ -48,7 +48,7 @@ div .navbar {
 }
 
 .navbar .nav-link a:hover {
-    color: var(--secondary-color);
+    color: #ffffff;
 }
 
 .navbar .nav-link .active {
@@ -91,3 +91,8 @@ div .navbar {
     width: 100%;
 }
 /* end sweeper */
+
+/* detail */
+.detail {
+    transition: all .5s;
+}
