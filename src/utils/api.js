@@ -87,13 +87,13 @@ async function adduser({ username, name, email, password, role }) {
     return { error: false };
 }
 
-async function updateuser({ id, username, name, email, password, role }) {
+async function updateuser({ id, username, name, email, password, role, is_verified }) {
     const response = await fetchWithToken(`${BASE_URL}/admin/update/user/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, name, email, password, role }),
+        body: JSON.stringify({ username, name, email, password, role, is_verified }),
     });
 
     const responseJson = await response.json();

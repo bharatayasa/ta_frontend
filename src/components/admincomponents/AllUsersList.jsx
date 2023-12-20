@@ -56,6 +56,9 @@ const AllUsersList = ({ users, onDelete, onUpdateUser }) => {
                                             Updated at
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
+                                            Status
+                                        </th>
+                                        <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                             Aksi
                                         </th>
                                     </tr>
@@ -92,9 +95,17 @@ const AllUsersList = ({ users, onDelete, onUpdateUser }) => {
                                     <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
                                         {moment(user.created_at).format('DD MMMM YYYY')}
                                     </td>
+            
                                     <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
                                         {moment(user.updated_at).format('DD MMMM YYYY')}
                                     </td>
+            
+                                    <td className={`px-6 py-4 whitespace-nowrap text-center font-semibold ${user.is_verified === 1 ? 'text-emerald-500' : 'text-pink-500'}`}>
+                                        <p className="overflow-x-hidden whitespace-normal text-justify">
+                                            <div>{user.is_verified === 1 ? 'Aktif' : 'Nonaktif'}</div>
+                                        </p>
+                                    </td>
+            
                                     <td className="whitespace-nowrap font-medium text-center">
                                         <div className="flex justify-evenly">
                                             <div>

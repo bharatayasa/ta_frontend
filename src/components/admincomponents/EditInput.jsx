@@ -10,6 +10,7 @@ const EditInput = (props) => {
 		name: props.name || '',
 		email: props.email || '',
 		role: props.role || '',
+		is_verified: props.is_verified || '',
 	});
 
 	const modalRef = useRef();
@@ -77,8 +78,15 @@ const EditInput = (props) => {
 
 					<div>
 						<select name="role" value={userData.role} onChange={(e) => handleFieldChange('role', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg w-full rounded-lg py-2 px-3 border-1-emerald'>
-						<option value="petani">Petani</option>
-						<option value="admin">Admin</option>
+							<option value="petani">Petani</option>
+							<option value="admin">Admin</option>
+						</select>
+					</div>
+					
+					<div>
+						<select name="is_verified" value={userData.is_verified ? '1' : '0'} onChange={(e) => handleFieldChange('is_verified', e.target.value)} className='bg-white/25 backdrop-blur-xl shadow-lg w-full rounded-lg py-2 px-3 border-1-emerald'>
+							<option value="1">Aktif</option>
+							<option value="0">Nonaktif</option>
 						</select>
 					</div>
 
