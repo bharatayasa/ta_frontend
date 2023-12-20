@@ -28,7 +28,7 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
     return (
         <div>
             <div className="flex flex-col">
-                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-10">
+                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-5">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-5">
                         <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg table-fixed">
                             <table className="min-w-full divide-y divide-gray-200">
@@ -47,16 +47,13 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                         Kelas & Confidence
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                        Description
+                                        Ditambah pada
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                        Prevention
+                                        Diubah pada 
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                         Status
-                                    </th>
-                                    <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                        Prediced at
                                     </th>
                                     <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                         Aksi
@@ -83,32 +80,16 @@ const AllPredictList = ({ savepredict, onDelete, onUpdateStatus }) => {
                                             <div className=" text-gray-900">{predict.kelas}</div>
                                             <div className=" text-gray-600">{predict.confidence}</div>
                                         </td>
-
-                                        <td className="px-2 py-4 whitespace-nowrap text-gray-900 text-center table-fixed">
-                                            <button>
-                                                <details className="border rounded-lg px-3 py-3 shadow-sm transition duration-300 ease-in-out">
-                                                    <p className="overflow-x-hidden whitespace-normal text-justify">
-                                                        {predict.description}
-                                                    </p>
-                                                </details>
-                                            </button>
+                                        <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                                            {moment(predict.created_at).format('DD MMMM YYYY')}
                                         </td>
-                                        <td className="px-2 py-4 whitespace-nowrap text-gray-900 text-center">
-                                            <button>
-                                                <details className="border rounded-lg px-3 py-3 shadow-sm">
-                                                    <p className="overflow-x-hidden whitespace-normal text-justify">
-                                                        {predict.prevention}
-                                                    </p>
-                                                </details>
-                                            </button>
+                                        <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                                            {moment(predict.updated_at).format('DD MMMM YYYY')}
                                         </td>
                                         <td className={`px-6 py-4 whitespace-nowrap text-center font-semibold ${predict.status === 'aktif' ? 'text-emerald-500' : 'text-pink-500'}`}>
                                             <p className="overflow-x-hidden whitespace-normal text-justify">
                                                 {predict.status}
                                             </p>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
-                                            {moment(predict.created_at).format('DD MMMM YYYY')}
                                         </td>
                                         <td className="whitespace-nowrap font-medium">
                                             <div className="flex justify-evenly gap-2">

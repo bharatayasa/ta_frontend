@@ -41,19 +41,16 @@ const AllUsersList = ({ users, onDelete, onUpdateUser }) => {
                                             Id
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                            Username
+                                            Username & e-mail
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                            Name
+                                            Nama & Peran
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                            Role
+                                            Dibuat Pada
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                            Created at
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
-                                            Updated at
+                                            Diubah Pada
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center text-sm font-semibold text-gray-500 uppercase tracking-wider" >
                                             Status
@@ -86,10 +83,7 @@ const AllUsersList = ({ users, onDelete, onUpdateUser }) => {
             
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <div className="text-gray-900">{user.name}</div>
-                                    </td>
-            
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-gray-900">{user.role}</div>
+                                        <div className=" text-gray-500">{user.role}</div>
                                     </td>
             
                                     <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
